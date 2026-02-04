@@ -1,0 +1,172 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --text: #1b1f2a;
+  --muted: #556070;
+  --accent: #4f46e5;
+  --accent-dark: #3730a3;
+  --border: #d9deea;
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+}
+
+.calculator {
+  display: grid;
+  gap: 16px;
+}
+
+.display {
+  background: #111827;
+  color: #f9fafb;
+  border-radius: 12px;
+  padding: 18px;
+  font-size: 2rem;
+  text-align: right;
+  min-height: 70px;
+  overflow-wrap: anywhere;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: #eef1f7;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button.operator,
+button.equals {
+  background: var(--accent);
+  color: #fff;
+}
+
+button.action {
+  background: #fde68a;
+}
+
+button.equals {
+  grid-column: span 1;
+}
+
+button.zero {
+  grid-column: span 2;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.game-controls {
+  display: flex;
+  gap: 12px;
+}
+
+input {
+  flex: 1;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.feedback {
+  min-height: 24px;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.secondary {
+  background: #e0e7ff;
+  color: var(--accent-dark);
+}
+
+@media (max-width: 640px) {
+  .game-controls {
+    flex-direction: column;
+  }
+}
