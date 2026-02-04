@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculadora & Jogo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Calculadora + Jogo</h1>
+        <p>Resolva contas rápidas e se divirta com o jogo da adivinhação.</p>
+      </header>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Calculadora</h2>
+          <div class="calculator">
+            <div class="display" id="calc-display">0</div>
+            <div class="buttons">
+              <button data-action="clear" class="action">C</button>
+              <button data-action="backspace" class="action">⌫</button>
+              <button data-value="%" class="action">%</button>
+              <button data-value="/" class="operator">÷</button>
+
+              <button data-value="7">7</button>
+              <button data-value="8">8</button>
+              <button data-value="9">9</button>
+              <button data-value="*" class="operator">×</button>
+
+              <button data-value="4">4</button>
+              <button data-value="5">5</button>
+              <button data-value="6">6</button>
+              <button data-value="-" class="operator">−</button>
+
+              <button data-value="1">1</button>
+              <button data-value="2">2</button>
+              <button data-value="3">3</button>
+              <button data-value="+" class="operator">+</button>
+
+              <button data-value="0" class="zero">0</button>
+              <button data-value=".">.</button>
+              <button data-action="equals" class="equals">=</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Jogo da Adivinhação</h2>
+          <p>Estou pensando em um número entre 1 e 100. Tente adivinhar!</p>
+          <div class="game">
+            <label for="guess-input">Seu palpite</label>
+            <div class="game-controls">
+              <input id="guess-input" type="number" min="1" max="100" placeholder="Ex: 42" />
+              <button id="guess-button">Tentar</button>
+            </div>
+            <p class="feedback" id="game-feedback">Boa sorte! 🎯</p>
+            <div class="stats">
+              <span>Tentativas: <strong id="attempts">0</strong></span>
+              <button id="reset-game" class="secondary">Novo jogo</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
