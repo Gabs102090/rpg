@@ -1,0 +1,948 @@
+<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#0d1118"><title>Crónicas de Valedouro — V14 Coop</title>
+<style>
+:root{--bg:#0b1017;--panel:#151c26;--panel2:#1d2733;--line:#303c4d;--text:#edf3f8;--muted:#99a8ba;--gold:#f5c85b;--green:#62d69a;--red:#ef7272;--blue:#70b8ff;--violet:#ba9fff}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}body{overflow-x:hidden}button,input{font:inherit}button{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;padding:12px 13px;min-height:48px;font-weight:800;touch-action:manipulation}button:disabled{opacity:.42}button:active{transform:scale(.98)}input{width:100%;background:#10151d;color:var(--text);border:1px solid var(--line);border-radius:14px;padding:14px;outline:none}.hidden{display:none!important}.screen{min-height:100dvh}#start{display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 50% 12%,#26364c 0,#121a25 38%,#0b1017 80%)}.start-card{width:min(600px,100%);background:rgba(21,28,38,.97);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:0 25px 90px #0009}.logo{font-size:clamp(34px,9vw,58px);font-weight:950;line-height:.92;margin:0 0 12px}.subtitle{color:var(--muted);line-height:1.55;margin:0 0 20px}.start-actions{display:grid;gap:10px}.primary{background:var(--gold);color:#161108;border-color:var(--gold)}.top{position:sticky;top:0;z-index:30;background:rgba(11,16,23,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:9px 12px}.toprow{display:flex;align-items:center;gap:7px}.title{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}.iconbtn{width:48px;padding:0}.stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7px;margin-top:8px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:7px 8px;font-size:11px}.stat b{display:block;font-size:15px}.bar{height:7px;background:#0b0f14;border-radius:20px;overflow:hidden;margin-top:4px}.fill{height:100%;border-radius:20px}.hp{background:var(--red)}.en{background:var(--blue)}.xp{background:var(--gold)}.ticker{position:sticky;top:91px;z-index:29;margin:7px 10px 0;border:1px solid #3a4b5e;border-radius:14px;padding:9px 11px;background:#18212d;display:flex;gap:8px;align-items:flex-start;box-shadow:0 8px 25px #0005}.ticker.good{border-color:#356a50;background:#14231d}.ticker.bad{border-color:#6b3b3b;background:#261718}.ticker .ticon{font-size:20px}.ticker .tmain{font-size:12px;line-height:1.35}.ticker small{display:block;color:var(--muted);margin-top:2px}.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:9px 10px;position:sticky;top:137px;z-index:28;background:rgba(11,16,23,.92);backdrop-filter:blur(10px)}.nav button{min-height:44px;padding:5px 2px;font-size:10px}.nav .active{border-color:var(--gold);box-shadow:0 0 0 1px #f5c85b55 inset}main{padding:5px 11px 30px;max-width:980px;margin:auto}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:11px}.panel h2{font-size:20px;margin:0 0 8px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{background:var(--panel2);border:1px solid var(--line);border-radius:15px;padding:12px}.card h3{font-size:15px;margin:0 0 7px}.card p{font-size:12px;color:var(--muted);line-height:1.4;margin:0 0 9px}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.item{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:10px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.item-main{display:flex;align-items:center;gap:9px;min-width:0}.item-icon{font-size:22px;width:30px;text-align:center}.item-name{font-weight:800}.item-desc{font-size:11px;color:var(--muted);line-height:1.3}.badge{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 7px;white-space:nowrap}.req{font-size:11px;color:var(--violet);line-height:1.35}.locked{opacity:.6}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 7px;font-size:10px;color:var(--muted);margin:2px 4px 2px 0}.log{max-height:260px;overflow:auto;display:flex;flex-direction:column-reverse;gap:6px}.log div{padding:8px 9px;background:#11161e;border-radius:10px;font-size:12px;color:#c9d3e0}.tip{background:#111925;border:1px dashed #44556c;padding:11px;border-radius:14px;font-size:12px;line-height:1.45}.filterbar{display:flex;gap:7px;overflow:auto;padding-bottom:5px}.filterbar button{min-height:40px;padding:8px 11px;white-space:nowrap;font-size:12px}.filterbar .selected{border-color:var(--gold)}.attr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.attr{background:#11161f;border:1px solid var(--line);border-radius:12px;padding:9px}.attr b{display:block;font-size:13px}.attr span{font-size:11px;color:var(--muted)}.crop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.crop{background:#141c25;border:1px solid var(--line);border-radius:14px;padding:11px}.crop strong{display:block}.crop small{color:var(--muted);line-height:1.4}.timer{height:8px;background:#0b0f14;border-radius:10px;overflow:hidden;margin:7px 0}.timer>div{height:100%;background:var(--blue)}.effect{display:inline-flex;gap:5px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 7px;font-size:10px;margin:2px 3px 2px 0}.craftqueue{padding:10px;border:1px solid var(--line);border-radius:13px;background:#111820} .event-stack{display:grid;gap:6px}.event-card{padding:8px 10px;border:1px solid var(--line);border-radius:11px;background:#121922;font-size:12px}.event-card.good{border-color:#356a50;background:#14231d}.event-card.bad{border-color:#6b3b3b;background:#261718}.event-card small{display:block;color:var(--muted);margin-top:2px}.sell-row{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center}.sell-row input{margin:0;min-width:0;padding:10px}.combat-hud{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.hpbox{background:#11161f;border:1px solid var(--line);border-radius:13px;padding:9px}.hpbox strong{display:flex;justify-content:space-between;font-size:12px}.combatbar{height:10px;background:#080b10;border-radius:20px;overflow:hidden;margin-top:6px}.combatbar div{height:100%}.combat-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mode-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}.mode-card{padding:12px;border:1px solid var(--line);background:var(--panel2);border-radius:14px;text-align:left}.mode-card.selected{border-color:var(--gold);box-shadow:0 0 0 1px #f5c85b55 inset}.mode-card b{display:block}.mode-card small{display:block;color:var(--muted);margin-top:4px;line-height:1.35}.qolbar{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}.choice{display:grid;gap:8px}@media(min-width:720px){.nav{max-width:980px;margin:auto;position:static;background:transparent}.ticker{max-width:960px;margin-left:auto;margin-right:auto;position:static}.grid{grid-template-columns:repeat(3,1fr)}.modal{align-items:center!important;padding:20px}.modal-card{width:min(680px,100%)!important;border-radius:22px!important}}@media(max-width:520px){.stats{grid-template-columns:1fr 1fr}}@media(max-width:370px){.nav button{font-size:9px}.stats{gap:5px}.stat{font-size:10px}.actions,.grid{grid-template-columns:1fr}.ticker{top:91px}}
+.modal{position:fixed;inset:0;z-index:60;background:#000b;display:grid;align-items:end}.modal-card{background:var(--panel);border:1px solid var(--line);border-radius:22px 22px 0 0;padding:18px;max-height:88dvh;overflow:auto}
+
+.event-stack{display:flex!important;flex-wrap:wrap;gap:5px;align-items:center}.event-card{display:block!important;flex:1 1 150px;min-width:0;padding:6px 8px!important;border-radius:10px!important;font-size:11px!important}.event-card small{display:inline!important;margin-left:4px}.market-list{display:grid;gap:7px}.market-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;background:#111820;border:1px solid var(--line);border-radius:13px;padding:9px}.market-main{min-width:0}.market-main b{font-size:13px}.market-main small{display:block;color:var(--muted);font-size:11px}.market-actions{display:grid;grid-template-columns:92px 64px 64px;gap:5px;align-items:center}.market-actions input{min-width:0;margin:0;padding:9px}.market-actions button{min-height:42px;padding:8px 7px;font-size:11px}.pet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pet-card{background:var(--panel2);border:1px solid var(--line);border-radius:15px;padding:12px}.pet-level{display:flex;justify-content:space-between;gap:8px;font-size:12px}.pet-xp{height:7px;background:#0b0f14;border-radius:20px;overflow:hidden;margin:6px 0}.pet-xp div{height:100%;background:var(--violet)}.timer-live{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:var(--muted)}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 #62d69a66;animation:pulse 1s infinite}.craft-live{font-variant-numeric:tabular-nums}.qolline{display:flex;gap:6px;overflow:auto;padding-bottom:2px}.qolline button{white-space:nowrap;min-height:40px;font-size:11px;padding:8px 10px}@keyframes pulse{0%{box-shadow:0 0 0 0 #62d69a66}70%{box-shadow:0 0 0 7px #62d69a00}100%{box-shadow:0 0 0 0 #62d69a00}}@media(max-width:520px){.market-row{grid-template-columns:1fr}.market-actions{grid-template-columns:1fr 1fr 1fr}.pet-grid{grid-template-columns:1fr}.event-card{flex-basis:100%}} 
+
+.nav{display:flex!important;overflow-x:auto;gap:7px}.nav button{flex:0 0 82px}.nav::-webkit-scrollbar{display:none}
+</style></head><body>
+<section id="start" class="screen"><div class="start-card"><div class="logo">Crónicas<br>de Valedouro</div><p class="subtitle">RPG sandbox de exploração, combate, crafting, pesca, mineração, agricultura, tesouros, companheiros e eventos.</p><input id="nameInput" maxlength="20" placeholder="Nome do aventureiro"><div class="tip"><b>🎚️ Estilo de jogo</b><div class="mode-grid" id="modeGrid"><button type="button" class="mode-card selected" onclick="selectMode('medium')"><b>⚖️ Medium</b><small>Equilibrado.</small></button><button type="button" class="mode-card" onclick="selectMode('easy')"><b>🌱 Easy</b><small>Mais XP, ouro, vida e inimigos mais fracos.</small></button><button type="button" class="mode-card" onclick="selectMode('hard')"><b>🔥 Hard</b><small>Menos XP/ouro, menos vida, inimigos mais fortes.</small></button><button type="button" class="mode-card" onclick="selectMode('hardcore')"><b>💀 Hardcore</b><small>Uma vida. Morreste = Novo Jogo. Ainda mais difícil.</small></button></div></div><div id="saveInfo" class="muted" style="font-size:13px;min-height:20px;margin:9px 0 12px"></div><div class="start-actions"><button class="primary" onclick="newGame()">⚔️ Novo jogo</button><button onclick="openCoopMenu()">👥 Coop</button><button id="loadBtn" onclick="loadGame()">📜 Carregar jogo antigo</button><button onclick="deleteSaves()">🗑️ Apagar saves</button></div></div></section>
+<section id="game" class="hidden screen"><header class="top"><div class="toprow"><div class="title">🗺️ <span id="heroName">Aventureiro</span></div><button class="iconbtn" onclick="saveGame()">💾</button><button class="iconbtn" onclick="exportSave()">📦</button></div><div class="stats"><div class="stat">🕒 <b id="realClock">--:--:--</b><small id="gameClock">Jogo --:--</small></div><div class="stat">❤️ Vida <b id="hpText">100/100</b><div class="bar"><div id="hpBar" class="fill hp"></div></div></div><div class="stat">⚡ Energia <b id="enText">100/100</b><div class="bar"><div id="enBar" class="fill en"></div></div></div><div class="stat">🪙 Ouro <b id="goldText">35</b><small id="levelText">Nível 1</small><div class="bar"><div id="xpBar" class="fill xp"></div></div></div></div></header><div id="eventTicker" class="ticker hidden"><div class="ticon">✨</div><div class="tmain"><b id="tickerText">—</b><small id="tickerMeta">—</small></div></div><nav class="nav"><button onclick="show('explore')">🧭<br>Explorar</button><button onclick="show('inventory')">🎒<br>Bolsa</button><button onclick="show('craft')">🛠️<br>Criar</button><button onclick="show('skills')">🌿<br>Skills</button><button onclick="show('town')">🏘️<br>Cidade</button><button onclick="show('pets')">🐾<br>Pets</button></nav><main id="content"></main></section>
+<div id="modal" class="modal hidden" onclick="if(event.target===this)closeModal()"><div class="modal-card" id="modalCard"></div></div>
+<script>
+'use strict';
+const KEY='valedouro_save_v10', OLD_KEYS=['valedouro_save_v7','valedouro_save_v8','valedouro_save_v6','valedouro_save_v5'];
+const ITEM={
+wood:{n:'Madeira',i:'🪵',d:'Material comum.',cat:'material'},stone:{n:'Pedra',i:'🪨',d:'Material comum.',cat:'material'},iron:{n:'Ferro',i:'🔩',d:'Metal resistente.',cat:'material'},ore:{n:'Minério bruto',i:'⛓️',d:'Pode ser refinado.',cat:'material'},herb:{n:'Erva',i:'🌿',d:'Poções e cozinha.',cat:'material'},mushroom:{n:'Cogumelo',i:'🍄',d:'Efeito imprevisível.',cat:'material'},leather:{n:'Couro',i:'🧵',d:'Equipamento.',cat:'material'},gems:{n:'Gema',i:'💎',d:'Encantamento e comércio.',cat:'rare'},crystal:{n:'Cristal',i:'🔷',d:'Equipamento raro.',cat:'rare'},fish:{n:'Peixe',i:'🐟',d:'Cozinha.',cat:'food'},food:{n:'Refeição',i:'🍲',d:'+25 HP e +15 energia.',cat:'food'},potion:{n:'Poção',i:'🧪',d:'+35 HP.',cat:'consumable'},bandage:{n:'Ligadura',i:'🩹',d:'+22 HP.',cat:'consumable'},seed:{n:'Semente comum',i:'🌱',d:'Pode ser vendida ou trocada.',cat:'farm'},wheat:{n:'Trigo',i:'🌾',d:'Comida e venda.',cat:'farm'},bait:{n:'Isca',i:'🪱',d:'+1 peixe numa pescaria.',cat:'utility'},rope:{n:'Corda',i:'🪢',d:'Abre atalhos.',cat:'utility'},torch:{n:'Tocha',i:'🔥',d:'Protege nas minas.',cat:'utility'},lockpick:{n:'Gazua',i:'🗝️',d:'Abre cofres.',cat:'utility'},map:{n:'Mapa antigo',i:'🗺️',d:'Converte-se numa pista.',cat:'utility'},treasure:{n:'Pista de tesouro',i:'📜',d:'Abre um tesouro.',cat:'rare'},salt:{n:'Sal',i:'🧂',d:'Conserva comida.',cat:'material'},coal:{n:'Carvão',i:'⚫',d:'Combustível.',cat:'material'},seedWheat:{n:'Sementes de trigo',i:'🌾',d:'Crescimento rápido.',cat:'farm'},seedHerb:{n:'Sementes de erva',i:'🌿',d:'Produzem ervas.',cat:'farm'},seedSunroot:{n:'Sementes de raiz-solar',i:'☀️',d:'Cura especial.',cat:'farm'},seedMoonberry:{n:'Sementes de baga-lua',i:'🌙',d:'Bónus nocturno.',cat:'farm'},seedEmberpepper:{n:'Sementes de pimenta-ember',i:'🌶️',d:'Efeito ofensivo.',cat:'farm'},seedCrystalflower:{n:'Sementes de flor-cristal',i:'💠',d:'Muito rara.',cat:'rare'},sunroot:{n:'Raiz-solar',i:'☀️',d:'Cura forte.',cat:'food'},moonberry:{n:'Baga-lua',i:'🌙',d:'Recupera energia.',cat:'food'},emberpepper:{n:'Pimenta-ember',i:'🌶️',d:'Aplica Fúria.',cat:'food'},crystalflower:{n:'Flor-cristal',i:'💠',d:'Pode gerar cristais.',cat:'rare'},goldenCrop:{n:'Colheita dourada',i:'✨',d:'Mutação rara.',cat:'rare'},giantCrop:{n:'Colheita gigante',i:'🌳',d:'Mutação de alto rendimento.',cat:'rare'},chargedCrop:{n:'Colheita carregada',i:'⚡',d:'Mutação que dá Velocidade.',cat:'rare'},plank:{n:'Tábua',i:'🪚',d:'Material refinado; construção.',cat:'material'},brick:{n:'Tijolo',i:'🧱',d:'Material de construção resistente.',cat:'material'},copper:{n:'Cobre',i:'🟠',d:'Metal condutor para ferramentas.',cat:'material'},silver:{n:'Prata',i:'⚪',d:'Metal valioso e luminoso.',cat:'rare'},honey:{n:'Mel',i:'🍯',d:'Recupera energia quando usado.',cat:'food'},berry:{n:'Baga',i:'🫐',d:'Ingrediente para compotas.',cat:'food'},magicDust:{n:'Pó mágico',i:'✨',d:'Catalisador para itens especiais.',cat:'rare'},feather:{n:'Pena',i:'🪶',d:'Leve e útil para bússolas.',cat:'material'},spiderSilk:{n:'Seda de aranha',i:'🕸️',d:'Fio muito resistente.',cat:'material'},coalBundle:{n:'Feixe de carvão',i:'🪨',d:'Combustível eficiente.',cat:'material'},leatherStrip:{n:'Tira de couro',i:'🧵',d:'Reforça ferramentas.',cat:'material'},staminaTea:{n:'Chá de vigor',i:'🍵',d:'+35 energia e efeito Vigor.',cat:'consumable'},honeyTea:{n:'Chá de mel',i:'🍯',d:'+30 HP e +20 energia.',cat:'consumable'},magicTonic:{n:'Tónico arcano',i:'🧙',d:'+20 energia e Fortuna por 2h.',cat:'consumable'},fishingNet:{n:'Rede de pesca',i:'🕸️',d:'Aumenta o rendimento da próxima pesca.',cat:'utility'},treasureCompass:{n:'Bússola do tesouro',i:'🧭',d:'Garante uma pista de tesouro.',cat:'utility'},smokeBomb:{n:'Bomba de fumo',i:'💨',d:'Fuga garantida do próximo combate.',cat:'utility'},luckyCharm:{n:'Amuleto da sorte',i:'🍀',d:'+10% Fortuna enquanto estiver equipado.',cat:'utility'},repairKit:{n:'Kit de reparação',i:'🔧',d:'Restaura 1 nível de durabilidade do equipamento.',cat:'utility'},ironNails:{n:'Pregos de ferro',i:'📌',d:'Pequenos e úteis para crafting.',cat:'material'},towerShield:{n:'Escudo torre',i:'🛡️',d:'+8 Defesa enquanto equipado.',cat:'utility'},explorerBoots:{n:'Botas de explorador',i:'🥾',d:'-5% energia das viagens.',cat:'utility'},hunterKnife:{n:'Faca de caçador',i:'🔪',d:'+4 dano e +5% loot animal.',cat:'utility'}};
+const zones=[{name:'Vale de Arven',icon:'🌲',desc:'Seguro.',req:null,faction:'Arven'},{name:'Floresta Sombria',icon:'🌳',desc:'Madeira e ervas.',req:{skill:'gather',level:2},faction:'Sombra'},{name:'Minas de Ferrugem',icon:'⛏️',desc:'Minério abundante.',req:{skill:'gather',level:3},faction:'Arven'},{name:'Pântano de Veyra',icon:'🐸',desc:'Pesca e relíquias.',req:{skill:'fish',level:2},faction:'Sombra'},{name:'Pico de Arven',icon:'⛰️',desc:'Zona de combate.',req:{skill:'combat',level:4},faction:'Arven'},{name:'Costa de Maré',icon:'🌊',desc:'Porto e tesouros.',req:{skill:'fortune',level:2},faction:'Maré'}];
+const recipes={potion:{name:'Poção',time:30,cost:{wood:1,herb:2},out:{potion:1},req:null,desc:'+35 HP'},bandage:{name:'Ligadura',time:45,cost:{herb:1,leather:1},out:{bandage:1},req:{skill:'craft',level:1},desc:'+22 HP'},food:{name:'Refeição',time:20,cost:{fish:1,herb:1},out:{food:1},req:null,desc:'+25 HP e +15 energia'},rope:{name:'Corda',time:60,cost:{leather:2,wood:1},out:{rope:1},req:{skill:'craft',level:1},desc:'Atalhos'},torch:{name:'Tocha',time:50,cost:{wood:2,coal:1},out:{torch:1},req:{skill:'craft',level:1},desc:'Proteção nas minas'},bait:{name:'Isca',time:25,cost:{herb:1,wheat:1},out:{bait:2},req:{skill:'fish',level:1},desc:'+1 peixe'},lockpick:{name:'Gazua',time:70,cost:{iron:1,wood:1},out:{lockpick:1},req:{skill:'fortune',level:1},desc:'Abre cofres'},sword:{name:'Espada de Ferro',time:180,cost:{iron:3,wood:2},out:null,req:{skill:'craft',level:2},desc:'+3 dano'},crystalBlade:{name:'Lâmina de Cristal',time:300,cost:{crystal:2,iron:2},out:null,req:{skill:'craft',level:5},desc:'+6 dano'},saltFish:{name:'Peixe salgado',time:40,cost:{fish:2,salt:1},out:{food:2},req:{skill:'craft',level:2},desc:'2 refeições'},smokedFish:{name:'Peixe fumado',time:60,cost:{fish:2,coal:1},out:{food:3},req:{skill:'craft',level:3},desc:'3 refeições'},plank:{name:'Tábuas',time:50,cost:{wood:3},out:{plank:2},req:{skill:'craft',level:1},desc:'Refina madeira.'},brick:{name:'Tijolos',time:70,cost:{stone:4,coal:1},out:{brick:2},req:{skill:'craft',level:1},desc:'Material resistente.'},copper:{name:'Cobre refinado',time:80,cost:{ore:4,coal:1},out:{copper:2},req:{skill:'craft',level:2},desc:'Condutor metálico.'},silver:{name:'Prata refinada',time:120,cost:{ore:6,coal:2},out:{silver:1},req:{skill:'craft',level:3},desc:'Metal raro.'},honeyTea:{name:'Chá de mel',time:55,cost:{honey:1,herb:1},out:{honeyTea:1},req:{skill:'craft',level:1},desc:'+30 HP e +20 energia.'},berryJam:{name:'Compota de bagas',time:45,cost:{berry:2,wheat:1},out:{food:2},req:{skill:'craft',level:1},desc:'2 refeições.'},magicTonic:{name:'Tónico arcano',time:140,cost:{magicDust:1,moonberry:1,crystal:1},out:{magicTonic:1},req:{skill:'craft',level:4},desc:'+20 energia e Fortuna.'},silkRope:{name:'Corda de seda',time:90,cost:{spiderSilk:2,leatherStrip:1},out:{rope:2},req:{skill:'craft',level:3},desc:'Atalhos mais eficientes.'},campLantern:{name:'Lanterna de acampamento',time:110,cost:{plank:2,copper:1,coalBundle:1},out:{torch:2},req:{skill:'craft',level:2},desc:'Proteção e melhor visão.'},fishingNet:{name:'Rede de pesca',time:100,cost:{spiderSilk:2,rope:1},out:{fishingNet:1},req:{skill:'fish',level:2},desc:'Grande captura na próxima pesca.'},treasureCompass:{name:'Bússola do tesouro',time:150,cost:{copper:1,silver:1,feather:1},out:{treasureCompass:1},req:{skill:'fortune',level:2},desc:'Garante uma pista.'},smokeBomb:{name:'Bomba de fumo',time:75,cost:{coalBundle:1,herb:2},out:{smokeBomb:1},req:{skill:'craft',level:2},desc:'Fuga garantida.'},luckyCharm:{name:'Amuleto da sorte',time:180,cost:{silver:1,magicDust:1,feather:1},out:{luckyCharm:1},req:{skill:'fortune',level:3},desc:'+10% Fortuna equipado.'},repairKit:{name:'Kit de reparação',time:70,cost:{ironNails:2,leatherStrip:1,plank:1},out:{repairKit:1},req:{skill:'craft',level:2},desc:'Repara equipamento.'},ironNails:{name:'Pregos de ferro',time:45,cost:{iron:1},out:{ironNails:4},req:{skill:'craft',level:1},desc:'Peças pequenas.'},towerShield:{name:'Escudo torre',time:210,cost:{iron:3,plank:2,leatherStrip:1},out:{towerShield:1},req:{skill:'craft',level:4},desc:'+8 Defesa.'},explorerBoots:{name:'Botas de explorador',time:190,cost:{leather:2,leatherStrip:2,ironNails:2},out:{explorerBoots:1},req:{skill:'craft',level:3},desc:'-5% energia de viagens.'},hunterKnife:{name:'Faca de caçador',time:160,cost:{iron:2,leatherStrip:1,plank:1},out:{hunterKnife:1},req:{skill:'craft',level:3},desc:'+4 dano e loot animal.'},staminaTea:{name:'Chá de vigor',time:50,cost:{herb:2,honey:1},out:{staminaTea:1},req:{skill:'craft',level:1},desc:'+35 energia e Vigor.'}};
+
+const PLANTS={seedWheat:{name:'Trigo',icon:'🌾',grow:180,yield:2,harvest:'wheat',mutate:.06,special:'Rápido e estável.'},seedHerb:{name:'Erva-do-bosque',icon:'🌿',grow:300,yield:2,harvest:'herb',mutate:.10,special:'Boa para poções.'},seedSunroot:{name:'Raiz-solar',icon:'☀️',grow:420,yield:1,harvest:'sunroot',mutate:.14,special:'De dia ativa Cura Solar.'},seedMoonberry:{name:'Baga-lua',icon:'🌙',grow:540,yield:2,harvest:'moonberry',mutate:.16,special:'À noite ativa Energia Lunar.'},seedEmberpepper:{name:'Pimenta-ember',icon:'🌶️',grow:660,yield:1,harvest:'emberpepper',mutate:.18,special:'Ativa Fúria.'},seedCrystalflower:{name:'Flor-cristal',icon:'💠',grow:900,yield:1,harvest:'crystalflower',mutate:.22,special:'Pode gerar cristais.'}};
+const SKILL_INFO={combat:{name:'Combate',icon:'⚔️',bonus:l=>l*5,effect:l=>`+${l*5}% dano`},gather:{name:'Recolha',icon:'⛏️',bonus:l=>l*7,effect:l=>`+${l*7}% rendimento`},craft:{name:'Craft',icon:'🛠️',bonus:l=>l*8,effect:l=>`-${l*8}% tempo`},fish:{name:'Pesca',icon:'🎣',bonus:l=>l*6,effect:l=>`+${l*6}% captura`},fortune:{name:'Fortuna',icon:'🍀',bonus:l=>l*5,effect:l=>`+${l*5}% sorte`},agri:{name:'Agricultura',icon:'🌱',bonus:l=>l*9,effect:l=>`-${l*9}% crescimento; +${l*2}% mutações`}};
+const companions=[{name:'Raposa',icon:'🦊',req:{skill:'fortune',level:1},bonus:'+1 Fortuna',type:'fortune',cost:40},{name:'Corvo',icon:'🐦‍⬛',req:{skill:'gather',level:2},bonus:'+1 Recolha',type:'gather',cost:40},{name:'Lobo',icon:'🐺',req:{skill:'combat',level:3},bonus:'+2 Combate',type:'combat',cost:40}];
+const tips=['💡 Recolha 2 abre a Floresta; Recolha 3 abre as Minas.','💡 Fortuna melhora loot e abre a Costa de Maré.','💡 Craft reduz o tempo de fabrico.','💡 Agricultura reduz o tempo das plantas e aumenta mutações.','💡 Guarda comida e energia antes de viajar.','💡 Itens com efeitos podem mudar o teu estilo de jogo.'];
+const defaults=()=>({name:'Aventureiro',mode:'medium',level:1,xp:0,xpNext:100,hp:100,maxHp:100,energy:100,maxEnergy:100,gold:35,day:1,gameMinutes:480,zone:'Vale de Arven',weather:'🌤️ Céu limpo',time:'Manhã',skills:{combat:0,gather:0,craft:0,fish:0,fortune:0,agri:0},inv:{wood:3,stone:3,iron:0,ore:1,herb:2,mushroom:0,leather:0,gems:0,crystal:0,fish:0,food:2,potion:2,bandage:0,seed:2,wheat:0,bait:2,rope:0,torch:1,lockpick:0,map:0,treasure:0,salt:0,coal:0,seedWheat:2,seedHerb:1,seedSunroot:1,seedMoonberry:0,seedEmberpepper:0,seedCrystalflower:0,sunroot:0,moonberry:0,emberpepper:0,crystalflower:0,goldenCrop:0,giantCrop:0,chargedCrop:0,plank:0,brick:0,copper:0,silver:0,honey:0,berry:0,magicDust:0,feather:0,spiderSilk:0,coalBundle:0,leatherStrip:0,staminaTea:0,honeyTea:0,magicTonic:0,fishingNet:0,treasureCompass:0,smokeBomb:0,luckyCharm:0,repairKit:0,ironNails:0,towerShield:0,explorerBoots:0,hunterKnife:0},equip:{weapon:'Faca de viajante',armor:'Roupa simples',enchant:0},farming:{slots:6,crops:[],harvested:0},effects:{},companion:null,pets:{Raposa:{level:1,xp:0},'Corvo':{level:1,xp:0},Lobo:{level:1,xp:0}},petActive:null,reputation:{Arven:0,Maré:0,Sombra:0},achievements:{},quests:[{id:1,name:'Primeiros recursos',desc:'Recolhe 3 madeira e 3 pedra.',done:false,reward:40},{id:2,name:'Mãos ocupadas',desc:'Cria 3 objectos.',done:false,reward:55},{id:3,name:'Pequeno explorador',desc:'Faz 5 explorações.',done:false,reward:60}],stats:{explore:0,fish:0,mine:0,combatWins:0,crafted:0,treasures:0,events:0},flags:{tutorialDone:false,tipIndex:0},lastEvent:null,events:[],activeCraft:null,lastRealMs:Date.now()});
+let s=defaults(),currentTab='explore',invFilter='all',combatState=null,testMode=false,selectedMode='medium',realTimerStarted=false;
+const finite=(v,f)=>Number.isFinite(Number(v))?Number(v):f; function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a} function log(t){s.log=s.log||[];s.log.push(t);s.log=s.log.slice(-80)} function skillLevel(k){let n=s.skills[k]||0;if(s.companion&&companions.some(c=>c.name===s.companion&&c.type===k))n++;return n} function canReq(r){return !r||skillLevel(r.skill)>=r.level} function reqText(r){return r?`🔒 Requer ${SKILL_INFO[r.skill]?.name||r.skill} ${r.level}`:'Disponível'} function pct(a,b){return b?Math.max(0,Math.min(100,a/b*100)):0}
+function sanitize(x){const d=defaults(),z=x&&typeof x==='object'?x:{};for(const k of ['level','xp','xpNext','hp','maxHp','energy','maxEnergy','gold','day','gameMinutes'])z[k]=finite(z[k],d[k]);z.level=Math.max(1,Math.floor(z.level));z.xp=Math.max(0,z.xp);z.xpNext=Math.max(100,z.xpNext);z.maxHp=Math.max(1,z.maxHp);z.hp=Math.max(0,Math.min(z.maxHp,z.hp));z.maxEnergy=Math.max(1,z.maxEnergy);z.energy=Math.max(0,Math.min(z.maxEnergy,z.energy));z.gold=Math.max(0,Math.floor(z.gold));z.day=Math.max(1,Math.floor(z.day));z.gameMinutes=Math.max(0,Math.floor(z.gameMinutes));z.name=String(z.name||'Aventureiro').slice(0,20);z.mode=['easy','medium','hard','hardcore'].includes(z.mode)?z.mode:'medium';z.currentTab=['explore','inventory','craft','skills','town','farm','pets'].includes(z.currentTab)?z.currentTab:'explore';z.events=Array.isArray(z.events)?z.events.slice(0,8):[];z.lastRealMs=finite(z.lastRealMs,Date.now());z.zone=zones.some(a=>a.name===z.zone)?z.zone:d.zone;z.skills=Object.assign({},d.skills,z.skills||{});z.inv=Object.assign({},d.inv,z.inv||{});z.equip=Object.assign({},d.equip,z.equip||{});z.farming=Object.assign({},d.farming,z.farming||{});z.farming.slots=6;z.farming.crops=Array.isArray(z.farming.crops)?z.farming.crops.filter(c=>c&&PLANTS[c.type]&&Number.isFinite(Number(c.readyAt))):[];z.effects=Object.assign({},z.effects||{});for(const k in z.effects){if(k!=='_cleanup'&&(!z.effects[k]||!Number.isFinite(Number(z.effects[k].until))))delete z.effects[k]}z.pets=Object.assign({},d.pets,z.pets||{});for(const pn of Object.keys(d.pets)){z.pets[pn]=Object.assign({},d.pets[pn],z.pets[pn]||{});z.pets[pn].level=Math.max(1,Math.floor(finite(z.pets[pn].level,1)));z.pets[pn].xp=Math.max(0,finite(z.pets[pn].xp,0))}z.petActive=z.petActive&&d.pets[z.petActive]?z.petActive:null;z.reputation=Object.assign({},d.reputation,z.reputation||{});z.achievements=Object.assign({},z.achievements||{});z.stats=Object.assign({},d.stats,z.stats||{});z.flags=Object.assign({},d.flags,z.flags||{});z.quests=Array.isArray(z.quests)?z.quests:d.quests;z.lastEvent=z.lastEvent&&typeof z.lastEvent==='object'?z.lastEvent:null;z.activeCraft=z.activeCraft&&recipes[z.activeCraft.key]&&Number.isFinite(Number(z.activeCraft.endAt))?z.activeCraft:null;for(const k of Object.keys(d.skills))z.skills[k]=Math.max(0,Math.floor(finite(z.skills[k],0)));for(const k of Object.keys(d.inv))z.inv[k]=Math.max(0,Math.floor(finite(z.inv[k],d.inv[k])));for(const k of ['Arven','Maré','Sombra'])z.reputation[k]=Math.floor(finite(z.reputation[k],0));return z}
+const MODES={easy:{xp:1.25,gold:1.25,hp:1.12,enemyHp:.8,enemyDmg:.8,drop:1.15,hardcore:false},medium:{xp:1,gold:1,hp:1,enemyHp:1,enemyDmg:1,drop:1,hardcore:false},hard:{xp:.72,gold:.72,hp:.78,enemyHp:1.45,enemyDmg:1.4,drop:.78,hardcore:false},hardcore:{xp:.55,gold:.55,hp:.62,enemyHp:1.85,enemyDmg:1.85,drop:.65,hardcore:true}};function modeCfg(){return MODES[s.mode]||MODES.medium}function scaleReward(n,k){return Math.max(1,Math.floor(n*(modeCfg()[k]||1)))}function applyDifficultyStart(){const m=modeCfg();s.maxHp=Math.max(30,Math.floor(100*m.hp));s.hp=s.maxHp;s.maxEnergy=100;s.energy=100}function selectMode(m){selectedMode=m;document.querySelectorAll('.mode-card').forEach((b,i)=>b.classList.toggle('selected',['medium','easy','hard','hardcore'][i]===m))}
+function saveGame(){s=sanitize(s);setEvent('💾 Jogo guardado.','good','Save');localStorage.setItem(KEY,JSON.stringify(s));render();updateSaveInfo()} function newGame(){s=defaults();s.name=(document.getElementById('nameInput').value.trim()||'Aventureiro').slice(0,20);s.mode=selectedMode;applyDifficultyStart();localStorage.setItem(KEY,JSON.stringify(s));startGame();tutorial();showTutorial()} function loadGame(){let raw=localStorage.getItem(KEY);for(const k of OLD_KEYS){if(!raw)raw=localStorage.getItem(k)}if(!raw)return alert('Não existe nenhum save.');try{s=sanitize(JSON.parse(raw));selectedMode=s.mode;startGame()}catch(e){localStorage.removeItem(KEY);alert('Save inválido.')} }
+function startGame(){document.getElementById('start').classList.add('hidden');document.getElementById('game').classList.remove('hidden');startRealtimeLoop();s=sanitize(s);s.lastRealMs=Date.now();currentTab=s.currentTab||'explore';updateClock();syncDeviceClock();if(s.activeCraft&&s.gameMinutes>=s.activeCraft.endAt)finishCraft();render();updateSaveInfo()} function updateSaveInfo(){const raw=localStorage.getItem(KEY),el=document.getElementById('saveInfo'),btn=document.getElementById('loadBtn');if(!raw){el.textContent='Nenhum save encontrado.';btn.disabled=true;return}try{const x=sanitize(JSON.parse(raw));el.textContent=`Save: ${x.name} · Nível ${x.level} · Dia ${x.day}`;btn.disabled=false}catch{el.textContent='Save inválido.';btn.disabled=false}}
+function deleteSaves(){const keys=[KEY,...OLD_KEYS];if(!keys.some(k=>localStorage.getItem(k)))return alert('Não existem saves para apagar.');if(!confirm('Apagar todos os saves locais de Valedouro? Esta ação não pode ser desfeita.'))return;keys.forEach(k=>localStorage.removeItem(k));document.getElementById('saveInfo').textContent='Saves apagados.';document.getElementById('loadBtn').disabled=true;}
+function exportSave(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(sanitize(s),null,2)],{type:'application/json'}));a.download='valedouro-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)} function show(t){currentTab=t;s.currentTab=t;render(t)} function updateClock(){s.day=Math.floor(s.gameMinutes/1440)+1;const h=Math.floor((s.gameMinutes%1440)/60),m=s.gameMinutes%60;s.time=h<12?'Manhã':h<18?'Tarde':'Noite';const gc=document.getElementById('gameClock');if(gc)gc.textContent=`Jogo ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`} function processRealTime(){if(document.getElementById('game').classList.contains('hidden'))return;const now=Date.now();if(!s.lastRealMs)s.lastRealMs=now;const elapsed=Math.max(0,Math.floor((now-s.lastRealMs)/1000));if(elapsed>0){s.lastRealMs=now;advanceTime(elapsed,elapsed<172800);if(s.activeCraft&&s.gameMinutes>=s.activeCraft.endAt)finishCraft();render(currentTab)}} function syncDeviceClock(){const rc=document.getElementById('realClock');if(rc)rc.textContent=new Date().toLocaleTimeString('pt-PT')} function updateVisibleTimers(){const t=document.getElementById('gameClock');if(t){const h=Math.floor((s.gameMinutes%1440)/60),m=s.gameMinutes%60;t.textContent=`Jogo ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')} · +1 min/s`;}const live=document.querySelectorAll('.craft-live');live.forEach(el=>el.dataset.tick=Date.now());} function startRealtimeLoop(){if(realTimerStarted)return;realTimerStarted=true;setInterval(()=>{syncDeviceClock();processRealTime();updateVisibleTimers()},250);document.addEventListener('visibilitychange',()=>{if(!document.hidden)processRealTime()});window.addEventListener('focus',processRealTime)} function advanceTime(min,events=true){const oldDay=s.day;s.gameMinutes+=Math.max(0,Math.floor(min));updateClock();if(events&&s.day>oldDay){for(let d=oldDay+1;d<=s.day;d++){weatherTick();randomTimeEvent()}}for(const c of s.farming.crops){const p=PLANTS[c.type];c.readyAt=c.plantedAt+Math.floor(p.grow*Math.max(.5,1-skillLevel('agri')*.09))}for(const k in s.effects){if(k!=='_cleanup'&&s.effects[k]&&s.gameMinutes>=s.effects[k].until)delete s.effects[k]}} function advanceForAction(n){advanceTime(n);if(s.activeCraft&&s.gameMinutes>=s.activeCraft.endAt)finishCraft()} function weatherTick(){const w=rand(1,5);s.weather=w===1?'🌧️ Chuva':w===2?'🌫️ Nevoeiro':w===3?'💨 Vento forte':w===4?'☀️ Calor':'🌤️ Céu limpo'}
+function setEvent(text,kind='good',meta='Agora'){s.lastEvent={text,kind,meta,at:Date.now()};s.events=s.events||[];s.events.unshift({text,kind,meta,at:Date.now()});s.events=s.events.slice(0,6);log(text)} function activeEffects(){return Object.entries(s.effects||{}).filter(([k,v])=>k!=='_cleanup'&&v&&s.gameMinutes<v.until)} function hasEffect(k){return activeEffects().some(a=>a[0]===k)} function addEffect(k,name,icon,min){s.effects[k]={name,icon,until:s.gameMinutes+min}}
+function gainXP(n){s.xp+=scaleReward(Math.max(0,n),'xp');while(s.xp>=s.xpNext){s.xp-=s.xpNext;s.level++;s.xpNext=Math.floor(s.xpNext*1.32);s.maxHp+=8;s.maxEnergy+=5;s.hp=s.maxHp;s.energy=s.maxEnergy;log(`✨ Nível ${s.level}!`)}} function achievement(id,name){if(!s.achievements[id]){s.achievements[id]=true;gainXP(25);setEvent(`🏆 ${name}! +25 XP.`,'good','Conquista')}} function faction(n,v=1){s.reputation[n]=(s.reputation[n]||0)+v}
+function randomTimeEvent(){s.stats.events++;const r=Math.random();if(r<.14){const g=rand(10,28)+skillLevel('fortune')*5;s.gold+=scaleReward(g,'gold');achievement('lucky','Dia de sorte');setEvent(`🍀 Encontraste ${g} ouro.`,'good','Evento feliz')}else if(r<.27){s.inv.food++;gainXP(10);setEvent('🍎 Um viajante partilhou comida.','good','Evento útil')}else if(r<.39){const d=rand(5,15);s.hp=Math.max(1,s.hp-d);setEvent(`🌧️ Um desabamento causou -${d} HP.`,'bad','Consequência')}else if(r<.50){const d=rand(8,18);s.energy=Math.max(0,s.energy-d);setEvent(`🌫️ O nevoeiro roubou ${d} energia.`,'bad','Consequência')}else if(r<.61){s.inv.map++;setEvent('🗺️ Encontraste um fragmento de mapa.','good','Evento raro')}else if(r<.72){s.inv.gems++;gainXP(18);setEvent('💎 Encontraste uma gema.','good','Evento raro')}else if(r<.82){s.gold+=scaleReward(15,'gold');faction('Maré');setEvent('🤝 Ajudaste um mercador: +15 ouro, +1 Maré.','good','Evento social')}else if(r<.91){s.inv.seed+=2;setEvent('🌱 Recebeste 2 sementes comuns.','good','Evento generoso')}else{const g=Math.min(s.gold,rand(5,12));s.gold-=g;setEvent(`🕳️ Perdeste ${g} ouro.`,'bad','Evento azarado')}}
+function tutorial(){s.log=['📖 Tutorial: Bem-vindo a Valedouro.','1️⃣ Explora para obter recursos, ouro, eventos e combates.','2️⃣ Usa a Bolsa para usar consumíveis e ver atributos.','3️⃣ As Skills mostram o ganho de cada upgrade em %.','4️⃣ Viaja apenas quando tiveres o requisito.','5️⃣ A Quinta usa tempo real do mundo do jogo: planta, espera, colhe.','6️⃣ O Craft também demora tempo e pode concluir enquanto continuas a jogar.','7️⃣ Eventos aparecem no aviso no topo para não precisares de ir ao fundo.'];s.flags.tutorialDone=true} function showTutorial(){openModal(`<h2>📖 Tutorial</h2><div class="choice"><div class="card"><h3>🧭 Explorar</h3><p>Gasta energia. Podes encontrar recursos, ouro, pistas, sementes, eventos ou inimigos.</p></div><div class="card"><h3>🌿 Evoluir</h3><p>Cada Skill mostra a percentagem actual, o próximo ganho e o XP necessário.</p></div><div class="card"><h3>🌱 Quinta</h3><p>Escolhe sementes com tempos diferentes. As plantas podem sofrer mutações.</p></div><div class="card"><h3>🛠️ Craft</h3><p>Começa uma fabricação e deixa o relógio do mundo avançar. Craft reduz o tempo.</p></div><div class="card"><h3>⚔️ Loot</h3><p>Inimigos largam materiais. Bosses largam cristais e gemas.</p></div><button class="primary" onclick="closeModal()">Começar aventura</button></div>`)}
+function randomWorldElement(){const r=Math.random();if(r<.34){const g=rand(12,35);s.gold+=scaleReward(g,'gold');addEffect('merchantluck','Bónus do Mercador','🧳',90);setEvent(`🧳 Mercador itinerante: +${scaleReward(g,'gold')} ouro e Bónus do Mercador por 90m.`,'good','Elemento aleatório')}else if(r<.67){s.inv.mushroom+=rand(1,3);addEffect('wildluck','Sorte selvagem','🍀',120);setEvent('🐾 Criatura rara deixou cogumelos e uma aura de Sorte selvagem.','good','Elemento aleatório')}else{s.inv.crystal+=1;addEffect('celestial','Chuva de estrelas','🌠',180);setEvent('🌠 Chuva de estrelas: +1 cristal e loot aumentado por 180m.','good','Elemento aleatório')}}
+function eventExplore(){if(!spendEnergy(8))return;advanceForAction(45);s.stats.explore++;const r=Math.random();if(r<.17){const g=rand(8,26)+skillLevel('fortune')*4;s.gold+=scaleReward(g,'gold');setEvent(`🪙 +${g} ouro.`,'good','Exploração')}else if(r<.36){const keys=['wood','stone','herb','leather','mushroom'],k=keys[rand(0,keys.length-1)],n=rand(1,3)+skillLevel('gather');s.inv[k]+=n;setEvent(`🌿 +${n} ${ITEM[k].n}.`,'good','Exploração')}else if(r<.48){s.inv.treasure++;setEvent('🗝️ Encontraste uma pista de tesouro.','good','Exploração')}else if(r<.61){const ks=Object.keys(PLANTS);s.inv[ks[rand(0,ks.length-1)]]++;setEvent('🌱 Encontraste uma semente especial.','good','Exploração')}else if(r<.68&&s.inv.rope>0){s.inv.rope--;s.inv.treasure++;s.inv.ore+=2;setEvent('🪢 O atalho deu +1 pista e +2 minério.','good','Atalho')}else if(r<.68){randomWorldElement()}else if(r<.73){randomTimeEvent()}else combat();checkQuests();if(s.stats.explore>=5)achievement('explorer','Explorador persistente');render()}
+function spendEnergy(n){if(s.energy<n){setEvent('⚡ Energia insuficiente.','bad','Acção cancelada');return false}s.energy-=n;return true}
+function mine(){if(!['Minas de Ferrugem','Pico de Arven'].includes(s.zone)){setEvent('⛏️ Aqui não há mineração boa.','bad','Mineração');render();return}if(!canReq({skill:'gather',level:2})||!spendEnergy(10))return;advanceForAction(60);s.stats.mine++;let n=rand(1,3)+Math.floor(skillLevel('gather')/2);s.inv.ore+=n;if(Math.random()<.45)s.inv.iron++;if(Math.random()<.13+skillLevel('fortune')*.02)s.inv.gems++;if(Math.random()<.12){if(s.inv.torch){s.inv.torch--;s.inv.crystal++;setEvent('🔥 A Tocha evitou um desabamento: +1 cristal.','good','Mineração')}else{const d=rand(7,16);s.hp=Math.max(1,s.hp-d);setEvent(`🪨 Desabamento: -${d} HP.`,'bad','Mineração')}}gainXP(15);setEvent(`⛏️ +${n} minério bruto.`,'good','Mineração');if(Math.random()<.25)combat();if(s.stats.mine>=10)achievement('miner','Minerador profissional');render()}
+function fish(){if(!['Pântano de Veyra','Costa de Maré','Vale de Arven'].includes(s.zone)){setEvent('🎣 Não há água adequada aqui.','bad','Pesca');render();return}if(!spendEnergy(7))return;advanceForAction(45);let n=rand(1,3)+skillLevel('fish');if(s.inv.bait){s.inv.bait--;n++;log('🪱 A isca deu pesca extra.')}if(s.weather==='🌧️ Chuva')n++;s.inv.fish+=n;s.stats.fish++;gainXP(12);faction(s.zone==='Costa de Maré'?'Maré':'Arven');setEvent(`🎣 +${n} peixe.`,'good','Pesca');if(Math.random()<.16){s.inv.treasure++;setEvent('🌊 Apanhaste uma pequena arca!','good','Pesca rara')}if(s.stats.fish>=15)achievement('angler','Pescador veterano');render()}
+function craft(k){const r=recipes[k];if(!r||!canReq(r.req)){setEvent('🔒 Receita bloqueada.','bad','Crafting');render('craft');return}if(s.activeCraft){setEvent('🛠️ A oficina está ocupada.','bad','Fabricação');render('craft');return}for(const [a,b] of Object.entries(r.cost))if((s.inv[a]||0)<b){setEvent(`❌ Falta ${ITEM[a]?.n||a}.`,'bad','Crafting');render('craft');return}for(const [a,b] of Object.entries(r.cost))s.inv[a]-=b;const dur=Math.max(10,Math.floor(r.time*Math.max(.25,1-skillLevel('craft')*.08)));s.activeCraft={key:k,startAt:s.gameMinutes,endAt:s.gameMinutes+dur};setEvent(`🛠️ ${r.name} começou. Tempo: ${formatMinutes(dur)}.`,'good','Fabricação');render('craft')}
+function finishCraft(){if(!s.activeCraft)return;const k=s.activeCraft.key,r=recipes[k];if(!r){s.activeCraft=null;return}if(r.out)for(const [a,b] of Object.entries(r.out))s.inv[a]+=b;if(k==='sword')s.equip.weapon='Espada de Ferro';if(k==='crystalBlade')s.equip.weapon='Lâmina de Cristal';if(k==='towerShield')s.equip.armor='Escudo Torre (+8 Defesa)';if(k==='hunterKnife')s.equip.weapon='Faca de Caçador';s.stats.crafted++;gainXP(10+skillLevel('craft')*3);s.activeCraft=null;achievement(s.stats.crafted>=5?'crafter':'_none','Artesão dedicado');setEvent(`✅ ${r.name} terminou.`,'good','Oficina');checkQuests()}
+function cropReady(c){return s.gameMinutes>=c.readyAt} function plant(type){const p=PLANTS[type];if(!p||!s.inv[type]){setEvent('🌱 Não tens essa semente.','bad','Quinta');return}if(s.farming.crops.length>=s.farming.slots){setEvent('🌱 Todos os canteiros estão ocupados.','bad','Quinta');return}s.inv[type]--;const dur=Math.floor(p.grow*Math.max(.5,1-skillLevel('agri')*.09));s.farming.crops.push({type,plantedAt:s.gameMinutes,readyAt:s.gameMinutes+dur});setEvent(`${p.icon} ${p.name} plantada. Fica pronta em ${formatMinutes(dur)}.`,'good','Quinta');render('farm')}
+function harvest(){const ready=s.farming.crops.filter(cropReady);if(!ready.length){setEvent('🌱 Ainda não há plantas prontas.','bad','Quinta');render('farm');return}s.farming.crops=s.farming.crops.filter(c=>!cropReady(c));let total=0;for(const c of ready){const p=PLANTS[c.type];let q=p.yield+Math.floor(skillLevel('agri')/2),mut='';if(Math.random()<p.mutate+skillLevel('agri')*.02){mut=['golden','giant','charged'][rand(0,2)];if(mut==='golden'){q++;s.inv.goldenCrop++}if(mut==='giant'){q*=3;s.inv.giantCrop++}if(mut==='charged'){s.inv.chargedCrop++;addEffect('speed','Velocidade','⚡',180)}}s.inv[p.harvest]+=q;if(c.type==='seedSunroot'&&currentHour()<18)addEffect('sunheal','Cura Solar','☀️',180);if(c.type==='seedMoonberry'&&currentHour()>=18)addEffect('moonenergy','Energia Lunar','🌙',180);if(c.type==='seedEmberpepper')addEffect('fury','Fúria','🔥',1440);total+=q;log(`🌾 ${p.name}: +${q}${mut?` · MUTOU ${mut}`:''}.`)}s.farming.harvested+=total;gainXP(8+total*3);setEvent(`🌾 Colheita: +${total} em ${ready.length} plantas.`,'good','Quinta');render('farm')}
+function currentHour(){return Math.floor((s.gameMinutes%1440)/60)} function cooking(){if(s.inv.wheat<2||s.inv.fish<1){setEvent('🍳 Precisas de 2 trigo + 1 peixe.','bad','Cozinha');return}s.inv.wheat-=2;s.inv.fish--;s.inv.food+=2;advanceForAction(20);gainXP(15);setEvent('🍳 Cozinhaste 2 refeições.','good','Cozinha');render('farm')}
+function useItem(k){if(!s.inv[k])return;let u=false;if(k==='staminaTea'){s.inv[k]--;s.energy=Math.min(s.maxEnergy,s.energy+35);addEffect('vigor','Vigor','⚡',120);u=true}else if(k==='honeyTea'){s.inv[k]--;s.hp=Math.min(s.maxHp,s.hp+30);s.energy=Math.min(s.maxEnergy,s.energy+20);u=true}else if(k==='magicTonic'){s.inv[k]--;s.energy=Math.min(s.maxEnergy,s.energy+20);addEffect('arcaneLuck','Fortuna Arcana','✨',120);u=true}else if(k==='fishingNet'){s.inv[k]--;addEffect('netBoost','Rede de pesca','🕸️',120);u=true}else if(k==='treasureCompass'){s.inv[k]--;s.inv.treasure++;u=true}else if(k==='smokeBomb'){s.inv[k]--;addEffect('smokeEscape','Fuga por fumo','💨',480);u=true}else if(k==='luckyCharm'){s.inv[k]--;addEffect('luckyCharm','Amuleto da sorte','🍀',720);u=true}else if(k==='repairKit'){s.inv[k]--;s.equip.enchant=Math.max(0,s.equip.enchant);addEffect('repair','Equipamento reparado','🔧',360);u=true}else if(k==='honey') {s.inv[k]--;s.energy=Math.min(s.maxEnergy,s.energy+15);u=true}else if(k==='berry'){s.inv[k]--;s.hp=Math.min(s.maxHp,s.hp+8);u=true}else if(k==='food'){s.inv.food--;s.hp=Math.min(s.maxHp,s.hp+25);s.energy=Math.min(s.maxEnergy,s.energy+15);u=true}else if(k==='potion'){s.inv.potion--;s.hp=Math.min(s.maxHp,s.hp+35);u=true}else if(k==='bandage'){s.inv.bandage--;s.hp=Math.min(s.maxHp,s.hp+22);u=true}else if(k==='mushroom'){s.inv.mushroom--;const r=Math.random();if(r<.34)s.hp=Math.min(s.maxHp,s.hp+35);else if(r<.67)s.energy=Math.min(s.maxEnergy,s.energy+30);else{s.hp=Math.max(1,s.hp-8);gainXP(18)}u=true}else if(k==='map'){s.inv.map--;s.inv.treasure++;u=true}else if(k==='sunroot'){s.inv.sunroot--;s.hp=Math.min(s.maxHp,s.hp+50);addEffect('sunheal','Cura Solar','☀️',180);u=true}else if(k==='moonberry'){s.inv.moonberry--;s.energy=Math.min(s.maxEnergy,s.energy+35);addEffect('moonenergy','Energia Lunar','🌙',180);u=true}else if(k==='emberpepper'){s.inv.emberpepper--;addEffect('fury','Fúria','🔥',1440);u=true}else if(k==='crystalflower'){s.inv.crystalflower--;s.inv.gems++;u=true}setEvent(u?`🎒 Usaste ${ITEM[k].n}.`:'ℹ️ Esse item não pode ser usado agora.','good','Bolsa');render('inventory')}
+function treasure(){if(s.inv.treasure){s.inv.treasure--;const g=rand(30,90)+skillLevel('fortune')*12;s.gold+=scaleReward(g,'gold');gainXP(35);s.stats.treasures++;if(Math.random()<.28)s.inv.gems++;if(Math.random()<.18)s.inv.crystal++;setEvent(`💰 Tesouro: +${g} ouro.`,'good','Tesouro');if(s.stats.treasures>=5)achievement('treasure','Caçador de tesouros')}else if(s.inv.lockpick){s.inv.lockpick--;const g=rand(20,55);s.gold+=scaleReward(g,'gold');setEvent(`🗝️ Cofre aberto: +${g} ouro.`,'good','Gazua')}else setEvent('🔍 Não tens pista nem gazua.','bad','Tesouro');render()}
+function travel(i){const z=zones[i];if(!canReq(z.req)){setEvent(`🔒 ${z.name}: ${reqText(z.req)}`,'bad','Viagem');render();return}if(z.name===s.zone)return;if(!spendEnergy(12))return;s.zone=z.name;advanceForAction(90);if(z.faction)faction(z.faction);setEvent(`🧭 Chegaste a ${z.name}.`,'good','Viagem');render()}
+function combat(){const c0=modeCfg(),boss=s.level>=5&&Math.random()<.16,enemy=boss?'Guardião Antigo':['Lobo','Bandido','Slime','Aranha','Javali'][rand(0,4)],baseHp=boss?70+16*s.level:22+6*s.level,ehp=Math.floor(baseHp*c0.enemyHp);combatState={ehp,maxEhp:ehp,boss,enemy,guard:false,cooldown:0};renderCombat()}
+function renderCombat(){const c=combatState;if(!c)return;openModal(`<h2>⚔️ ${c.enemy}${c.boss?' 👑':''}</h2><div class="combat-hud"><div class="hpbox"><strong><span>❤️ Tu</span><span>${s.hp}/${s.maxHp}</span></strong><div class="combatbar"><div class="hp" style="width:${pct(s.hp,s.maxHp)}%"></div></div><small class="muted">⚡ ${s.energy}/${s.maxEnergy}</small></div><div class="hpbox"><strong><span>👹 Inimigo</span><span>${Math.max(0,c.ehp)}/${c.maxEhp}</span></strong><div class="combatbar"><div class="hp" style="width:${pct(c.ehp,c.maxEhp)}%"></div></div><small class="muted">${c.cooldown>0?'✨ Especial em '+c.cooldown+' turno(s)':''}</small></div></div><div id="combatInfo" class="tip">${c.guard?'🛡️ Guarda activa.':''}</div><div class="combat-actions"><button class="primary" onclick="attackEnemy()">⚔️ Ataque</button><button onclick="powerStrike()" ${s.energy<15||c.cooldown>0?'disabled':''}>✨ Especial · 15⚡</button><button onclick="guard()">🛡️ Defender</button><button onclick="combatPotion()">🧪 Poção</button><button onclick="flee()">🏃 Fugir</button></div>`)}
+function enemyLoot(e,b){const m={Lobo:[['leather',1,.75],['food',1,.12]],Bandido:[['leather',1,.65],['iron',1,.35],['lockpick',1,.08]],Slime:[['herb',1,.65],['gems',1,.08]],Aranha:[['leather',1,.8],['herb',1,.35]],Javali:[['leather',2,.7],['food',1,.4]]};const mult=modeCfg().drop;for(const [k,n,ch] of m[e]||[])if(Math.random()<Math.min(1,ch*mult))s.inv[k]+=n;if(b){s.inv.crystal++;s.inv.gems++;}}
+function endCombatWin(c,g){s.gold+=scaleReward(g,'gold');gainXP(c.boss?100:28);s.stats.combatWins++;enemyLoot(c.enemy,c.boss);if(c.boss)achievement('boss','Guardião derrotado');setEvent(`🏆 ${c.enemy} derrotado: +${scaleReward(g,'gold')} ouro + loot.`,'good','Combate');closeModal();render()}
+function enemyTurn(){const c=combatState;if(!c)return;let ed=Math.floor((rand(3,9)+(c.boss?5:0))*modeCfg().enemyDmg);if(c.guard)ed=Math.ceil(ed*.35);const hit=Math.max(1,ed-s.equip.enchant);s.hp-=hit;c.guard=false;c.cooldown=Math.max(0,(c.cooldown||0)-1);if(s.hp<=0){if(modeCfg().hardcore){localStorage.removeItem(KEY);alert('💀 Hardcore: morreste. Tens de começar um Novo Jogo.');location.reload();return} s.hp=s.maxHp;s.energy=s.maxEnergy;s.gold=Math.max(0,s.gold-10);s.zone='Vale de Arven';setEvent('☠️ Foste derrotado. Perdeste 10 ouro.','bad','Respawn');closeModal();render()}}
+function attackEnemy(){const c=combatState;if(!c)return;const base=s.equip.weapon==='Espada de Ferro'?10:s.equip.weapon==='Lâmina de Cristal'?13:7,dmg=Math.floor((rand(base,base+6)+skillLevel('combat')*2+s.equip.enchant*2)*(1+skillLevel('combat')*.05)*(hasEffect('fury')?1.2:1));c.ehp-=dmg;if(c.ehp<=0){endCombatWin(c,(c.boss?90:10)+rand(0,18));return}enemyTurn();if(combatState)renderCombat()}
+function powerStrike(){const c=combatState;if(!c||s.energy<15||c.cooldown>0)return;s.energy-=15;c.cooldown=2;const dmg=Math.floor((18+skillLevel('combat')*3+s.equip.enchant*3)*(hasEffect('fury')?1.3:1));c.ehp-=dmg;if(c.ehp<=0){endCombatWin(c,(c.boss?100:14)+rand(0,20));return}enemyTurn();if(combatState)renderCombat()}
+function guard(){const c=combatState;if(!c)return;c.guard=true;s.energy=Math.min(s.maxEnergy,s.energy+5);enemyTurn();if(combatState)renderCombat()}
+function combatPotion(){if(!s.inv.potion)return;s.inv.potion--;s.hp=Math.min(s.maxHp,s.hp+35);enemyTurn();if(combatState)renderCombat()} function flee(){if(hasEffect('smokeEscape')){delete s.effects.smokeEscape;setEvent('💨 A bomba de fumo garantiu a fuga.','good','Combate');closeModal();render();return}if(Math.random()<.7+skillLevel('fortune')*.03){setEvent('🏃 Escapaste.','good','Combate');closeModal();render()}else{enemyTurn();if(combatState)renderCombat()}}
+function sellAllMarket(){let total=0;for(const k of Object.keys(ITEM)){const x=ITEM[k];if(!x||['utility','rare'].includes(x.cat))continue;const prices={wood:2,stone:2,iron:8,ore:3,herb:4,leather:7,fish:5,wheat:3,plank:5,brick:5,copper:12,silver:28,honey:10,berry:4,magicDust:35,feather:3,spiderSilk:8,coalBundle:9};if(!prices[k])continue;const q=s.inv[k]||0;if(q){total+=scaleReward(q*prices[k],'gold');s.inv[k]=0}}s.gold+=total;setEvent(`💰 Venda total: +${total} ouro.`,'good','Mercado');render('town')} function bulkSell(k,qty,p){qty=Math.max(0,Math.min(Math.floor(Number(qty)||0),s.inv[k]||0));if(!qty){setEvent('🪙 Nada para vender.','bad','Mercado');render('town');return}const total=scaleReward(qty*p,'gold');s.inv[k]-=qty;s.gold+=total;setEvent(`🪙 Vendeste ${qty}× ${ITEM[k].n} por ${total} ouro.`,'good','Mercado');render('town')} function sellAll(k,p){bulkSell(k,s.inv[k]||0,p)} function buy(k,p){if(s.gold<p){setEvent('🪙 Ouro insuficiente.','bad','Mercado');render('town');return}s.gold-=p;s.inv[k]++;setEvent(`🛒 Compraste ${ITEM[k].n}.`,'good','Mercado');render('town')} function sell(k,p){if(!s.inv[k])return;s.inv[k]--;s.gold+=p;setEvent(`🪙 Vendeste ${ITEM[k].n}.`,'good','Mercado');render('town')} function petName(){return s.petActive||'Nenhum'} function petData(name){return s.pets[name]} function petBonus(name){const p=s.pets[name];if(!p)return '';if(name==='Raposa')return `+${p.level*2}% ouro/loot`;if(name==='Corvo')return `+${p.level}% rendimento de recolha`;return `+${p.level*2}% dano a inimigos`} function upgradePet(name){const p=s.pets[name];if(!p)return;const cost=p.level*40;if((s.gold||0)<cost){setEvent(`🐾 Precisas de ${cost} ouro para melhorar ${name}.`,'bad','Pet');render('pets');return}s.gold-=cost;p.level++;p.xp=0;setEvent(`🐾 ${name} subiu para nível ${p.level}.`,'good','Pet');render('pets')} function trainPet(){if(!s.petActive){setEvent('🐾 Primeiro escolhe um pet activo.','bad','Pet');render('pets');return}const p=s.pets[s.petActive];p.xp+=20+skillLevel('fortune')*5;if(p.xp>=p.level*50){p.xp-=p.level*50;p.level++;setEvent(`🐾 ${s.petActive} treinou e chegou ao nível ${p.level}.`,'good','Pet')}else setEvent(`🐾 ${s.petActive} ganhou experiência.`,'good','Pet');render('pets')} function setPet(name){if(!s.pets[name])return;s.petActive=name;setEvent(`🐾 ${name} está agora activo.`,'good','Pet');render('pets')}
+function recruit(i){const c=companions[i];if(!canReq(c.req)||s.gold<c.cost)return;if(s.companion===c.name)return;s.gold-=c.cost;s.companion=c.name;setEvent(`${c.icon} ${c.name} juntou-se a ti.`,'good','Companheiro');render('town')} function enchant(){if(s.inv.gems<1||s.equip.enchant>=3)return;s.inv.gems--;s.equip.enchant++;gainXP(25);setEvent(`✨ Encantamento +${s.equip.enchant}.`,'good','Forja');render('craft')} function rest(){if(s.gold<10){setEvent('🪙 Não tens 10 ouro para a estalagem.','bad','Estalagem');return}s.gold-=10;advanceForAction(480);s.energy=s.maxEnergy;s.hp=Math.min(s.maxHp,s.hp+20);setEvent('🛏️ Descansaste 8 horas.','good','Estalagem');render()}
+function checkQuests(){for(const q of s.quests){if(q.done)continue;if(q.id===1&&s.inv.wood>=3&&s.inv.stone>=3){q.done=true;s.gold+=scaleReward(q.reward,'gold');gainXP(30);setEvent(`📜 Missão: ${q.name} concluída.`,'good','Quest')}if(q.id===2&&s.stats.crafted>=3){q.done=true;s.gold+=scaleReward(q.reward,'gold');gainXP(35)}if(q.id===3&&s.stats.explore>=5){q.done=true;s.gold+=scaleReward(q.reward,'gold');gainXP(40)}}}
+function attributeHTML(){const a={'Ataque':`+${skillLevel('combat')*5}%`,'Defesa':`${10+Math.floor(skillLevel('combat')/2)}`,'Sorte':`+${skillLevel('fortune')*5}%`,'Recolha':`+${skillLevel('gather')*7}%`,'Pesca':`+${skillLevel('fish')*6}%`,'Tempo de craft':`-${skillLevel('craft')*8}%`,'Tempo agrícola':`-${skillLevel('agri')*9}%`,'Mutação agrícola':`+${skillLevel('agri')*2}%`,'Bónus pet':`${s.petActive?petBonus(s.petActive):'—'}`,'Equipamento':`${s.equip.weapon}`,'Defesa extra':`${s.inv.towerShield?' +8':''}`,'Viagem':`${s.inv.explorerBoots?' -5% energia':''}`};return Object.entries(a).map(a=>`<div class="attr"><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}
+function itemRow(k,v){const x=ITEM[k];if(!x||!v)return '';const use=['food','potion','bandage','mushroom','map','sunroot','moonberry','emberpepper','crystalflower','staminaTea','honeyTea','magicTonic','fishingNet','treasureCompass','smokeBomb','luckyCharm','repairKit','honey','berry'].includes(k);return `<div class="item"><div class="item-main"><div class="item-icon">${x.i}</div><div><div class="item-name">${x.n} <span class="badge">${v}</span></div><div class="item-desc">${x.d}</div></div></div>${use?`<button onclick="useItem('${k}')">Usar</button>`:''}</div>`} function invSections(){const q=(window.invSearch||'').toLowerCase();let ks=Object.keys(ITEM).filter(k=>(s.inv[k]||0)>0&&(invFilter==='all'||ITEM[k].cat===invFilter)&&(!q||ITEM[k].n.toLowerCase().includes(q)));ks.sort((a,b)=>window.invSort==='qty'?(s.inv[b]-s.inv[a]):ITEM[a].n.localeCompare(ITEM[b].n,'pt'));return ks.map(k=>itemRow(k,s.inv[k])).join('')||'<p class="muted">Nada nesta categoria.</p>'}
+function render(tab=currentTab){if(testMode)return;s=sanitize(s);document.getElementById('heroName').textContent=s.name;document.getElementById('hpText').textContent=`${s.hp}/${s.maxHp}`;document.getElementById('enText').textContent=`${s.energy}/${s.maxEnergy}`;document.getElementById('goldText').textContent=s.gold;document.getElementById('levelText').textContent=`Nível ${s.level} · Dia ${s.day} · ${s.time}`;document.getElementById('hpBar').style.width=pct(s.hp,s.maxHp)+'%';document.getElementById('enBar').style.width=pct(s.energy,s.maxEnergy)+'%';document.getElementById('xpBar').style.width=pct(s.xp,s.xpNext)+'%';const tk=document.getElementById('eventTicker');if((s.events||[]).length){tk.className='ticker '+((s.events[0]||{}).kind==='bad'?'bad':'good');tk.innerHTML=`<div class="ticon">📣</div><div class="tmain event-stack">${(s.events||[]).slice(0,3).map(e=>`<div class="event-card ${e.kind}"><b>${e.text}</b><small>${e.meta||''}</small></div>`).join('')}</div>`}else tk.classList.add('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));const mi={explore:0,inventory:1,craft:2,skills:3,town:4,pets:5};if(mi[tab]!=null)document.querySelectorAll('.nav button')[mi[tab]].classList.add('active');const c=document.getElementById('content');
+if(tab==='inventory')c.innerHTML=`<section class="panel"><h2>🎒 Bolsa <span class="badge">${Object.values(s.inv).reduce((a,b)=>a+b,0)} items</span></h2><div class="qolbar"><input value="${window.invSearch||''}" placeholder="🔎 Procurar item" oninput="window.invSearch=this.value;render('inventory')"><button onclick="window.invSort=window.invSort==='qty'?'name':'qty';render('inventory')">↕️ Ordenar</button></div><div class="filterbar">${[['all','Tudo'],['material','Materiais'],['consumable','Consumíveis'],['food','Comida'],['farm','Quinta'],['utility','Utilidade'],['rare','Raros']].map(x=>`<button class="${invFilter===x[0]?'selected':''}" onclick="invFilter='${x[0]}';render('inventory')">${x[1]}</button>`).join('')}</div>${invSections()}</section><section class="panel"><h2>📊 Atributos</h2><div class="attr-grid">${attributeHTML()}</div></section><section class="panel"><h2>✨ Efeitos activos</h2>${activeEffects().map(x=>`<span class="effect">${x[1].icon} ${x[1].name} · ${formatMinutes(x[1].until-s.gameMinutes)}</span>`).join('')||'<span class="muted mini">Nenhum.</span>'}</section>`;
+else if(tab==='craft')c.innerHTML=`<section class="panel"><h2>🛠️ Oficina</h2>${s.activeCraft?`<div class="craftqueue"><b>🔥 ${recipes[s.activeCraft.key].name}</b><div class="timer"><div style="width:${pct(s.gameMinutes-s.activeCraft.startAt,s.activeCraft.endAt-s.activeCraft.startAt)}%"></div></div><small class="craft-live">⏳ Falta ${formatMinutes(s.activeCraft.endAt-s.gameMinutes)} · relógio activo</small></div>`:'<p class="muted">Nada em fabrico.</p>'}<div class="grid" style="margin-top:10px">${Object.entries(recipes).map(x=>`<div class="card ${canReq(x[1].req)?'':'locked'}"><h3>${canReq(x[1].req)?'🛠️':'🔒'} ${x[1].name}</h3><p>${x[1].desc}<br>⏱️ ${formatMinutes(x[1].time)} base<br>${Object.entries(x[1].cost).map(y=>`${ITEM[y[0]].i} ×${y[1]}`).join(' · ')}</p><div class="req">${reqText(x[1].req)}</div><button ${canReq(x[1].req)&&!s.activeCraft?'':'disabled'} onclick="craft('${x[0]}')">${s.activeCraft?'Ocupado':'Começar'}</button></div>`).join('')}</div></section><section class="panel"><h2>✨ Encantamento</h2><button onclick="enchant()">Usar 1 gema → +1 (máx. +3)</button></section>`;
+else if(tab==='skills')c.innerHTML=`<section class="panel"><h2>🌿 Skills</h2><p class="muted">XP ${s.xp}/${s.xpNext}</p><div class="grid">${Object.entries(SKILL_INFO).map(x=>{const k=x[0],i=x[1],l=s.skills[k],n=l+1,cost=n*20;return `<div class="card"><h3>${i.icon} ${i.name}</h3><p>Actual: <b>${i.bonus(l)}%</b><br>${i.effect(l)}<br>Próximo: <b>${i.bonus(n)}%</b> · <b>+${i.bonus(n)-i.bonus(l)}%</b><br>Custo: <b>${cost} XP</b></p><button onclick="skill('${k}')">${s.xp>=cost?'⬆️ Melhorar':'🔒 Falta XP'}</button></div>`}).join('')}</div></section><section class="panel"><h2>💡 Dica</h2><div class="tip">${tips[(s.flags.tipIndex||0)%tips.length]}</div><button onclick="s.flags.tipIndex=(s.flags.tipIndex+1)%tips.length;render('skills')">Outra dica</button></section>`;
+else if(tab==='pets')c.innerHTML=`<section class="panel"><h2>🐾 Companheiros</h2><p class="muted">Escolhe um pet activo e melhora-o. O nível aumenta o bónus.</p><div class="pet-grid">${companions.map(cp=>{const p=s.pets[cp.name]||{level:1,xp:0},need=cp.cost+(p.level-1)*40;return `<div class="pet-card ${canReq(cp.req)?'':'locked'}"><h3>${cp.icon} ${cp.name} ${s.petActive===cp.name?'· ACTIVO':''}</h3><p>${petBonus(cp.name)}</p><div class="pet-level"><span>Nível ${p.level}</span><span>${p.xp}/${p.level*50} XP</span></div><div class="pet-xp"><div style="width:${pct(p.xp,p.level*50)}%"></div></div><div class="req">${reqText(cp.req)}</div><div class="actions" style="margin-top:8px"><button ${canReq(cp.req)?'':'disabled'} onclick="setPet('${cp.name}')">${s.petActive===cp.name?'Activo':'Activar'}</button><button ${canReq(cp.req)?'':'disabled'} onclick="upgradePet('${cp.name}')">⬆️ ${need}🪙</button></div></div>`}).join('')}</div><button class="primary" style="margin-top:10px" onclick="trainPet()">🐾 Treinar pet activo</button></section>`;
+else if(tab==='town')c.innerHTML=`<section class="panel"><h2>🏘️ Cidade de Arven</h2><div class="grid"><div class="card"><h3>🧪 Poção</h3><p>25🪙</p><button onclick="buy('potion',25)">Comprar</button></div><div class="card"><h3>🍲 Comida</h3><p>12🪙</p><button onclick="buy('food',12)">Comprar</button></div><div class="card"><h3>🩹 Ligadura</h3><p>18🪙</p><button onclick="buy('bandage',18)">Comprar</button></div><div class="card"><h3>🧂 Sal</h3><p>7🪙</p><button onclick="buy('salt',7)">Comprar</button></div><div class="card"><h3>⚫ Carvão</h3><p>7🪙</p><button onclick="buy('coal',7)">Comprar</button></div><div class="card"><h3>🛏️ Estalagem</h3><p>10🪙 · 8 horas</p><button onclick="rest()">Descansar</button></div></div><section class="panel"><h3>🧑 Companheiros</h3><div class="grid">${companions.map((cp,i)=>`<div class="card ${canReq(cp.req)?'':'locked'}"><h3>${cp.icon} ${cp.name}</h3><p>${cp.bonus}</p><div class="req">${reqText(cp.req)}</div><button ${canReq(cp.req)?'':'disabled'} onclick="recruit(${i})">Recrutar · ${cp.cost}🪙</button></div>`).join('')}</div></section><section class="panel"><h3>🪙 Mercado · Tens ${s.gold}🪙</h3><div class="qolline"><button onclick="sellAllMarket()">💰 Vender tudo</button><span class="tag">Itens seguros não são vendidos</span></div><div class="market-list">${[['wood',2],['stone',2],['iron',8],['ore',3],['herb',4],['leather',7],['fish',5],['wheat',3],['gems',45],['crystal',70],['plank',5],['brick',5],['copper',12],['silver',28],['honey',10],['berry',4],['magicDust',35],['feather',3],['spiderSilk',8],['coalBundle',9]].map(x=>`<div class="market-row"><div class="market-main"><b>${ITEM[x[0]].i} ${ITEM[x[0]].n}</b><small>${s.inv[x[0]]||0} em bolsa · ${x[1]}🪙 cada</small></div><div class="market-actions"><input type="number" min=1 max="${s.inv[x[0]]||0}" id="sell_${x[0]}" placeholder="Qtd"><button onclick="bulkSell('${x[0]}',document.getElementById('sell_${x[0]}').value,${x[1]})">Vender</button><button onclick="sellAll('${x[0]}',${x[1]})">Tudo</button></div></div>`).join('')}</div></section></section><section class="panel"><h3>📜 Missões</h3>${s.quests.map(q=>`<div class="item"><span><b>${q.name}</b><br><small class="muted">${q.desc}</small></span><span>${q.done?'✅':'⏳'}</span></div>`).join('')}<p><span class="tag">Arven ${s.reputation.Arven}</span><span class="tag">Maré ${s.reputation.Maré}</span><span class="tag">Sombra ${s.reputation.Sombra}</span></p></section>`;
+else if(tab==='farm')c.innerHTML=`<section class="panel"><h2>🌱 Quinta</h2><p class="muted">${s.farming.crops.length}/${s.farming.slots} canteiros · Dia ${s.day} · ${s.time}</p><div class="crop-grid">${s.farming.crops.map(crop=>{const p=PLANTS[crop.type],ready=cropReady(crop),left=Math.max(0,crop.readyAt-s.gameMinutes),pr=pct(s.gameMinutes-crop.plantedAt,crop.readyAt-crop.plantedAt);return `<div class="crop"><strong>${p.icon} ${p.name}</strong><small>${ready?'✅ PRONTA':`⏳ ${formatMinutes(left)} restantes`}<br>${p.special}</small><div class="timer"><div style="width:${ready?100:pr}%"></div></div></div>`}).join('')||'<div class="card"><b>🌱 Canteiros vazios</b><p>Escolhe uma semente abaixo.</p></div>'}</div><div class="filterbar" style="margin-top:10px">${Object.entries(PLANTS).filter(x=>(s.inv[x[0]]||0)>0).map(x=>`<button onclick="plant('${x[0]}')">${x[1].icon} ${x[1].name} ×${s.inv[x[0]]}</button>`).join('')||'<span class="muted">Sem sementes especiais.</span>'}</div><div class="actions" style="margin-top:10px"><button onclick="harvest()">🌾 Colher prontas</button><button onclick="cooking()">🍳 Cozinhar</button></div><div class="tip" style="margin-top:10px">💡 Plantas têm tempos, efeitos e mutações diferentes. O relógio do jogo avança ao viajar, explorar, pescar, minerar, fazer craft ou descansar.</div></section>`;
+else c.innerHTML=`<section class="panel"><h2>🧭 ${s.zone}</h2><p class="muted">${zones.find(z=>z.name===s.zone)?.desc||''} · ${s.weather} · ${s.time}</p><div class="actions"><button class="primary" onclick="eventExplore()">🚶 Explorar</button><button onclick="fish()">🎣 Pescar</button><button onclick="mine()">⛏️ Minerar</button><button onclick="treasure()">🗝️ Tesouro</button><button onclick="show('farm')">🌱 Quinta</button><button onclick="combat()">⚔️ Combate</button></div></section><section class="panel"><h2>🗺️ Viajar</h2><div class="grid">${zones.map((z,i)=>`<div class="card ${canReq(z.req)?'':'locked'}"><h3>${z.icon} ${z.name}</h3><p>${z.desc}</p><div class="req">${reqText(z.req)}</div><button ${canReq(z.req)?'':'disabled'} onclick="travel(${i})">${canReq(z.req)?'Viajar':'🔒 Bloqueado'}</button></div>`).join('')}</div></section><section class="panel"><h2>📖 Últimos acontecimentos</h2><div class="log">${(s.log||[]).slice(-12).map(x=>`<div>${x}</div>`).join('')}</div></section><section class="panel"><h2>💡 Dica rápida</h2><div class="tip">${tips[(s.flags.tipIndex||0)%tips.length]}</div></section>`}
+function nextTick(){advanceForAction(30);render()} function formatMinutes(m){m=Math.max(0,Math.floor(m));const h=Math.floor(m/60),mi=m%60;return h?`${h}h ${mi}m`:`${mi}m`} function skill(k){const cost=(s.skills[k]+1)*20;if(s.xp<cost){setEvent(`🌿 Precisas de ${cost} XP.`,'bad','Skill');render('skills');return}s.xp-=cost;s.skills[k]++;setEvent(`🌿 ${SKILL_INFO[k].name}: ${SKILL_INFO[k].effect(s.skills[k])}.`,'good','Upgrade');render('skills')}
+function openModal(h){document.getElementById('modalCard').innerHTML=h;document.getElementById('modal').classList.remove('hidden')} function closeModal(){document.getElementById('modal').classList.add('hidden');combatState=null}
+function runSelfTests(){testMode=true;const R=[],ok=(n,c)=>R.push({n,ok:!!c});const oldRandom=Math.random;try{let d=defaults();ok('defaults',d.hp===100&&d.gold===35&&Array.isArray(d.events));d.hp=NaN;d.gold='bad';let z=sanitize(d);ok('NaN saneado',z.hp===100&&z.gold===35);s=defaults();s.mode='hard';applyDifficultyStart();ok('hard',s.hp<100&&modeCfg().enemyHp>1&&modeCfg().xp<1);s=defaults();s.mode='hardcore';applyDifficultyStart();ok('hardcore',modeCfg().hardcore&&s.hp<100);s=defaults();setEvent('A','good','1');setEvent('B','bad','2');ok('eventos empilhados',s.events.length===2&&s.events[0].text==='B');s=defaults();s.inv.wood=10;s.gold=0;bulkSell('wood',5,2);ok('bulk sell',s.inv.wood===5&&s.gold===10);s=defaults();s.hp=40;s.energy=30;s.inv.potion=1;combat();ok('combat hud state',!!combatState);if(combatState){combatState.guard=false;guard();ok('combat guard',!combatState?.guard);if(combatState){combatState.ehp=999;s.energy=100;powerStrike();ok('combat special cooldown',combatState.cooldown>0)}if(combatState){combatState.ehp=1;attackEnemy()}}ok('combat win',s.stats.combatWins===1);s=defaults();s.inv.treasure=1;Math.random=()=>0.1;treasure();ok('treasure loot',s.inv.treasure===0&&s.gold>35);s=defaults();s.skills.agri=1;s.inv.seedWheat=1;plant('seedWheat');ok('farm timer',s.farming.crops.length===1&&s.farming.crops[0].readyAt>s.gameMinutes);s=defaults();s.skills.craft=1;s.inv.wood=20;s.inv.herb=20;craft('potion');ok('craft timer',!!s.activeCraft);const oldEnd=s.activeCraft.endAt;s.gameMinutes=oldEnd;finishCraft();ok('craft finished',!s.activeCraft&&s.inv.potion>=3);s=defaults();s.inv.gems=1;window.invSearch='gema';ok('inventory search',invSections().includes('Gema'));s=defaults();selectedMode='hard';ok('mode selector fn',typeof selectMode==='function');ok('four modes',Object.keys(MODES).length===4);s=defaults();const before=s.gameMinutes;Object.defineProperty(s,'lastRealMs',{value:Date.now()-3000,writable:true,configurable:true});processRealTime();ok('device time sync',s.gameMinutes>=before+2);s=defaults();Math.random=()=>0.1;const gb=s.gold;randomWorldElement();ok('random element 1',s.gold>gb);s=defaults();Math.random=()=>0.9;const cg=s.inv.crystal;randomWorldElement();ok('random element 3',s.inv.crystal===cg+1);ok('11 recipes',Object.keys(recipes).length>=10);ok('6 skills',Object.keys(SKILL_INFO).length===6);ok('35+ items',Object.keys(ITEM).length>=35);ok('6 plants',Object.keys(PLANTS).length>=6);ok('bulk functions',typeof bulkSell==='function'&&typeof sellAll==='function');ok('clock functions',typeof processRealTime==='function'&&typeof syncDeviceClock==='function');ok('offline catch-up',typeof document.addEventListener==='function');ok('delete saves fn',typeof deleteSaves==='function');ok('20+ extra items',Object.keys(ITEM).length>=55);ok('20+ extra recipes',Object.keys(recipes).length>=30);ok('pet state',!!s.pets&&typeof upgradePet==='function');ok('pet tab',typeof render==='function');ok('realtime loop',typeof startRealtimeLoop==='function');ok('market bulk all',typeof sellAllMarket==='function');ok('new item use',typeof useItem==='function');}catch(e){R.push({n:'EXCEPTION '+e.message,ok:false})}finally{Math.random=oldRandom;testMode=false}s=defaults();return R}
+if(location.search.includes('test=1')){const r=runSelfTests();document.body.innerHTML=`<pre style="white-space:pre-wrap;padding:20px;font:16px/1.5 monospace;background:#0b1017;color:#fff">${r.map(x=>(x.ok?'✅':'❌')+' '+x.n).join('\n')}\n\n${r.every(x=>x.ok)?'ALL TESTS PASSED':'FAILURES FOUND'}</pre>`}else updateSaveInfo();
+</script>
+<style>
+/* V10 Coop */
+.coop-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:16px}.coop-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.coop-option{padding:14px;border:1px solid var(--line);border-radius:15px;background:var(--panel2);text-align:left}.coop-option.selected{border-color:var(--gold);box-shadow:0 0 0 1px #f5c85b55 inset}.coop-code{font-size:30px;font-weight:950;letter-spacing:5px;text-align:center;padding:15px;background:#10151d;border:1px dashed #52657d;border-radius:15px}.coop-players{display:grid;gap:7px}.coop-player{display:flex;justify-content:space-between;align-items:center;background:#111925;border:1px solid var(--line);border-radius:12px;padding:10px}.coop-status{display:flex;gap:7px;align-items:center;font-size:12px}.coop-dot{width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block}.coop-chat{height:150px;overflow:auto;background:#0e141c;border:1px solid var(--line);border-radius:13px;padding:9px}.coop-msg{font-size:12px;margin:0 0 7px}.coop-msg b{color:var(--gold)}
+@media(max-width:520px){.coop-grid{grid-template-columns:1fr}}
+</style>
+<div id="coopModal" class="modal hidden" onclick="if(event.target===this)closeCoop()"><div class="modal-card" id="coopCard"></div></div>
+<script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
+<script>
+/* =========================================================
+   V13 COOP — zero-server setup via PeerJS Cloud + WebRTC
+   The player only opens this HTML file. PeerJS Cloud handles
+   the signaling; gameplay/chat data is sent peer-to-peer.
+   ========================================================= */
+let coopPeer=null, coopRoom=null, coopHost=false, coopPlayerId=null, coopName='', coopPlayers=[], coopConnections=[], coopConnected=false;
+let coopCfg={maxPlayers:2,difficulty:'medium',private:false,password:''};
+let coopHostSecret='';
+let coopChatHistory=[];
+const COOP_ALPHABET='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function coopCode(){let x='';for(let i=0;i<6;i++)x+=COOP_ALPHABET[Math.floor(Math.random()*COOP_ALPHABET.length)];return x}
+function coopPeerIdFromCode(code){return 'vld-'+String(code).toLowerCase()}
+function coopResetPeer(){try{if(coopPeer&&!coopPeer.destroyed)coopPeer.destroy()}catch(e){}coopPeer=null;coopConnections=[];coopConnected=false}
+function coopStatus(t){const el=document.getElementById('coopStatus');if(el)el.textContent=t}
+function openCoopMenu(){
+  document.getElementById('coopCard').innerHTML=`<h2>👥 Coop</h2><p class="muted">Nesta versão não precisas de servidor, Node.js, CMD, IP ou configuração. Só abres este ficheiro e partilhas o código da party com o teu amigo.</p><div class="actions"><button class="primary" onclick="showCreateParty()">➕ Criar party</button><button onclick="showJoinParty()">🚪 Entrar numa party</button></div><p class="muted" style="font-size:11px;margin-top:12px">Ligação: PeerJS + WebRTC (P2P)</p><div id="coopStatus" class="muted" style="font-size:11px;margin-top:8px"></div>`;
+  document.getElementById('coopModal').classList.remove('hidden');
+}
+function closeCoop(){document.getElementById('coopModal').classList.add('hidden')}
+function escapeHtml(x){return String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function showCreateParty(){
+  document.getElementById('coopCard').innerHTML=`<h2>🏕️ Criar party</h2><label>Nome</label><input id="coopName" maxlength="20" placeholder="Nome do aventureiro"><div style="height:9px"></div><label>Jogadores</label><div class="coop-grid" id="coopSize"><button class="coop-option selected" onclick="pickCoopSize(this,2)">👥 2 jogadores</button><button class="coop-option" onclick="pickCoopSize(this,3)">👥 3 jogadores</button><button class="coop-option" onclick="pickCoopSize(this,4)">👥 4 jogadores</button><button class="coop-option" onclick="pickCoopSize(this,5)">👥 5 jogadores</button></div><div style="height:9px"></div><label>Dificuldade</label><div class="coop-grid" id="coopDiff"><button class="coop-option selected" onclick="pickCoopDiff(this,'medium')">⚖️ Medium</button><button class="coop-option" onclick="pickCoopDiff(this,'easy')">🌱 Easy</button><button class="coop-option" onclick="pickCoopDiff(this,'hard')">🔥 Hard</button><button class="coop-option" onclick="pickCoopDiff(this,'hardcore')">💀 Hardcore</button></div><div style="height:9px"></div><button class="coop-option" style="width:100%" onclick="togglePrivateParty()">🔒 Party privada <span id="privateMark">OFF</span></button><div id="privatePassWrap" class="hidden" style="margin-top:9px"><input id="coopPassword" type="password" maxlength="30" placeholder="Senha da party"></div><div class="actions" style="margin-top:12px"><button onclick="openCoopMenu()">Voltar</button><button class="primary" onclick="createParty()">Criar</button></div>`;
+}
+function pickCoopSize(el,n){coopCfg.maxPlayers=n;document.querySelectorAll('#coopSize .coop-option').forEach(x=>x.classList.remove('selected'));el.classList.add('selected')}
+function pickCoopDiff(el,d){coopCfg.difficulty=d;document.querySelectorAll('#coopDiff .coop-option').forEach(x=>x.classList.remove('selected'));el.classList.add('selected')}
+function togglePrivateParty(){coopCfg.private=!coopCfg.private;document.getElementById('privateMark').textContent=coopCfg.private?'ON':'OFF';document.getElementById('privatePassWrap').classList.toggle('hidden',!coopCfg.private)}
+function showJoinParty(){
+ document.getElementById('coopCard').innerHTML=`<h2>🚪 Entrar numa party</h2><input id="joinName" maxlength="20" placeholder="Nome do aventureiro"><div style="height:9px"></div><input id="joinCode" maxlength="8" placeholder="Código da party" autocapitalize="characters" autocomplete="off"><div style="height:9px"></div><input id="joinPass" type="password" maxlength="30" placeholder="Senha (se privada)"><div class="actions" style="margin-top:12px"><button onclick="openCoopMenu()">Voltar</button><button class="primary" onclick="joinParty()">Entrar</button></div>`;
+}
+function createPeerForHost(code, onReady){
+ if(typeof Peer==='undefined'){alert('A biblioteca de Coop não carregou. Verifica a internet e abre o ficheiro novamente.');return}
+ coopResetPeer();
+ const peerId=coopPeerIdFromCode(code);
+ coopPeer=new Peer(peerId);
+ coopPeer.on('open',id=>{coopConnected=true;coopHost=true;coopPlayerId=id;onReady()});
+ coopPeer.on('connection',conn=>{attachHostConnection(conn)});
+ coopPeer.on('error',err=>{
+   if(err&&err.type==='unavailable-id'&&coopHost){
+     const fresh=coopCode(); coopRoom=fresh; createPeerForHost(fresh,onReady); return;
+   }
+   console.warn('PeerJS',err);
+   if(err&&['network','server-error','socket-error','socket-closed'].includes(err.type)) alert('Não foi possível ligar ao serviço Coop. Verifica a internet e tenta novamente.');
+ });
+ coopPeer.on('disconnected',()=>{coopConnected=false; if(coopRoom)renderPartyLobby('🔌 A sinalização foi desligada. As ligações já abertas podem continuar.')});
+}
+function createParty(){
+ coopName=(document.getElementById('coopName').value.trim()||'Aventureiro').slice(0,20);
+ if(coopCfg.private){coopCfg.password=document.getElementById('coopPassword').value||'';if(!coopCfg.password)return alert('Define uma senha para a party privada.')} else coopCfg.password='';
+ coopRoom=coopCode();coopHostSecret=coopCfg.password;coopChatHistory=[];
+ coopPlayers=[{id:'',name:coopName,host:true}];
+ coopStatus('A criar party…');
+ createPeerForHost(coopRoom,()=>{coopPlayers[0].id=coopPlayerId;renderPartyLobby('✅ Party criada. Partilha o código com o teu amigo.');});
+}
+function joinParty(){
+ coopName=(document.getElementById('joinName').value.trim()||'Aventureiro').slice(0,20);
+ const code=document.getElementById('joinCode').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+ if(code.length!==6)return alert('O código deve ter 6 caracteres.');
+ const password=document.getElementById('joinPass').value||'';
+ coopRoom=code;coopHost=false;coopHostSecret=password;coopChatHistory=[];
+ if(typeof Peer==='undefined'){alert('A biblioteca de Coop não carregou. Verifica a internet e abre o ficheiro novamente.');return}
+ coopResetPeer();
+ coopStatus('A ligar à party…');
+ coopPeer=new Peer();
+ coopPeer.on('open',id=>{
+   coopConnected=true;coopPlayerId=id;
+   const conn=coopPeer.connect(coopPeerIdFromCode(code),{reliable:true,metadata:{name:coopName}});
+   coopConnections=[conn];
+   conn.on('open',()=>conn.send({type:'join',name:coopName,password:password,playerId:coopPlayerId}));
+   conn.on('data',handleJoinerMessage); conn.on('close',()=>{if(coopRoom)renderPartyLobby('🔌 O host saiu da party.')});
+   conn.on('error',()=>alert('Não foi possível entrar na party. Confirma o código e tenta novamente.'));
+ });
+ coopPeer.on('error',err=>{console.warn('PeerJS',err); if(err&&err.type==='network')alert('Sem ligação ao serviço Coop.');});
+}
+function attachHostConnection(conn){
+ coopConnections.push(conn);
+ conn.on('open',()=>{});
+ conn.on('data',data=>{
+   if(!data||typeof data!=='object')return;
+   if(data.type==='join'){
+     if(coopPlayers.length>=coopCfg.maxPlayers){conn.send({type:'error',message:'A party já está cheia.'});conn.close();return}
+     if(coopCfg.private && String(data.password||'')!==String(coopHostSecret)){conn.send({type:'error',message:'Senha incorreta.'});conn.close();return}
+     if(coopPlayers.some(p=>p.id===data.playerId)){conn.close();return}
+     const p={id:String(data.playerId||''),name:String(data.name||'Aventureiro').slice(0,20),host:false};
+     coopPlayers.push(p); conn.playerId=p.id; conn.playerName=p.name;
+     conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,players:coopPlayers,chat:coopChatHistory});
+     hostBroadcastParty(); renderPartyLobby('✅ Um jogador entrou na party.'); return;
+   }
+   if(!conn.playerId)return;
+   if(data.type==='chat'){const chatMsg={type:'chat',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180)};coopChatHistory.push({name:chatMsg.name,text:chatMsg.text});if(coopChatHistory.length>50)coopChatHistory.shift();appendCoopChat(chatMsg.name,chatMsg.text);hostBroadcast(chatMsg);return}
+   if(data.type==='event'){hostBroadcast({type:'event',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180)});return}
+   if(data.type==='leave'){removeHostPlayer(conn.playerId,conn)}
+ });
+ conn.on('close',()=>{if(conn.playerId)removeHostPlayer(conn.playerId,conn)});
+ conn.on('error',()=>{if(conn.playerId)removeHostPlayer(conn.playerId,conn)});
+}
+function removeHostPlayer(id,conn){
+ coopPlayers=coopPlayers.filter(p=>p.id!==id);
+ coopConnections=coopConnections.filter(c=>c!==conn);
+ try{conn.close()}catch(e){}
+ hostBroadcastParty();
+ renderPartyLobby('🔌 Um jogador saiu.');
+}
+function hostBroadcast(msg){coopConnections.slice().forEach(c=>{try{if(c.open)c.send(msg)}catch(e){}})}
+function hostBroadcastParty(){hostBroadcast({type:'party',players:coopPlayers,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,hostId:coopPlayerId})}
+function handleJoinerMessage(m){
+ if(m.type==='error'){alert(m.message||'Erro ao entrar na party.');leaveParty();return}
+ if(m.type==='welcome'||m.type==='party'){coopPlayers=m.players||[];coopCfg.maxPlayers=m.maxPlayers||coopCfg.maxPlayers;coopCfg.difficulty=m.difficulty||coopCfg.difficulty;coopCfg.private=!!m.private;if(Array.isArray(m.chat))coopChatHistory=m.chat.slice(-50);renderPartyLobby(m.type==='welcome'?'✅ Entraste na party.':'');return}
+ if(m.type==='started'){coopCfg.difficulty=m.difficulty;startCoopGame(m);return}
+ if(m.type==='chat'){appendCoopChat(m.name,m.text);return}
+ if(m.type==='event'){addCoopEvent(m);return}
+}
+function renderPartyLobby(note=''){
+ const meHost=coopHost;
+ document.getElementById('coopCard').innerHTML=`<h2>🏕️ Party <span class="badge">${escapeHtml(coopRoom||'')}</span></h2><div class="coop-code">${escapeHtml(coopRoom||'')}</div><p class="muted" style="text-align:center">${coopCfg.private?'🔒 Privada · partilha código + senha':'🌐 Partilha o código com o teu amigo'}</p>${note?`<div class="tip">${escapeHtml(note)}</div>`:''}<section class="panel" style="margin:10px 0"><b>👥 Jogadores ${coopPlayers.length}/${coopCfg.maxPlayers}</b><div class="coop-players" style="margin-top:8px">${coopPlayers.map(p=>`<div class="coop-player"><span>🧙 ${escapeHtml(p.name)} ${p.id===coopPlayerId?'(tu)':''}</span><span class="coop-status"><i class="coop-dot"></i>${p.host?'Host':'Ligado'}</span></div>`).join('')}</div></section><div class="card"><b>⚙️ ${escapeHtml(String(coopCfg.difficulty).toUpperCase())}</b><p>Todos usam a mesma dificuldade nesta sessão.</p></div><section class="panel" style="margin:10px 0"><b>💬 Chat</b><div class="coop-chat" style="margin-top:8px"></div><div class="actions" style="margin-top:8px"><input id="coopChatInput" maxlength="180" placeholder="Escreve uma mensagem" onkeydown="if(event.key==='Enter')sendCoopChat()"><button onclick="sendCoopChat()">Enviar</button></div></section><div class="actions" style="margin-top:10px">${meHost?`<button class="primary" onclick="startParty()" ${coopPlayers.length<2?'disabled':''}>🚀 Começar aventura</button>`:''}<button onclick="leaveParty()">Sair da party</button></div>`;
+ const chat=document.getElementById('coopCard').querySelector('.coop-chat');
+ if(chat)coopChatHistory.forEach(m=>{const d=document.createElement('div');d.className='coop-msg';d.innerHTML=`<b>${escapeHtml(m.name)}:</b> ${escapeHtml(m.text)}`;chat.appendChild(d);});
+ if(chat)chat.scrollTop=chat.scrollHeight;
+}
+function startParty(){
+ if(!coopHost)return;
+ const msg={type:'started',difficulty:coopCfg.difficulty,room:coopRoom,players:coopPlayers};
+ hostBroadcast(msg); startCoopGame(msg);
+}
+function startCoopGame(m){
+ closeCoop(); if(typeof selectMode==='function')selectMode(m.difficulty||coopCfg.difficulty); document.getElementById('nameInput').value=coopName; newGame(); setEvent(`👥 Entraste numa aventura Coop! Party ${coopRoom} · ${coopPlayers.length} jogadores.`,'good','Coop'); render();
+}
+function leaveParty(){
+ if(coopHost){hostBroadcast({type:'error',message:'O host encerrou a party.'});}
+ else if(coopConnections[0]&&coopConnections[0].open)try{coopConnections[0].send({type:'leave'})}catch(e){}
+ coopResetPeer();coopRoom=null;coopPlayers=[];coopHost=false;coopPlayerId=null;closeCoop();
+}
+function appendCoopChat(name,text){
+ const card=document.getElementById('coopCard');if(!card)return;let chat=card.querySelector('.coop-chat');if(!chat)return;const d=document.createElement('div');d.className='coop-msg';d.innerHTML=`<b>${escapeHtml(name)}:</b> ${escapeHtml(text)}`;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;
+}
+function sendCoopChat(){
+ const i=document.getElementById('coopChatInput');if(!i||!i.value.trim())return;const text=i.value.trim().slice(0,180);
+ if(coopHost){
+   coopChatHistory.push({name:coopName,text});if(coopChatHistory.length>50)coopChatHistory.shift();
+   appendCoopChat(coopName,text);hostBroadcast({type:'chat',name:coopName,text});
+ }else if(coopConnections[0]&&coopConnections[0].open){
+   coopConnections[0].send({type:'chat',text});
+ }
+ i.value='';
+}
+function addCoopEvent(m){if(typeof setEvent==='function')setEvent(`👥 ${escapeHtml(m.name)}: ${escapeHtml(m.text)}`,'good','Party');if(typeof render==='function')render()}
+(function(){
+ const names=['eventExplore','fish','mine','treasure','travel','craft','combat'];
+ const labels={eventExplore:'explorou',fish:'foi pescar',mine:'foi minerar',treasure:'procurou um tesouro',travel:'viajou',craft:'começou crafting',combat:'entrou em combate'};
+ names.forEach(fn=>{if(typeof window[fn]!=='function')return;const original=window[fn];window[fn]=function(...args){const r=original.apply(this,args);if(coopRoom){const text=labels[fn]||fn;if(coopHost){hostBroadcast({type:'event',name:coopName,text})}else if(coopConnections[0]&&coopConnections[0].open){coopConnections[0].send({type:'event',text})}}return r}});
+})();
+</script>
+
+<script>
+/* =========================================================
+   V13 — classes, equipment, gallery chat & Coop gifting
+   ========================================================= */
+const CLASS_INFO={
+  neutral:{name:'Aventureiro',icon:'🧭',desc:'Classe neutra. Não altera atributos nem estilo de jogo.',mods:{},weapons:'Qualquer arma.'},
+  warrior:{name:'Guerreiro',icon:'⚔️',desc:'Especialista em combate corpo a corpo. Mais Força, menos Energia e espadas como arma principal.',mods:{str:20,en:-10},weapons:'Espadas'},
+  berserker:{name:'Berserker',icon:'🪓',desc:'Luta com pura força. Muito dano, mas pouca Defesa e Energia.',mods:{str:30,en:-20,def:-10},weapons:'Machados'},
+  guardian:{name:'Guardião',icon:'🛡️',desc:'Tanque resistente. Mais Defesa e Vida, mas menos Energia.',mods:{def:25,hp:15,en:-10},weapons:'Espadas e escudos'},
+  ranger:{name:'Arqueiro',icon:'🏹',desc:'Ágil e preciso. Mais Agilidade e Sorte, com arcos como arma principal.',mods:{agi:25,luck:10},weapons:'Arcos'},
+  mage:{name:'Mago',icon:'🔮',desc:'Canaliza energia arcana. Muito mais Energia, mas menos Vida.',mods:{en:30,hp:-10},weapons:'Cajados'},
+  rogue:{name:'Ladino',icon:'🗡️',desc:'Rápido e oportunista. Mais Agilidade e Sorte, mas menos Defesa.',mods:{agi:25,luck:15,def:-10},weapons:'Adagas'},
+  cleric:{name:'Clérigo',icon:'✨',desc:'Especialista em suporte e cura. Mais Energia e Poder de cura, menos Força.',mods:{en:20,heal:25,str:-10},weapons:'Maças e cajados'},
+  druid:{name:'Druida',icon:'🌿',desc:'Ligado à natureza. Melhora recolha, agricultura e Energia.',mods:{en:15,gather:20,agri:20},weapons:'Cajados'},
+  alchemist:{name:'Alquimista',icon:'⚗️',desc:'Mestre de poções e recursos. Craft e efeitos de consumíveis são melhores.',mods:{craft:25,heal:15},weapons:'Adagas'}
+};
+const EQUIP={
+ ironHelmet:{n:'Elmo de Ferro',i:'⛑️',d:'+6 Defesa.',cat:'equipment',slot:'helmet',def:6},
+ leatherHelmet:{n:'Capuz de Couro',i:'🧢',d:'+3 Defesa, leve.',cat:'equipment',slot:'helmet',def:3},
+ ironChest:{n:'Peitoral de Ferro',i:'🦺',d:'+12 Defesa.',cat:'equipment',slot:'chest',def:12},
+ leatherChest:{n:'Peitoral de Couro',i:'🥋',d:'+6 Defesa e leve.',cat:'equipment',slot:'chest',def:6},
+ ironBoots:{n:'Botas de Ferro',i:'🥾',d:'+5 Defesa.',cat:'equipment',slot:'boots',def:5},
+ explorerBoots2:{n:'Botas de Explorador',i:'👢',d:'+2 Defesa e -5% energia de viagens.',cat:'equipment',slot:'boots',def:2,travel:-5},
+ ironPants:{n:'Calças de Ferro',i:'👖',d:'+7 Defesa.',cat:'equipment',slot:'pants',def:7},
+ leatherPants:{n:'Calças de Couro',i:'🩳',d:'+4 Defesa.',cat:'equipment',slot:'pants',def:4},
+ ironSword:{n:'Espada de Ferro',i:'⚔️',d:'+10 Ataque.',cat:'equipment',slot:'weaponMain',damage:10,kind:'sword'},
+ crystalSword:{n:'Espada de Cristal',i:'🗡️',d:'+16 Ataque.',cat:'equipment',slot:'weaponMain',damage:16,kind:'sword'},
+ hunterBow:{n:'Arco de Caçador',i:'🏹',d:'+11 Ataque e +5% Sorte.',cat:'equipment',slot:'weaponMain',damage:11,luck:5,kind:'bow'},
+ battleAxe:{n:'Machado de Batalha',i:'🪓',d:'+14 Ataque, -5 Energia.',cat:'equipment',slot:'weaponMain',damage:14,en:-5,kind:'axe'},
+ arcaneStaff:{n:'Cajado Arcano',i:'🪄',d:'+9 Ataque e +12 Energia máxima.',cat:'equipment',slot:'weaponMain',damage:9,en:12,kind:'staff'},
+ ironDagger:{n:'Adaga de Ferro',i:'🔪',d:'+8 Ataque e +8 Agilidade.',cat:'equipment',slot:'weaponMain',damage:8,agi:8,kind:'dagger'},
+ mace:{n:'Maça',i:'🔨',d:'+9 Ataque e +5% cura.',cat:'equipment',slot:'weaponMain',damage:9,heal:5,kind:'mace'},
+ buckler:{n:'Broquel',i:'🛡️',d:'+7 Defesa.',cat:'equipment',slot:'weaponSecondary',def:7,kind:'shield'},
+ towerShield2:{n:'Escudo Torre',i:'🛡️',d:'+14 Defesa, -5 Energia.',cat:'equipment',slot:'weaponSecondary',def:14,en:-5,kind:'shield'},
+ magicOrb:{n:'Orbe Arcano',i:'🔮',d:'+8 Energia máxima.',cat:'equipment',slot:'weaponSecondary',en:8,kind:'orb'}
+};
+Object.assign(ITEM,EQUIP);
+const OLD_SANITIZE_V13=sanitize;
+sanitize=function(x){
+  const z=OLD_SANITIZE_V13(x); z.classId=CLASS_INFO[z.classId]?z.classId:'neutral';
+  z.classMods=Object.assign({},CLASS_INFO[z.classId].mods);
+  z.equip=Object.assign({helmet:null,chest:null,boots:null,pants:null,weaponMain:null,weaponSecondary:null,weapon:'Faca de viajante',armor:'Roupa simples',enchant:0},z.equip||{});
+  for(const k of Object.keys(EQUIP)) z.inv[k]=Math.max(0,Math.floor(Number(z.inv[k])||0));
+  z.inv.ironHelmet=Math.max(z.inv.ironHelmet,0); z.inv.leatherChest=Math.max(z.inv.leatherChest,0);
+  return z;
+};
+function classBonus(key,stat){return Number((CLASS_INFO[s.classId||'neutral'].mods||{})[stat]||0)}
+function equipmentBonus(stat){let n=0;for(const slot of ['helmet','chest','boots','pants','weaponMain','weaponSecondary']){const k=s.equip?.[slot];if(k&&EQUIP[k])n+=Number(EQUIP[k][stat]||0)}return n}
+function equipmentDamage(){const k=s.equip?.weaponMain;return k&&EQUIP[k]?Number(EQUIP[k].damage||0):0}
+function chooseClass(key){if(!CLASS_INFO[key])return;selectedClass=key;document.querySelectorAll('.class-card').forEach(b=>b.classList.toggle('selected',b.dataset.cls===key));const d=document.getElementById('classDesc');if(d)d.innerHTML=`<b>${CLASS_INFO[key].icon} ${CLASS_INFO[key].name}</b><br>${CLASS_INFO[key].desc}<br><small>Armas: ${CLASS_INFO[key].weapons}</small>`}
+let selectedClass='neutral';
+function showClassChooser(){
+ const cards=Object.entries(CLASS_INFO).map(([k,c])=>`<button type="button" class="card class-card ${k===selectedClass?'selected':''}" data-cls="${k}" onclick="chooseClass('${k}')"><h3>${c.icon} ${c.name}</h3><p>${c.desc}</p></button>`).join('');
+ openModal(`<h2>🧙 Escolhe a tua classe</h2><p class="muted">A classe define o teu estilo inicial. Podes consultar a descrição antes de escolher.</p><div class="class-grid">${cards}</div><div id="classDesc" class="tip" style="margin-top:10px"></div><div class="actions" style="margin-top:10px"><button onclick="closeModal()">Voltar</button><button class="primary" onclick="confirmClassAndStart()">Começar aventura</button></div>`); chooseClass(selectedClass);
+}
+function applyClassStart(){
+ const m=CLASS_INFO[s.classId||'neutral'].mods||{};
+ s.maxHp=Math.max(30,Math.floor(s.maxHp*(1+(m.hp||0)/100))); s.hp=s.maxHp;
+ s.maxEnergy=Math.max(20,Math.floor(s.maxEnergy*(1+(m.en||0)/100))); s.energy=s.maxEnergy;
+ if((m.gather||0)>0)s.skills.gather=Math.max(s.skills.gather,Math.floor((m.gather||0)/20));
+ if((m.agri||0)>0)s.skills.agri=Math.max(s.skills.agri,Math.floor((m.agri||0)/20));
+ if((m.craft||0)>0)s.skills.craft=Math.max(s.skills.craft,Math.floor((m.craft||0)/25));
+}
+function giveStarterEquipment(){
+ const starters=['leatherHelmet','leatherChest','explorerBoots2','leatherPants','ironSword','buckler'];
+ for(const k of starters)s.inv[k]=(s.inv[k]||0)+1;
+}
+function confirmClassAndStart(){
+ closeModal(); s.classId=selectedClass; applyDifficultyStart(); applyClassStart(); giveStarterEquipment(); localStorage.setItem(KEY,JSON.stringify(s)); startGame(); tutorial(); showTutorial();
+}
+function newGame(){s=defaults();s.name=(document.getElementById('nameInput').value.trim()||'Aventureiro').slice(0,20);s.mode=selectedMode;applyDifficultyStart();selectedClass='neutral';showClassChooser()}
+function startCoopGame(m){ closeCoop(); if(typeof selectMode==='function')selectMode(m.difficulty||coopCfg.difficulty); document.getElementById('nameInput').value=coopName; s=defaults();s.name=coopName;s.mode=m.difficulty||coopCfg.difficulty;applyDifficultyStart();selectedClass='neutral';showClassChooser(); }
+function classAttributeHTML(){const c=CLASS_INFO[s.classId||'neutral'];return `<div class="attr"><b>Classe</b><span>${c.icon} ${c.name}</span></div><div class="attr"><b>Força</b><span>${classBonus('str')>=0?'+':''}${classBonus('str')}</span></div><div class="attr"><b>Defesa</b><span>${classBonus('def')>=0?'+':''}${classBonus('def')+equipmentBonus('def')}</span></div><div class="attr"><b>Agilidade</b><span>${classBonus('agi')>=0?'+':''}${classBonus('agi')}</span></div><div class="attr"><b>Energia</b><span>${classBonus('en')>=0?'+':''}${classBonus('en')+equipmentBonus('en')}%</span></div>`}
+function equipItem(k){const x=EQUIP[k];if(!x||!s.inv[k])return;const slot=x.slot;const old=s.equip[slot];if(old)s.inv[old]=(s.inv[old]||0)+1;s.inv[k]--;s.equip[slot]=k;if(slot==='weaponMain')s.equip.weapon=x.n;if(slot==='chest')s.equip.armor=x.n;setEvent(`🛡️ Equipaste ${x.n}.`,'good','Equipamento');render('inventory')}
+function unequipItem(slot){const k=s.equip[slot];if(!k)return;s.inv[k]=(s.inv[k]||0)+1;s.equip[slot]=null;if(slot==='weaponMain')s.equip.weapon='Faca de viajante';if(slot==='chest')s.equip.armor='Roupa simples';setEvent('🎒 Equipamento removido.','good','Equipamento');render('inventory')}
+function itemRow(k,v){const x=ITEM[k];if(!x||!v)return '';const use=['food','potion','bandage','mushroom','map','sunroot','moonberry','emberpepper','crystalflower','staminaTea','honeyTea','magicTonic','fishingNet','treasureCompass','smokeBomb','luckyCharm','repairKit','honey','berry'].includes(k);const eq=!!EQUIP[k];return `<div class="item"><div class="item-main"><div class="item-icon">${x.i}</div><div><div class="item-name">${x.n} <span class="badge">${v}</span></div><div class="item-desc">${x.d}</div></div></div><div class="item-actions">${eq?`<button onclick="equipItem('${k}')">Equipar</button><button onclick="openGift('${k}')">🎁 Presentear</button>`:''}${use?`<button onclick="useItem('${k}')">Usar</button>`:''}</div></div>`}
+function equipmentPanel(){const slots=[['helmet','⛑️','Capacete'],['chest','🦺','Peitoral'],['boots','🥾','Botas'],['pants','👖','Calças'],['weaponMain','⚔️','Arma principal'],['weaponSecondary','🛡️','Arma secundária']];return `<section class="panel"><h2>🛡️ Equipamento</h2><div class="equip-grid">${slots.map(([slot,ic,n])=>{const k=s.equip?.[slot],x=k?EQUIP[k]:null;return `<div class="equip-slot"><b>${ic} ${n}</b><div class="equip-item">${x?`${x.i} ${x.n}`:'— vazio —'}</div>${x?`<button onclick="unequipItem('${slot}')">Desequipar</button>`:''}</div>`}).join('')}</div><p class="muted" style="margin-top:8px">Classe: ${CLASS_INFO[s.classId||'neutral'].icon} ${CLASS_INFO[s.classId||'neutral'].name}</p></section>`}
+const OLD_RENDER_V13=render;
+render=function(tab=currentTab){
+  OLD_RENDER_V13(tab); if(tab!=='inventory')return;
+  const c=document.getElementById('content'); if(!c)return;
+  const panels=c.querySelectorAll('.panel'); if(panels.length)panels[0].insertAdjacentHTML('afterbegin',equipmentPanel());
+  const filt=panels[0]?.querySelector('.filterbar'); if(filt&&!filt.innerHTML.includes('Equipamento'))filt.insertAdjacentHTML('beforeend',`<button onclick="invFilter='equipment';render('inventory')" class="${invFilter==='equipment'?'selected':''}">🛡️ Equipamento</button>`);
+  const attrs=c.querySelector('.attr-grid'); if(attrs)attrs.insertAdjacentHTML('afterbegin',classAttributeHTML());
+  if(invFilter==='equipment'){const list=panels[0];const search=list?.querySelector('.qolbar'); if(list)list.querySelectorAll('.item').forEach(el=>el.remove()); const holder=document.createElement('div');holder.innerHTML=Object.keys(EQUIP).filter(k=>(s.inv[k]||0)>0&&(!window.invSearch||EQUIP[k].n.toLowerCase().includes(String(window.invSearch).toLowerCase()))).map(k=>itemRow(k,s.inv[k])).join('')||'<p class="muted">Nenhum equipamento na bolsa.</p>';list.appendChild(holder)}
+}
+function getPartyRecipients(){return (coopPlayers||[]).filter(p=>p.id&&p.id!==coopPlayerId)}
+function openGift(k){if(!EQUIP[k]&&!ITEM[k])return;const players=getPartyRecipients();if(!players.length)return alert('Não há outro jogador na party.');openModal(`<h2>🎁 Presentear ${ITEM[k].i} ${ITEM[k].n}</h2><p class="muted">Escolhe o jogador que vai receber 1 unidade.</p><div class="grid">${players.map(p=>`<button class="card" onclick="giftItem('${k}','${p.id}')">👤 ${escapeHtml(p.name)}</button>`).join('')}</div><button style="margin-top:10px" onclick="closeModal()">Cancelar</button>`)}
+function sendGiftToTarget(targetId,k){
+ if(!s.inv[k])return false; const p=coopPlayers.find(x=>x.id===targetId); if(!p)return false;
+ const payload={type:'gift',fromId:coopPlayerId,item:k,qty:1};
+ if(coopHost){const conn=coopConnections.find(c=>c.playerId===targetId);if(!conn||!conn.open)return false;conn.send(payload);s.inv[k]--;setEvent(`🎁 Deste 1× ${ITEM[k].n} a ${p.name}.`,'good','Coop');render('inventory');return true}
+ const conn=coopConnections[0];if(!conn||!conn.open)return false;conn.send(payload);return true;
+}
+function giftItem(k,targetId){if(!s.inv[k])return;closeModal();if(!coopRoom)return alert('O presente só pode ser enviado durante uma party Coop.');if(!sendGiftToTarget(targetId,k))alert('Não foi possível enviar o presente.');}
+function receiveGift(m){const q=Math.max(1,Math.min(10,Number(m.qty)||1)),k=String(m.item||'');if(!ITEM[k]||q<1)return;s.inv[k]=(s.inv[k]||0)+q;setEvent(`🎁 Recebeste ${q}× ${ITEM[k].n}!`,'good','Presente');render(currentTab||'inventory');saveGame()}
+function appendCoopChat(name,text,photo){const card=document.getElementById('coopCard');if(!card)return;const chat=card.querySelector('.coop-chat');if(!chat)return;const d=document.createElement('div');d.className='coop-msg';d.innerHTML=`<b>${escapeHtml(name)}:</b> ${escapeHtml(text||'')}${photo?`<br><img class="chat-photo" src="${photo}" alt="Foto enviada no chat">`:''}`;chat.appendChild(d);chat.scrollTop=chat.scrollHeight}
+function compressChatPhoto(file,cb){const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const max=520,scale=Math.min(1,max/Math.max(im.width,im.height)),w=Math.max(1,Math.round(im.width*scale)),h=Math.max(1,Math.round(im.height*scale));const cv=document.createElement('canvas');cv.width=w;cv.height=h;cv.getContext('2d').drawImage(im,0,0,w,h);cb(cv.toDataURL('image/jpeg',.72))};im.src=r.result};r.readAsDataURL(file)}
+function sendCoopPhoto(file){if(!file)return;compressChatPhoto(file,photo=>{const msg={type:'chat',name:coopName,text:'',photo};coopChatHistory.push({name:coopName,text:'',photo});coopChatHistory=coopChatHistory.slice(-50);appendCoopChat(coopName,'',photo);if(coopHost)hostBroadcast(msg);else if(coopConnections[0]?.open)coopConnections[0].send({type:'chat',text:'',photo});});}
+function sendCoopChat(){const i=document.getElementById('coopChatInput');if(!i||!i.value.trim())return;const text=i.value.trim().slice(0,180);const msg={type:'chat',name:coopName,text};if(coopHost){coopChatHistory.push({name:coopName,text});coopChatHistory=coopChatHistory.slice(-50);appendCoopChat(coopName,text);hostBroadcast(msg)}else if(coopConnections[0]?.open)coopConnections[0].send({type:'chat',text});i.value=''}
+function renderPartyLobby(note=''){
+ const meHost=coopHost;document.getElementById('coopCard').innerHTML=`<h2>🏕️ Party <span class="badge">${escapeHtml(coopRoom||'')}</span></h2><div class="coop-code">${escapeHtml(coopRoom||'')}</div><p class="muted" style="text-align:center">${coopCfg.private?'🔒 Privada · partilha código + senha':'🌐 Partilha o código com o teu amigo'}</p>${note?`<div class="tip">${escapeHtml(note)}</div>`:''}<section class="panel" style="margin:10px 0"><b>👥 Jogadores ${coopPlayers.length}/${coopCfg.maxPlayers}</b><div class="coop-players" style="margin-top:8px">${coopPlayers.map(p=>`<div class="coop-player"><span>🧙 ${escapeHtml(p.name)} ${p.id===coopPlayerId?'(tu)':''}</span><span class="coop-status"><i class="coop-dot"></i>${p.host?'Host':'Ligado'}</span></div>`).join('')}</div></section><div class="card"><b>⚙️ ${escapeHtml(String(coopCfg.difficulty).toUpperCase())}</b><p>Todos usam a mesma dificuldade nesta sessão.</p></div><section class="panel" style="margin:10px 0"><b>💬 Chat</b><div class="coop-chat" style="margin-top:8px"></div><div class="actions" style="margin-top:8px"><input id="coopChatInput" maxlength="180" placeholder="Escreve uma mensagem" onkeydown="if(event.key==='Enter')sendCoopChat()"><button onclick="sendCoopChat()">Enviar</button></div><label class="photo-btn">📷 Enviar foto da galeria<input id="coopPhotoInput" type="file" accept="image/*" style="display:none" onchange="sendCoopPhoto(this.files[0]);this.value=''"> </label></section><div class="actions" style="margin-top:10px">${meHost?`<button class="primary" onclick="startParty()" ${coopPlayers.length<2?'disabled':''}>🚀 Começar aventura</button>`:''}<button onclick="leaveParty()">Sair da party</button></div>`;
+ const chat=document.getElementById('coopCard').querySelector('.coop-chat');if(chat)coopChatHistory.forEach(m=>appendCoopChat(m.name,m.text,m.photo));if(chat)chat.scrollTop=chat.scrollHeight;
+}
+const OLD_ATTACH_HOST_V13=attachHostConnection;
+attachHostConnection=function(conn){
+ coopConnections.push(conn);conn.on('open',()=>{});conn.on('data',data=>{if(!data||typeof data!=='object')return;if(data.type==='join'){if(coopPlayers.length>=coopCfg.maxPlayers){conn.send({type:'error',message:'A party já está cheia.'});conn.close();return}if(coopCfg.private&&String(data.password||'')!==String(coopHostSecret)){conn.send({type:'error',message:'Senha incorreta.'});conn.close();return}if(coopPlayers.some(p=>p.id===data.playerId)){conn.close();return}const p={id:String(data.playerId||''),name:String(data.name||'Aventureiro').slice(0,20),host:false};coopPlayers.push(p);conn.playerId=p.id;conn.playerName=p.name;conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,players:coopPlayers,chat:coopChatHistory});hostBroadcastParty();renderPartyLobby('✅ Um jogador entrou na party.');return}if(!conn.playerId)return;if(data.type==='chat'){const chatMsg={type:'chat',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180),photo:data.photo||null};coopChatHistory.push({name:chatMsg.name,text:chatMsg.text,photo:chatMsg.photo});coopChatHistory=coopChatHistory.slice(-50);appendCoopChat(chatMsg.name,chatMsg.text,chatMsg.photo);hostBroadcast(chatMsg);return}if(data.type==='gift'){const k=String(data.item||''),q=1;if(!ITEM[k]||!s.inv[k])return;const target=coopPlayers.find(p=>p.id===String(data.targetId||''));if(target)return;/* participants send target to host through targetId; legacy fallback below */return}if(data.type==='giftRequest'){const k=String(data.item||''),targetId=String(data.targetId||'');if(!ITEM[k]||!s.inv[k]||!targetId)return;const target=coopPlayers.find(p=>p.id===targetId);if(!target)return;const out=coopConnections.find(c=>c.playerId===targetId);if(!out||!out.open)return;conn.send({type:'giftAccepted',item:k,qty:1});out.send({type:'gift',item:k,qty:1,from:conn.playerName||'Aventureiro'});s.inv[k]--;setEvent(`🎁 Deste 1× ${ITEM[k].n} a ${target.name}.`,'good','Coop');render(currentTab||'inventory');return}if(data.type==='event'){hostBroadcast({type:'event',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180)});return}if(data.type==='leave')removeHostPlayer(conn.playerId,conn)});conn.on('close',()=>{if(conn.playerId)removeHostPlayer(conn.playerId,conn)});conn.on('error',()=>{if(conn.playerId)removeHostPlayer(conn.playerId,conn)})
+}
+function sendGiftToTarget(targetId,k){if(!s.inv[k])return false;const p=coopPlayers.find(x=>x.id===targetId);if(!p)return false;if(coopHost){const conn=coopConnections.find(c=>c.playerId===targetId);if(!conn?.open)return false;conn.send({type:'gift',item:k,qty:1,from:coopName});s.inv[k]--;setEvent(`🎁 Deste 1× ${ITEM[k].n} a ${p.name}.`,'good','Coop');render('inventory');return true}else{const conn=coopConnections[0];if(!conn?.open)return false;conn.send({type:'giftRequest',item:k,targetId});return true}}
+const OLD_HANDLE_JOINER_V13=handleJoinerMessage;
+handleJoinerMessage=function(m){if(m.type==='gift'){receiveGift(m);return}if(m.type==='giftAccepted'){s.inv[m.item]=Math.max(0,(s.inv[m.item]||0)-1);setEvent(`🎁 Entregaste 1× ${ITEM[m.item]?.n||m.item}.`,'good','Coop');render('inventory');return}if(m.type==='chat'){appendCoopChat(m.name,m.text,m.photo);return}OLD_HANDLE_JOINER_V13(m)};
+</script>
+<style>
+.class-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:52vh;overflow:auto}.class-card{text-align:left;padding:11px;cursor:pointer}.class-card.selected{border-color:var(--gold);box-shadow:0 0 0 1px #f5c85b55 inset}.class-card p{font-size:11px!important}.equip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.equip-slot{background:#11161f;border:1px solid var(--line);border-radius:12px;padding:10px}.equip-slot b{font-size:12px}.equip-item{min-height:34px;padding:7px 0;font-size:12px;color:var(--muted)}.item-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.item-actions button{min-height:40px;padding:7px 9px;font-size:11px}.photo-btn{display:block;margin-top:8px;text-align:center;padding:11px;border:1px dashed var(--line);border-radius:12px;background:#111925;font-weight:800;cursor:pointer}.chat-photo{display:block;max-width:220px;max-height:180px;width:auto;height:auto;border-radius:10px;margin-top:5px;border:1px solid var(--line)}
+@media(max-width:520px){.class-grid,.equip-grid{grid-template-columns:1fr}}
+</style>
+
+<script>
+/* V13.1 gameplay balance + gift-to-host */
+const OLD_ATTACK_V13=attackEnemy;
+attackEnemy=function(){
+ const c=combatState;if(!c)return;
+ const main=s.equip?.weaponMain, eq=main&&EQUIP[main]?EQUIP[main]:null;
+ const base=(eq?.damage||0)||({sword:10,bow:9,axe:12,staff:8,dagger:8,mace:9}[eq?.kind]||7);
+ const classStr=classBonus('str');
+ const bonus=Math.max(0,Math.floor(classStr/5))+skillLevel('combat')*2+(s.equip?.enchant||0)*2;
+ const dmg=Math.max(1,Math.floor((rand(base,base+6)+bonus)*(1+skillLevel('combat')*.05)*(1+(classStr>0?classStr/500:0))*(hasEffect('fury')?1.2:1)));
+ c.ehp-=dmg;if(c.ehp<=0){endCombatWin(c,(c.boss?90:10)+rand(0,18));return}enemyTurn();if(combatState)renderCombat();
+};
+const OLD_SEND_GIFT_V13=sendGiftToTarget;
+sendGiftToTarget=function(targetId,k){
+ if(!s.inv[k])return false;const p=coopPlayers.find(x=>x.id===targetId);if(!p)return false;
+ if(coopHost){const conn=coopConnections.find(c=>c.playerId===targetId);if(!conn?.open)return false;conn.send({type:'gift',item:k,qty:1,from:coopName});s.inv[k]--;setEvent(`🎁 Deste 1× ${ITEM[k].n} a ${p.name}.`,'good','Coop');render('inventory');return true}
+ const conn=coopConnections[0];if(!conn?.open)return false;conn.send({type:'giftRequest',item:k,targetId});return true;
+};
+const OLD_ATTACH_HOST_V131=attachHostConnection;
+attachHostConnection=function(conn){
+ coopConnections.push(conn);conn.on('open',()=>{});conn.on('data',data=>{
+  if(!data||typeof data!=='object')return;
+  if(data.type==='join'){
+   if(coopPlayers.length>=coopCfg.maxPlayers){conn.send({type:'error',message:'A party já está cheia.'});conn.close();return}
+   if(coopCfg.private&&String(data.password||'')!==String(coopHostSecret)){conn.send({type:'error',message:'Senha incorreta.'});conn.close();return}
+   if(coopPlayers.some(p=>p.id===data.playerId)){conn.close();return}
+   const p={id:String(data.playerId||''),name:String(data.name||'Aventureiro').slice(0,20),host:false};coopPlayers.push(p);conn.playerId=p.id;conn.playerName=p.name;
+   conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,players:coopPlayers,chat:coopChatHistory});hostBroadcastParty();renderPartyLobby('✅ Um jogador entrou na party.');return;
+  }
+  if(!conn.playerId)return;
+  if(data.type==='chat'){const chatMsg={type:'chat',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180),photo:data.photo||null};coopChatHistory.push({name:chatMsg.name,text:chatMsg.text,photo:chatMsg.photo});coopChatHistory=coopChatHistory.slice(-50);appendCoopChat(chatMsg.name,chatMsg.text,chatMsg.photo);hostBroadcast(chatMsg);return}
+  if(data.type==='giftRequest'){
+   const k=String(data.item||''),targetId=String(data.targetId||'');if(!ITEM[k]||!s.inv[k]||!targetId)return;
+   const target=coopPlayers.find(p=>p.id===targetId);if(!target)return;
+   if(targetId===coopPlayerId){s.inv[k]--;conn.send({type:'giftAccepted',item:k,qty:1});setEvent(`🎁 Recebeste 1× ${ITEM[k].n} de ${conn.playerName||'Aventureiro'}.`,'good','Presente');render(currentTab||'inventory');saveGame();return}
+   const out=coopConnections.find(c=>c.playerId===targetId);if(!out?.open)return;
+   conn.send({type:'giftAccepted',item:k,qty:1});out.send({type:'gift',item:k,qty:1,from:conn.playerName||'Aventureiro'});s.inv[k]--;setEvent(`🎁 Deste 1× ${ITEM[k].n} a ${target.name}.`,'good','Coop');render(currentTab||'inventory');return;
+  }
+  if(data.type==='event'){hostBroadcast({type:'event',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180)});return}
+  if(data.type==='leave')removeHostPlayer(conn.playerId,conn);
+ });conn.on('close',()=>{if(conn.playerId)removeHostPlayer(conn.playerId,conn)});conn.on('error',()=>{if(conn.playerId)removeHostPlayer(conn.playerId,conn)});
+};
+</script>
+<script>
+/* =========================================================
+   V14 — Coop resume, full gifting, farmer, regen, compact crafting/selling
+   ========================================================= */
+(function(){
+  const V14_PLAYER_KEY='valedouro_coop_player_id';
+  const V14_RECONNECT_MS=5*60*1000;
+  function stableId(){
+    let id=localStorage.getItem(V14_PLAYER_KEY);
+    if(!id){id='p-'+(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now());localStorage.setItem(V14_PLAYER_KEY,id)}
+    return id;
+  }
+  window.v14StableId=stableId;
+
+  /* ---------- New pets ---------- */
+  companions.push(
+    {name:'Lontra',icon:'🦦',req:{skill:'fish',level:2},bonus:'+1 energia por pesca e +5% chance de captura',type:'fish',cost:55},
+    {name:'Coruja',icon:'🦉',req:{skill:'fortune',level:3},bonus:'+8% Fortuna e +1 XP extra em eventos',type:'fortune',cost:60},
+    {name:'Caracol',icon:'🐌',req:{skill:'agri',level:2},bonus:'+5% rendimento da quinta e +2 HP de regen',type:'agri',cost:55}
+  );
+  const oldPetBonus=petBonus;
+  petBonus=function(name){
+    const p=s.pets?.[name]; if(!p)return '';
+    if(name==='Lontra')return `+${p.level}% captura e +${p.level} energia após pesca`;
+    if(name==='Coruja')return `+${p.level*4}% Fortuna e +${p.level} XP em eventos`;
+    if(name==='Caracol')return `+${p.level*3}% rendimento da quinta e +${p.level*2} HP/min`;
+    return oldPetBonus(name);
+  };
+  const oldSetPet=setPet;
+  setPet=function(name){
+    if(!s.pets[name])s.pets[name]={level:1,xp:0};
+    return oldSetPet(name);
+  };
+
+  /* ---------- Farmer class ---------- */
+  Object.assign(CLASS_INFO,{farmer:{name:'Fazendeiro',icon:'🌾',desc:'Pouco dano e pouca Vida, mas muita Energia. As plantas têm 30% de chance de render o dobro.',mods:{str:-15,hp:-25,en:75,agri:30},weapons:'Ferramentas leves e armas simples.',doubleHarvest:.30}});
+
+  /* ---------- Vitality + Vigor skills ---------- */
+  Object.assign(SKILL_INFO,{
+    vitality:{name:'Vitalidade',icon:'❤️',bonus:l=>l*8,effect:l=>`+${l*8} Vida máxima; +${l} HP/min`},
+    vigor:{name:'Vigor',icon:'⚡',bonus:l=>l*10,effect:l=>`+${l*10} Energia máxima; +${l} energia/min`}
+  });
+  const oldSanitizeV14=sanitize;
+  sanitize=function(x){
+    const z=oldSanitizeV14(x);
+    z.skills=Object.assign({vitality:0,vigor:0},z.skills||{});
+    z.pets=z.pets||{};
+    for(const p of companions)z.pets[p.name]=Object.assign({level:1,xp:0},z.pets[p.name]||{});
+    z.regenRemainder=Object.assign({hp:0,energy:0},z.regenRemainder||{});
+    z.classId=CLASS_INFO[z.classId]?z.classId:'neutral';
+    return z;
+  };
+
+  function skillRegen(type){
+    if(type==='hp')return Math.max(0,Number(s.skills?.vitality||0));
+    return Math.max(0,Number(s.skills?.vigor||0));
+  }
+  function effectiveEquipmentStat(stat){
+    let n=0;for(const slot of ['helmet','chest','boots','pants','weaponMain','weaponSecondary']){const k=s.equip?.[slot];if(k&&EQUIP[k])n+=Number(EQUIP[k][stat]||0)}return n;
+  }
+  function passiveTotals(){
+    return {
+      hpRegen:skillRegen('hp')+effectiveEquipmentStat('hpRegen'),
+      energyRegen:skillRegen('energy')+effectiveEquipmentStat('energyRegen')
+    };
+  }
+  window.v14PassiveTotals=passiveTotals;
+  function applyPassiveRegen(min){
+    if(!min||!s)return;
+    const p=passiveTotals();
+    if(!s.regenRemainder)s.regenRemainder={hp:0,energy:0};
+    s.regenRemainder.hp+=p.hpRegen*min;
+    s.regenRemainder.energy+=p.energyRegen*min;
+    const dh=Math.floor(s.regenRemainder.hp),de=Math.floor(s.regenRemainder.energy);
+    s.regenRemainder.hp-=dh;s.regenRemainder.energy-=de;
+    if(dh>0)s.hp=Math.min(s.maxHp,s.hp+dh);
+    if(de>0)s.energy=Math.min(s.maxEnergy,s.energy+de);
+  }
+  const oldAdvanceTimeV14=advanceTime;
+  advanceTime=function(min,events=true){oldAdvanceTimeV14(min,events);applyPassiveRegen(Math.max(0,Math.floor(min)));};
+
+  /* ---------- Max HP / Energy from skill + equipped item ---------- */
+  function recalcEquippedVitals(){
+    if(!s)return;
+    if(!Number.isFinite(s.baseMaxHp))s.baseMaxHp=s.maxHp;
+    if(!Number.isFinite(s.baseMaxEnergy))s.baseMaxEnergy=s.maxEnergy;
+    const targetHp=Math.max(1,Math.floor(s.baseMaxHp + (s.skills?.vitality||0)*8 + effectiveEquipmentStat('hp')));
+    const targetEnergy=Math.max(1,Math.floor(s.baseMaxEnergy + (s.skills?.vigor||0)*10 + effectiveEquipmentStat('en')));
+    s.hp=Math.min(targetHp,Math.max(0,s.hp||0)+(targetHp-(s.maxHp||targetHp)>0?0:0));
+    s.maxHp=targetHp;s.maxEnergy=targetEnergy;s.hp=Math.min(s.hp,s.maxHp);s.energy=Math.min(s.energy,s.maxEnergy);
+  }
+  const oldSkillV14=skill;
+  skill=function(k){
+    const before=Number(s.skills?.[k]||0);
+    oldSkillV14(k);
+    const after=Number(s.skills?.[k]||0);
+    if(after>before&&(k==='vitality'||k==='vigor')){
+      if(k==='vitality'){s.maxHp+=8;s.hp+=8}
+      if(k==='vigor'){s.maxEnergy+=10;s.energy+=10}
+      saveGame();render('skills');
+    }
+  };
+
+  /* ---------- Equipment passive attributes ---------- */
+  Object.assign(EQUIP,
+    {ironHelmet:{hp:6,hpRegen:1},leatherHelmet:{hp:3,energyRegen:1},ironChest:{hp:15,hpRegen:1},leatherChest:{hp:6,energyRegen:1},ironBoots:{hp:3,energyRegen:1},explorerBoots2:{energyRegen:2},ironPants:{hp:7,hpRegen:1},leatherPants:{hp:4,energyRegen:1},ironSword:{energyRegen:1},crystalSword:{hpRegen:1},hunterBow:{energyRegen:2},battleAxe:{hp:10,energyRegen:-1},arcaneStaff:{en:12,energyRegen:2},ironDagger:{energyRegen:2},mace:{hpRegen:1},buckler:{hp:8},towerShield2:{hp:15,hpRegen:1},magicOrb:{en:8,energyRegen:2}}
+  );
+  const oldEquipItemV14=equipItem;
+  equipItem=function(k){
+    const x=EQUIP[k];if(!x)return oldEquipItemV14(k);
+    const old=s.equip?.[x.slot], oldHp=old&&EQUIP[old]?Number(EQUIP[old].hp||0):0, oldEn=old&&EQUIP[old]?Number(EQUIP[old].en||0):0;
+    const beforeHp=s.maxHp,beforeEn=s.maxEnergy;
+    oldEquipItemV14(k);
+    if(s.equip?.[x.slot]===k){s.maxHp+=Number(x.hp||0)-oldHp;s.maxEnergy+=Number(x.en||0)-oldEn;s.hp=Math.min(s.maxHp,s.hp+Math.max(0,Number(x.hp||0)-oldHp));s.energy=Math.min(s.maxEnergy,s.energy+Math.max(0,Number(x.en||0)-oldEn));saveGame();}
+  };
+  const oldUnequipItemV14=unequipItem;
+  unequipItem=function(slot){
+    const k=s.equip?.[slot],x=k&&EQUIP[k]?EQUIP[k]:null;
+    oldUnequipItemV14(slot);
+    if(x){s.maxHp=Math.max(1,s.maxHp-Number(x.hp||0));s.maxEnergy=Math.max(1,s.maxEnergy-Number(x.en||0));s.hp=Math.min(s.hp,s.maxHp);s.energy=Math.min(s.energy,s.maxEnergy);saveGame();}
+  };
+
+  /* ---------- Farmer harvest override ---------- */
+  harvest=function(){
+    const ready=s.farming.crops.filter(cropReady);
+    if(!ready.length){setEvent('🌱 Ainda não há plantas prontas.','bad','Quinta');render('farm');return}
+    s.farming.crops=s.farming.crops.filter(c=>!cropReady(c));let total=0;
+    for(const c of ready){
+      const p=PLANTS[c.type];let q=p.yield+Math.floor(skillLevel('agri')/2),mut='';
+      if(Math.random()<p.mutate+skillLevel('agri')*.02){mut=['golden','giant','charged'][rand(0,2)];if(mut==='golden'){q++;s.inv.goldenCrop++}if(mut==='giant'){q*=3;s.inv.giantCrop++}if(mut==='charged'){s.inv.chargedCrop++;addEffect('speed','Velocidade','⚡',180)}}
+      const farmer=String(s.classId||'neutral')==='farmer';
+      if(farmer && Math.random()<.30)q*=2;
+      s.inv[p.harvest]+=q;
+      if(c.type==='seedSunroot'&&currentHour()<18)addEffect('sunheal','Cura Solar','☀️',180);
+      if(c.type==='seedMoonberry'&&currentHour()>=18)addEffect('moonenergy','Energia Lunar','🌙',180);
+      if(c.type==='seedEmberpepper')addEffect('fury','Fúria','🔥',1440);
+      total+=q;log(`🌾 ${p.name}: +${q}${mut?` · MUTOU ${mut}`:''}${farmer?' · BÓNUS FAZENDEIRO':''}.`);
+    }
+    s.farming.harvested+=total;gainXP(8+total*3);setEvent(`🌾 Colheita: +${total} em ${ready.length} plantas.`,'good','Quinta');render('farm');saveGame();
+  };
+
+  /* ---------- Full gifting: every inventory item, including craftables ---------- */
+  itemRow=function(k,v){
+    const x=ITEM[k];if(!x||!v)return '';
+    const use=['food','potion','bandage','mushroom','map','sunroot','moonberry','emberpepper','crystalflower','staminaTea','honeyTea','magicTonic','fishingNet','treasureCompass','smokeBomb','luckyCharm','repairKit','honey','berry'].includes(k);
+    const eq=!!EQUIP[k];
+    return `<div class="item"><div class="item-main"><div class="item-icon">${x.i}</div><div><div class="item-name">${x.n} <span class="badge">${v}</span></div><div class="item-desc">${x.d}</div></div></div><div class="item-actions">${eq?`<button onclick="equipItem('${k}')">Equipar</button>`:''}<button onclick="openGift('${k}')">🎁 Presentear</button>${use?`<button onclick="useItem('${k}')">Usar</button>`:''}</div></div>`;
+  };
+
+  /* Fix participant → host gifting direction. */
+  const oldAttachHostV14=attachHostConnection;
+  attachHostConnection=function(conn){
+    coopConnections.push(conn);
+    conn.on('data',data=>{
+      if(!data||typeof data!=='object')return;
+      if(data.type==='giftRequest'){
+        const k=String(data.item||''),targetId=String(data.targetId||''),giverId=String(conn.playerId||'');
+        if(!ITEM[k]||!s.inv[k]||!giverId||!targetId)return;
+        const giver=coopPlayers.find(p=>p.id===giverId), target=coopPlayers.find(p=>p.id===targetId); if(!giver||!target||giverId===targetId)return;
+        if(!giver.online)return;
+        if(targetId===coopPlayerId){
+          s.inv[k]=(s.inv[k]||0)+1;conn.send({type:'giftAccepted',item:k,qty:1,targetId:coopPlayerId});
+          setEvent(`🎁 Recebeste 1× ${ITEM[k].n} de ${giver.name}.`,'good','Presente');saveGame();render('inventory');
+          return;
+        }
+        const out=coopConnections.find(c=>c.playerId===targetId);
+        if(!out?.open||target.online===false)return;
+        s.inv[k]--;conn.send({type:'giftAccepted',item:k,qty:1});out.send({type:'gift',item:k,qty:1,from:giver.name});
+        setEvent(`🎁 ${giver.name} enviou 1× ${ITEM[k].n} a ${target.name}.`,'good','Coop');return;
+      }
+      if(data.type==='gift'){
+        const k=String(data.item||''); if(!ITEM[k]||!s.inv[k])return; const targetId=String(data.targetId||'');
+        if(targetId){const out=coopConnections.find(c=>c.playerId===targetId);if(out?.open){s.inv[k]--;out.send({type:'gift',item:k,qty:1,from:coopName});}}
+      }
+    });
+    /* Keep the old lobby/chat/event handling too. */
+    oldAttachHostV14(conn);
+  };
+
+  /* ---------- Reconnection-safe party membership ---------- */
+  let coopStartedV14=false;
+  let coopRoomCreatedAt=0;
+  function partySaveKey(){return `valedouro_coop_session_${coopRoom}_${stableId()}`}
+  function saveCoopSession(){
+    try{if(coopRoom&&document.getElementById('game')&&!document.getElementById('game').classList.contains('hidden'))localStorage.setItem(partySaveKey(),JSON.stringify(sanitize(s)))}catch(e){}
+  }
+  window.saveCoopSession=saveCoopSession;
+  const oldSaveGameV14=saveGame;
+  saveGame=function(){const r=oldSaveGameV14.apply(this,arguments);saveCoopSession();return r};
+
+  const oldCreatePartyV14=createParty;
+  createParty=function(){
+    coopStartedV14=false;coopRoomCreatedAt=Date.now();
+    const r=oldCreatePartyV14.apply(this,arguments);
+    try{coopPlayerId=stableId();if(coopPlayers[0])coopPlayers[0].id=coopPlayerId;coopPlayers[0].online=true;coopPlayers[0].lastSeen=Date.now()}catch(e){}
+    return r;
+  };
+
+  function sendHostState(){
+    const state={type:'party',players:coopPlayers,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,hostId:coopPlayerId,started:coopStartedV14,chat:coopChatHistory.slice(-50)};
+    coopConnections.slice().forEach(c=>{try{if(c.open)c.send(state)}catch(e){}});
+  }
+  function scheduleStale(id){setTimeout(()=>{const p=coopPlayers.find(x=>x.id===id);if(!p)return;if(p.online===false&&Date.now()-(p.lastSeen||0)>=V14_RECONNECT_MS){coopPlayers=coopPlayers.filter(x=>x.id!==id);sendHostState();renderPartyLobby('⏳ O jogador não reconectou a tempo e saiu da party.')}},V14_RECONNECT_MS+250)}
+
+  const oldJoinPartyV14=joinParty;
+  joinParty=function(){
+    const result=oldJoinPartyV14.apply(this,arguments);
+    const stable=stableId();
+    const originalSend=coopConnections[0];
+    if(originalSend){
+      const originalOpen=originalSend.on;
+      /* Patch the join packet when the connection opens. */
+      originalSend.on('open',()=>{try{originalSend.send({type:'join',name:coopName,password:coopHostSecret,playerId:stable,online:true,resume:true})}catch(e){}});
+      coopPlayerId=stable;
+    }
+    return result;
+  };
+
+  /* Replace the host connection handler completely so a reconnect reclaims the same slot. */
+  const v14InstallHostHandler=()=>{
+    attachHostConnection=function(conn){
+      coopConnections.push(conn);
+      conn.on('data',data=>{
+        if(!data||typeof data!=='object')return;
+        if(data.type==='join'){
+          if(coopCfg.private&&String(data.password||'')!==String(coopHostSecret)){conn.send({type:'error',message:'Senha incorreta.'});conn.close();return}
+          const id=String(data.playerId||'');
+          if(!id){conn.send({type:'error',message:'Identificador inválido.'});conn.close();return}
+          let p=coopPlayers.find(x=>x.id===id);
+          if(p){
+            p.name=String(data.name||p.name||'Aventureiro').slice(0,20);p.online=true;p.lastSeen=Date.now();
+            conn.playerId=id;conn.playerName=p.name;
+            coopConnections=coopConnections.filter(c=>c!==conn&&c.playerId!==id);coopConnections.push(conn);
+            conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,players:coopPlayers,chat:coopChatHistory,started:coopStartedV14,resume:true});
+            sendHostState();renderPartyLobby('✅ Reconectado à mesma party.');return;
+          }
+          const active=coopPlayers.filter(x=>x.online!==false).length;
+          if(active>=coopCfg.maxPlayers){conn.send({type:'error',message:'A party já está cheia.'});conn.close();return}
+          p={id,name:String(data.name||'Aventureiro').slice(0,20),host:false,online:true,lastSeen:Date.now()};
+          coopPlayers.push(p);conn.playerId=id;conn.playerName=p.name;
+          conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,players:coopPlayers,chat:coopChatHistory,started:coopStartedV14,resume:false});
+          sendHostState();renderPartyLobby('✅ Um jogador entrou na party.');return;
+        }
+        if(!conn.playerId)return;
+        const p=coopPlayers.find(x=>x.id===conn.playerId);if(p)p.lastSeen=Date.now();
+        if(data.type==='chat'){
+          const msg={type:'chat',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180),photo:data.photo||null};
+          coopChatHistory.push({name:msg.name,text:msg.text,photo:msg.photo});coopChatHistory=coopChatHistory.slice(-50);appendCoopChat(msg.name,msg.text,msg.photo);coopConnections.slice().forEach(c=>{try{if(c.open)c.send(msg)}catch(e){}});return;
+        }
+        if(data.type==='event'){hostBroadcast({type:'event',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180)});return}
+        if(data.type==='giftRequest'){
+          const k=String(data.item||''),targetId=String(data.targetId||'');
+          if(!ITEM[k]||!s.inv[k]||!targetId)return;
+          const giver=coopPlayers.find(x=>x.id===conn.playerId),target=coopPlayers.find(x=>x.id===targetId);if(!giver||!target)return;
+          if(targetId===coopPlayerId){s.inv[k]++;conn.send({type:'giftAccepted',item:k,qty:1});setEvent(`🎁 Recebeste 1× ${ITEM[k].n} de ${giver.name}.`,'good','Presente');saveGame();render('inventory');return}
+          const out=coopConnections.find(c=>c.playerId===targetId&&c.open);if(!out||target.online===false)return;
+          s.inv[k]--;conn.send({type:'giftAccepted',item:k,qty:1});out.send({type:'gift',item:k,qty:1,from:giver.name});return;
+        }
+        if(data.type==='leave'){const q=coopPlayers.find(x=>x.id===conn.playerId);if(q){q.online=false;q.lastSeen=Date.now();}sendHostState();renderPartyLobby('🔌 Um jogador desligou-se. Pode reconectar durante 5 minutos.');scheduleStale(conn.playerId);return}
+      });
+      const markOffline=()=>{const q=coopPlayers.find(x=>x.id===conn.playerId);if(q){q.online=false;q.lastSeen=Date.now();}coopConnections=coopConnections.filter(c=>c!==conn);sendHostState();if(conn.playerId)renderPartyLobby('🔌 Um jogador perdeu a ligação. Pode reconectar durante 5 minutos.');if(conn.playerId)scheduleStale(conn.playerId)};
+      conn.on('close',markOffline);conn.on('error',markOffline);
+    };
+  };
+  v14InstallHostHandler();
+
+  /* Rework join to stable identity after the original has built its peer. */
+  const v14JoinCurrent=joinParty;
+  joinParty=function(){
+    coopName=(document.getElementById('joinName').value.trim()||'Aventureiro').slice(0,20);
+    const code=document.getElementById('joinCode').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6); if(code.length!==6)return alert('O código deve ter 6 caracteres.');
+    const password=document.getElementById('joinPass').value||'';
+    coopRoom=code;coopHost=false;coopHostSecret=password;coopChatHistory=[];
+    if(typeof Peer==='undefined')return alert('A biblioteca de Coop não carregou. Verifica a internet.');
+    coopResetPeer();coopStatus('A ligar à party…');
+    coopPeer=new Peer();
+    coopPeer.on('open',()=>{
+      coopConnected=true;coopPlayerId=stableId();
+      const conn=coopPeer.connect(coopPeerIdFromCode(code),{reliable:true,metadata:{name:coopName,stableId:coopPlayerId}});coopConnections=[conn];
+      conn.on('open',()=>conn.send({type:'join',name:coopName,password,playerId:coopPlayerId,online:true,resume:true}));
+      conn.on('data',handleJoinerMessage);
+      conn.on('close',()=>{if(coopRoom)renderPartyLobby('🔌 Ligação perdida. Reabre o Coop e usa o mesmo código para reconectar.')});
+      conn.on('error',()=>alert('A ligação à party falhou. Tenta novamente com o mesmo código.'));
+    });
+    coopPeer.on('error',err=>{console.warn('PeerJS',err);if(err&&err.type==='network')alert('Sem ligação ao serviço Coop.')});
+  };
+
+  /* ---------- Resume same local session instead of creating a new instance ---------- */
+  function resumeCoopGame(m){
+    closeCoop();selectMode(m.difficulty||coopCfg.difficulty);document.getElementById('nameInput').value=coopName;
+    let loaded=false;
+    try{const raw=localStorage.getItem(partySaveKey());if(raw){s=sanitize(JSON.parse(raw));loaded=true}}catch(e){loaded=false}
+    if(loaded){coopStartedV14=true;startGame();setEvent(`👥 Reconectado à aventura Coop · ${coopRoom}.`,'good','Coop');render(s.currentTab||'explore');saveCoopSession();}
+    else {s=defaults();s.name=coopName;s.mode=m.difficulty||coopCfg.difficulty;applyDifficultyStart();selectedClass='neutral';showClassChooser();}
+  }
+  const oldHandleJoinerV14=handleJoinerMessage;
+  handleJoinerMessage=function(m){
+    if(m.type==='welcome'||m.type==='party'){
+      coopPlayers=m.players||[];coopCfg.maxPlayers=m.maxPlayers||coopCfg.maxPlayers;coopCfg.difficulty=m.difficulty||coopCfg.difficulty;coopCfg.private=!!m.private;
+      if(Array.isArray(m.chat))coopChatHistory=m.chat.slice(-50);
+      if(m.type==='welcome'&&m.started&&m.resume){resumeCoopGame(m);return}
+      renderPartyLobby(m.type==='welcome'?'✅ Entraste na party.':'');return;
+    }
+    oldHandleJoinerV14(m);
+  };
+  const oldStartPartyV14=startParty;
+  startParty=function(){
+    if(!coopHost)return;
+    coopStartedV14=true;
+    const msg={type:'started',difficulty:coopCfg.difficulty,room:coopRoom,players:coopPlayers,started:true,resume:false};
+    hostBroadcast(msg);startCoopGame(msg);
+  };
+  const oldStartCoopGameV14=startCoopGame;
+  startCoopGame=function(m){
+    if(m?.resume){resumeCoopGame(m);return}
+    coopStartedV14=true;return oldStartCoopGameV14(m);
+  };
+
+  /* When the class is finally confirmed, save a coop-specific checkpoint. */
+  const oldConfirmClassV14=confirmClassAndStart;
+  confirmClassAndStart=function(){const r=oldConfirmClassV14.apply(this,arguments);saveCoopSession();return r};
+
+  /* ---------- Compact crafting: only crafts currently possible ---------- */
+  function canCraftNow(k,r){return canReq(r.req)&&Object.entries(r.cost||{}).every(([a,b])=>(s.inv[a]||0)>=b)}
+  function renderCompactCraft(){
+    const c=document.getElementById('content');if(!c)return;
+    const options=Object.entries(recipes).filter(([k,r])=>canCraftNow(k,r));
+    const active=s.activeCraft?recipes[s.activeCraft.key]:null;
+    c.innerHTML=`<section class="panel"><h2>🛠️ Oficina</h2>${active?`<div class="craftqueue"><b>🔥 ${active.name}</b><div class="timer"><div style="width:${pct(s.gameMinutes-s.activeCraft.startAt,s.activeCraft.endAt-s.activeCraft.startAt)}%"></div></div><small class="craft-live">⏳ Falta ${formatMinutes(s.activeCraft.endAt-s.gameMinutes)} · relógio activo</small></div>`:'<p class="muted">Nada em fabrico.</p>'}<h3 style="margin:12px 0 7px">Disponível agora</h3>${options.length?`<div class="grid">${options.map(([k,r])=>`<div class="card"><h3>🛠️ ${r.name}</h3><p>${r.desc}<br>⏱️ ${formatMinutes(r.time)}<br>${Object.entries(r.cost).map(y=>`${ITEM[y[0]].i} ×${y[1]}`).join(' · ')}</p><button ${s.activeCraft?'disabled':''} onclick="craft('${k}')">${s.activeCraft?'Ocupado':'Criar'}</button></div>`).join('')}</div>`:'<div class="tip">Não tens recursos suficientes para nenhuma receita desbloqueada.</div>'}</section><section class="panel"><h2>✨ Encantamento</h2><button onclick="enchant()">Usar 1 gema → +1 (máx. +3)</button></section>`;
+  }
+
+  const oldRenderV14=render;
+  render=function(tab=currentTab){
+    oldRenderV14(tab);
+    if(tab==='craft'){renderCompactCraft();return}
+    if(tab==='town'){
+      const list=document.querySelector('.market-list');
+      if(list){list.querySelectorAll('.market-row').forEach(row=>{const input=row.querySelector('input');if(!input||Number(input.max||0)<=0)row.remove()});if(!list.children.length)list.innerHTML='<p class="muted">Não tens itens vendáveis na bolsa.</p>'}
+    }
+    if(tab==='skills'){
+      const panel=document.getElementById('content')?.querySelector('.panel');
+      if(panel&&!panel.querySelector('.v14-passives')){
+        const p=passiveTotals();const div=document.createElement('div');div.className='tip v14-passives';div.style.marginBottom='10px';div.innerHTML=`<b>❤️ Vitalidade:</b> ${s.skills?.vitality||0} · +${(s.skills?.vitality||0)*8} Vida máxima · +${p.hpRegen} HP/min<br><b>⚡ Vigor:</b> ${s.skills?.vigor||0} · +${(s.skills?.vigor||0)*10} Energia máxima · +${p.energyRegen} energia/min`;panel.insertBefore(div,panel.querySelector('.grid'));
+      }
+    }
+  };
+
+  /* ---------- Lobby shows disconnected players but keeps the slot ---------- */
+  const baseLobbyV14=renderPartyLobby;
+  renderPartyLobby=function(note=''){
+    baseLobbyV14(note);
+    const card=document.getElementById('coopCard');if(!card)return;
+    card.querySelectorAll('.coop-player').forEach(el=>{const txt=el.textContent;const p=coopPlayers.find(x=>txt.includes(x.name));if(p&&p.online===false){el.querySelector('.coop-status').innerHTML='<span style="color:var(--muted)">🔌 Desligado · pode voltar</span>'}});
+  };
+
+  /* Ensure new pet keys appear in old saves immediately. */
+  try{if(s){s.pets=s.pets||{};for(const p of companions)if(!s.pets[p.name])s.pets[p.name]={level:1,xp:0}}}catch(e){}
+  window.v14ReconnectWindow=V14_RECONNECT_MS;
+})();
+</script>
+
+
+<script>
+/* =========================================================
+   V15 — balance, cooldowns, shared coop, economy, scaling
+   ========================================================= */
+(function(){
+  const V15={};
+  V15.COOLDOWN_MS=2200;
+  V15.coopShared=false;
+  V15.coopInstanceId=null;
+  const cooldowns=new Map();
+  function now(){return Date.now()}
+  function ensureState(){
+    s.skills=s.skills||{}; s.skills.economy=Math.max(0,Math.floor(Number(s.skills.economy)||0));
+    s.baseMaxHp=Number.isFinite(s.baseMaxHp)?s.baseMaxHp:s.maxHp||100;
+    s.baseMaxEnergy=Number.isFinite(s.baseMaxEnergy)?s.baseMaxEnergy:s.maxEnergy||100;
+    s.v15World=s.v15World||{};
+  }
+  function guardAction(key,ms=V15.COOLDOWN_MS){
+    const t=cooldowns.get(key)||0, rem=t-now(); if(rem>0){
+      setEvent(`⏳ Aguarda ${(rem/1000).toFixed(1)}s.`,'bad','Cooldown'); render(currentTab); return false;
+    }
+    cooldowns.set(key,now()+ms); return true;
+  }
+  function decorateCooldown(btn){
+    if(!btn||btn.dataset.v15Cooldown)return;
+    btn.dataset.v15Cooldown='1';
+    const original=btn.textContent;
+    btn.addEventListener('click',()=>{
+      btn.disabled=true; let left=V15.COOLDOWN_MS/1000; const base=original;
+      const iv=setInterval(()=>{left-=0.1;if(left<=0){clearInterval(iv);btn.disabled=false;btn.textContent=base}else btn.textContent=`⏳ ${left.toFixed(1)}s`},100);
+    },{capture:false});
+  }
+  const oldRender=render;
+  render=function(tab=currentTab){
+    ensureState(); oldRender(tab);
+    document.querySelectorAll('.actions button,.qolline button,.market-actions button').forEach(decorateCooldown);
+  };
+
+  /* ---- Reduce runaway percentage effects / action rewards ---- */
+  Object.assign(SKILL_INFO,{
+    combat:{name:'Combate',icon:'⚔️',bonus:l=>l*3,effect:l=>`+${l*3}% dano`},
+    gather:{name:'Recolha',icon:'⛏️',bonus:l=>l*4,effect:l=>`+${l*4}% rendimento`},
+    craft:{name:'Craft',icon:'🛠️',bonus:l=>l*5,effect:l=>`-${l*5}% tempo`},
+    fish:{name:'Pesca',icon:'🎣',bonus:l=>l*3,effect:l=>`+${l*3}% captura`},
+    fortune:{name:'Fortuna',icon:'🍀',bonus:l=>l*2,effect:l=>`+${l*2}% sorte`},
+    agri:{name:'Agricultura',icon:'🌱',bonus:l=>l*4,effect:l=>`-${l*4}% crescimento; +${Math.min(15,l)}% mutações`},
+    economy:{name:'Economia',icon:'🪙',bonus:l=>l*4,effect:l=>`+${l*4}% ouro ganho`},
+    vitality:{name:'Vitalidade',icon:'❤️',bonus:l=>l*8,effect:l=>`+${l*8} Vida máxima; +${l} HP/min`},
+    vigor:{name:'Vigor',icon:'⚡',bonus:l=>l*10,effect:l=>`+${l*10} Energia máxima; +${l} energia/min`}
+  });
+  const oldSkill=skill;
+  skill=function(k){ if(!SKILL_INFO[k])return; const before=s.skills[k]||0; oldSkill(k); if((s.skills[k]||0)>before){ ensureState(); if(k==='vitality')s.maxHp+=8,s.hp=Math.min(s.maxHp,s.hp+8); if(k==='vigor')s.maxEnergy+=10,s.energy=Math.min(s.maxEnergy,s.energy+10); if(k==='economy')setEvent(`🪙 Economia ${s.skills.economy}: +${s.skills.economy*4}% ouro ganho.`,'good','Skill'); saveGame(); }};
+
+  /* ---- Economy ---- */
+  const oldGainXP=gainXP;
+  gainXP=function(n){
+    const v=Math.max(1,Math.floor(n)); oldGainXP(v);
+  };
+  function scaleGold(n){return Math.max(0,Math.floor(Number(n)*(1+(skillLevel('economy')*0.04))));}
+  const oldSellAll=sellAll, oldBulkSell=bulkSell, oldSellAllMarket=sellAllMarket;
+  sellAll=function(k,price){ if(!guardAction('sell:'+k))return; return oldSellAll(k,scaleGold(price)); };
+  bulkSell=function(k,q,price){ if(!guardAction('sell:'+k))return; return oldBulkSell(k,q,scaleGold(price)); };
+  sellAllMarket=function(){ if(!guardAction('sellAllMarket'))return; return oldSellAllMarket(); };
+
+  /* ---- Cooldowns on exploration / farming actions ---- */
+  const oldExplore=eventExplore, oldFish=fish, oldMine=mine, oldTreasure=treasure, oldTravel=travel, oldCombat=combat, oldCraft=craft, oldPlant=plant, oldHarvest=harvest;
+  eventExplore=function(){if(!guardAction('explore'))return;return oldExplore();};
+  fish=function(){if(!guardAction('fish'))return;return oldFish();};
+  mine=function(){if(!guardAction('mine'))return;return oldMine();};
+  treasure=function(){if(!guardAction('treasure'))return;return oldTreasure();};
+  travel=function(i){if(!guardAction('travel'))return;return oldTravel(i);};
+  combat=function(){if(!guardAction('combat'))return;return oldCombat();};
+  craft=function(k){if(!guardAction('craft'))return;return oldCraft(k);};
+  plant=function(k){if(!guardAction('plant'))return;return oldPlant(k);};
+  harvest=function(){if(!guardAction('harvest'))return;return oldHarvest();};
+
+  /* ---- Fish and mining: deliberately slower, bounded percentages ---- */
+  const oldFishCore=fish;
+  const oldCombatCoreV15=combat;
+  fish=function(){
+    if(!guardAction('fishcore'))return;
+    if(!['Pântano de Veyra','Costa de Maré','Vale de Arven'].includes(s.zone)){setEvent('🎣 Não há água adequada aqui.','bad','Pesca');render();return}
+    if(!spendEnergy(8))return; advanceForAction(45);
+    let n=rand(1,2)+Math.floor(skillLevel('fish')/3);
+    if(s.inv.bait){s.inv.bait--;n++;log('🪱 A isca deu +1 peixe.');}
+    if(s.weather==='🌧️ Chuva' && Math.random()<0.25)n++;
+    s.inv.fish+=n;s.stats.fish++;gainXP(scaleReward(8,'xp'));faction(s.zone==='Costa de Maré'?'Maré':'Arven');
+    setEvent(`🎣 +${n} peixe.`,'good','Pesca');
+    const rareChance=Math.min(.12,.06+skillLevel('fortune')*.01);
+    if(Math.random()<rareChance){s.inv.treasure++;setEvent('🌊 Apanhaste uma pequena arca!','good','Pesca rara')}
+    if(s.stats.fish>=15)achievement('angler','Pescador veterano');syncSharedState();render();
+  };
+  mine=function(){
+    if(!guardAction('minecore'))return;
+    if(!['Minas de Ferrugem','Pico de Arven'].includes(s.zone)){setEvent('⛏️ Aqui não há mineração boa.','bad','Mineração');render();return}
+    if(!canReq({skill:'gather',level:2})||!spendEnergy(11))return; advanceForAction(60);s.stats.mine++;
+    const n=rand(1,2)+Math.floor(skillLevel('gather')/3);s.inv.ore+=n;
+    if(Math.random()<.28)s.inv.iron++;
+    if(Math.random()<Math.min(.09,.03+skillLevel('fortune')*.01))s.inv.gems++;
+    if(Math.random()<.08){if(s.inv.torch){s.inv.torch--;s.inv.crystal++;setEvent('🔥 A Tocha evitou um desabamento: +1 cristal.','good','Mineração')}else{s.hp=Math.max(1,s.hp-rand(7,14));setEvent('🪨 Desabamento!','bad','Mineração')}}
+    gainXP(scaleReward(10,'xp'));setEvent(`⛏️ +${n} minério bruto.`,'good','Mineração');if(Math.random()<.18){ try{oldCombatCoreV15();}catch(e){} } syncSharedState();render();
+  };
+
+  /* ---- Enemies scale with player level + combat investment ---- */
+  const enemyNames=['Lobo','Bandido','Slime','Aranha','Javali','Sentinela','Golem de Pedra','Caçador Sombrio','Aberração Arcana'];
+  combat=function(){
+    if(!guardAction('combatStart'))return;
+    const c0=modeCfg(),power=s.level+skillLevel('combat')+Math.floor((classBonus('str')+equipmentBonus('def'))/30);
+    const tier=Math.max(0,Math.floor((Math.max(1,s.level)-1)/2));
+    const boss=s.level>=5&&Math.random()<Math.min(.22,.08+s.level*.008); const idx=Math.min(enemyNames.length-1,rand(tier,Math.min(enemyNames.length-1,tier+2)));
+    const enemy=boss?'Guardião Antigo':enemyNames[idx];
+    const baseHp=boss?90+18*s.level+8*power:26+8*s.level+6*tier+3*power;
+    const dmgBase=boss?7+Math.floor(s.level*.8):3+Math.floor(s.level*.55)+tier;
+    const ehp=Math.floor(baseHp*c0.enemyHp*(1+power*.045));
+    combatState={ehp,maxEhp:ehp,boss,enemy,guard:false,cooldown:0,enemyPower:power,enemyDmgBase:dmgBase};renderCombat();
+  };
+  const oldEnemyTurn=enemyTurn;
+  enemyTurn=function(){
+    const c=combatState;if(!c)return;const raw=Math.floor((rand(c.enemyDmgBase,c.enemyDmgBase+Math.max(4,Math.floor(s.level*.7)))+(c.boss?5:0))*modeCfg().enemyDmg);let ed=c.guard?Math.ceil(raw*.35):raw;const hit=Math.max(1,ed-Math.floor(equipmentBonus('def')/6));s.hp-=hit;c.guard=false;c.cooldown=Math.max(0,(c.cooldown||0)-1);if(s.hp<=0){if(modeCfg().hardcore){localStorage.removeItem(KEY);alert('💀 Hardcore: morreste. Tens de começar um Novo Jogo.');location.reload();return}s.hp=s.maxHp;s.energy=s.maxEnergy;s.gold=Math.max(0,s.gold-10);s.zone='Vale de Arven';setEvent('☠️ Foste derrotado. Perdeste 10 ouro.','bad','Respawn');closeModal();render();}}
+
+  /* ---- Shared Coop switch + persistent instance state ---- */
+  ensureState();
+  if(!companions.some(p=>p.name==='Gato'))companions.push({name:'Gato',icon:'🐈',req:{skill:'fortune',level:2},bonus:'+1.5% ouro e +1 energia/min',type:'fortune',cost:65});
+  if(!companions.some(p=>p.name==='Falcão'))companions.push({name:'Falcão',icon:'🦅',req:{skill:'combat',level:4},bonus:'+2% dano e +2% chance de loot',type:'combat',cost:75});
+  if(!companions.some(p=>p.name==='Tartaruga'))companions.push({name:'Tartaruga',icon:'🐢',req:{skill:'vitality',level:2},bonus:'+6 HP e +1 HP/min',type:'vitality',cost:70});
+  coopCfg.shared=!!coopCfg.shared;
+  function sharedSnapshot(){ensureState();return {inv:s.inv,gold:s.gold,xp:s.xp,level:s.level,xpNext:s.xpNext,skills:{...s.skills},farming:s.farming,day:s.day,gameMinutes:s.gameMinutes,zone:s.zone,weather:s.weather,time:s.time,events:s.events,stats:s.stats,reputation:s.reputation,activeCraft:s.activeCraft,pets:s.pets,petActive:s.petActive,instanceId:V15.coopInstanceId};}
+  function applySharedSnapshot(m){if(!m||!m.inv)return;const own={name:s.name,classId:s.classId,equip:s.equip,hp:s.hp,maxHp:s.maxHp,energy:s.energy,maxEnergy:s.maxEnergy};s.inv=JSON.parse(JSON.stringify(m.inv));s.gold=Number(m.gold)||0;s.xp=Number(m.xp)||0;s.level=Math.max(1,Number(m.level)||1);s.xpNext=Number(m.xpNext)||100;s.skills=Object.assign({},s.skills||{},m.skills||{});s.farming=m.farming||s.farming;s.day=Number(m.day)||1;s.gameMinutes=Number(m.gameMinutes)||0;s.zone=m.zone||s.zone;s.weather=m.weather||s.weather;s.time=m.time||s.time;s.events=Array.isArray(m.events)?m.events.slice(0,8):s.events;s.stats=Object.assign({},s.stats||{},m.stats||{});s.reputation=Object.assign({},s.reputation||{},m.reputation||{});s.activeCraft=m.activeCraft||null;s.pets=m.pets||s.pets;s.petActive=m.petActive||s.petActive;s.name=own.name;s.classId=own.classId;s.equip=own.equip;s.hp=Math.min(own.maxHp,Math.max(0,own.hp));s.maxHp=own.maxHp;s.energy=Math.min(own.maxEnergy,Math.max(0,own.energy));s.maxEnergy=own.maxEnergy;V15.coopInstanceId=m.instanceId||V15.coopInstanceId;lastSharedHash=sharedHash(sharedSnapshot());saveCoopSession&&saveCoopSession();render(currentTab);}
+  let lastSharedHash='';
+  function sharedHash(st){try{return JSON.stringify(st)}catch(e){return ''}}
+  function syncSharedState(){if(!coopRoom||!coopCfg.shared)return;const snap=sharedSnapshot(),hash=sharedHash(snap);if(hash===lastSharedHash)return;lastSharedHash=hash;const msg={type:'sharedState',state:snap,from:coopPlayerId};if(coopHost){hostBroadcast(msg)}else if(coopConnections[0]?.open){try{coopConnections[0].send({type:'sharedRequest',state:snap,from:coopPlayerId})}catch(e){}}}
+  window.syncSharedState=syncSharedState;
+  const oldSendHostState=sendHostState;
+  sendHostState=function(){ensureState();if(!V15.coopInstanceId)V15.coopInstanceId=localStorage.getItem('valedouro_instance_'+coopRoom)||('inst-'+Math.random().toString(36).slice(2,10));localStorage.setItem('valedouro_instance_'+coopRoom,V15.coopInstanceId);const state={type:'party',players:coopPlayers,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,shared:!!coopCfg.shared,hostId:coopPlayerId,started:coopStartedV14,chat:coopChatHistory.slice(-50),instanceId:V15.coopInstanceId,world:sharedSnapshot()};coopConnections.slice().forEach(c=>{try{if(c.open)c.send(state)}catch(e){}})};
+
+  /* Add shared mode to create-party UI. */
+  const oldShowCreate=showCreateParty;
+  showCreateParty=function(){oldShowCreate();const card=document.getElementById('coopCard');if(!card)return;const wrap=document.createElement('div');wrap.style.marginTop='9px';wrap.innerHTML=`<button type="button" class="coop-option" style="width:100%" id="sharedModeBtn">🤝 Coop partilhado <span id="sharedModeMark">${coopCfg.shared?'ON':'OFF'}</span></button><div class="muted" style="font-size:11px;margin-top:5px">Partilha inventário, loot, ouro, XP e mundo da aventura.</div>`;const actions=card.querySelector('.actions');card.insertBefore(wrap,actions);document.getElementById('sharedModeBtn').onclick=()=>{coopCfg.shared=!coopCfg.shared;document.getElementById('sharedModeMark').textContent=coopCfg.shared?'ON':'OFF';};}
+  const oldCreate=window.createParty;
+  window.createParty=function(){const r=oldCreate.apply(this,arguments);V15.coopInstanceId='inst-'+Math.random().toString(36).slice(2,10);localStorage.setItem('valedouro_instance_'+coopRoom,V15.coopInstanceId);sendHostState();return r;};
+  const oldRenderLobby=renderPartyLobby;
+  renderPartyLobby=function(note=''){oldRenderLobby(note);const card=document.getElementById('coopCard');if(!card)return;const p=document.createElement('div');p.className='tip';p.style.marginTop='8px';p.innerHTML=`${coopCfg.shared?'🤝 <b>Coop partilhado:</b> inventário, loot, ouro, XP e mundo partilhados.':'👤 <b>Coop individual:</b> cada jogador mantém o próprio progresso.'}<br><small>Instância: ${escapeHtml(V15.coopInstanceId||'a sincronizar')}</small>`;card.appendChild(p)};
+
+  /* Host: robust reconnect + shared requests. */
+  const oldAttach=attachHostConnection;
+  attachHostConnection=function(conn){
+    coopConnections.push(conn);
+    conn.on('data',data=>{
+      if(!data||typeof data!=='object')return;
+      if(data.type==='join'){
+        const id=String(data.playerId||''); if(!id)return;
+        if(coopCfg.private&&String(data.password||'')!==String(coopHostSecret)){conn.send({type:'error',message:'Senha incorreta.'});conn.close();return}
+        let p=coopPlayers.find(x=>x.id===id);
+        if(p){p.online=true;p.lastSeen=Date.now();conn.playerId=id;conn.playerName=p.name;coopConnections=coopConnections.filter(c=>c!==conn&&c.playerId!==id);coopConnections.push(conn);conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,shared:!!coopCfg.shared,players:coopPlayers,chat:coopChatHistory,started:coopStartedV14,resume:true,instanceId:V15.coopInstanceId,world:sharedSnapshot()});sendHostState();renderPartyLobby('✅ Reconectado à mesma instância.');return}
+        if(coopPlayers.filter(x=>x.online!==false).length>=coopCfg.maxPlayers){conn.send({type:'error',message:'A party já está cheia.'});conn.close();return}
+        p={id,name:String(data.name||'Aventureiro').slice(0,20),host:false,online:true,lastSeen:Date.now()};coopPlayers.push(p);conn.playerId=id;conn.playerName=p.name;
+        conn.send({type:'welcome',room:coopRoom,maxPlayers:coopCfg.maxPlayers,difficulty:coopCfg.difficulty,private:coopCfg.private,shared:!!coopCfg.shared,players:coopPlayers,chat:coopChatHistory,started:coopStartedV14,resume:false,instanceId:V15.coopInstanceId,world:sharedSnapshot()});sendHostState();renderPartyLobby('✅ Um jogador entrou na party.');return;
+      }
+      if(!conn.playerId)return;
+      const p=coopPlayers.find(x=>x.id===conn.playerId);if(p){p.lastSeen=Date.now();p.online=true}
+      if(data.type==='sharedRequest'&&coopCfg.shared){applySharedSnapshot(data.state);hostBroadcast({type:'sharedState',state:sharedSnapshot(),from:coopPlayerId});return}
+      if(data.type==='chat'){const msg={type:'chat',name:conn.playerName||'Aventureiro',text:String(data.text||'').slice(0,180),photo:data.photo||null};coopChatHistory.push({name:msg.name,text:msg.text,photo:msg.photo});coopChatHistory=coopChatHistory.slice(-50);appendCoopChat(msg.name,msg.text,msg.photo);hostBroadcast(msg);return}
+      if(data.type==='giftRequest'){const k=String(data.item||''),targetId=String(data.targetId||'');if(!ITEM[k]||!targetId||!s.inv[k])return;const target=coopPlayers.find(x=>x.id===targetId);if(!target)return; if(targetId===coopPlayerId){s.inv[k]++;s.inv[k]=Math.max(0,s.inv[k]-1);conn.send({type:'giftAccepted',item:k,qty:1});return;}const out=coopConnections.find(c=>c.playerId===targetId&&c.open);if(!out)return;s.inv[k]--;out.send({type:'gift',item:k,qty:1,from:conn.playerName||'Aventureiro'});return;}
+    });
+    const offline=()=>{const p=coopPlayers.find(x=>x.id===conn.playerId);if(p){p.online=false;p.lastSeen=Date.now()}coopConnections=coopConnections.filter(c=>c!==conn);if(conn.playerId)renderPartyLobby('🔌 Ligação perdida. O mesmo jogador pode voltar à instância.');};
+    conn.on('close',offline);conn.on('error',offline);
+  };
+
+  /* Joiner receives the instance/world snapshot before resuming. */
+  const oldHandle=handleJoinerMessage;
+  handleJoinerMessage=function(m){
+    if(m.type==='welcome'||m.type==='party'){
+      coopPlayers=m.players||[];coopCfg.maxPlayers=m.maxPlayers||coopCfg.maxPlayers;coopCfg.difficulty=m.difficulty||coopCfg.difficulty;coopCfg.private=!!m.private;coopCfg.shared=!!m.shared;V15.coopInstanceId=m.instanceId||V15.coopInstanceId;
+      if(m.world)applySharedSnapshot(m.world); if(Array.isArray(m.chat))coopChatHistory=m.chat.slice(-50);
+      if(m.type==='welcome'&&m.started&&m.resume){resumeCoopGame(m);return} renderPartyLobby(m.type==='welcome'?'✅ Estás na mesma instância.':'');return;
+    }
+    if(m.type==='sharedState'&&coopCfg.shared){applySharedSnapshot(m.state);return;}
+    oldHandle(m);
+  };
+
+  /* Keep shared state moving without creating a flood. */
+  setInterval(()=>{if(document.getElementById('game')&&!document.getElementById('game').classList.contains('hidden')&&coopRoom&&coopCfg.shared)syncSharedState()},1600);
+  const oldPetBonusV15=petBonus; petBonus=function(name){const p=s.pets?.[name]; if(!p)return ''; if(name==='Gato')return `+${(p.level*1.5).toFixed(1)}% ouro e +${p.level} energia/min`; if(name==='Falcão')return `+${p.level*2}% dano e +${p.level*2}% chance de loot`; if(name==='Tartaruga')return `+${p.level*6} HP e +${p.level} HP/min`; return oldPetBonusV15(name)};
+  window.v15Balance={cooldown:V15.COOLDOWN_MS,shared:()=>coopCfg.shared,instance:()=>V15.coopInstanceId};
+  ensureState();
+})();
+</script>
+
+</body></html>
