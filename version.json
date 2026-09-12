@@ -1,0 +1,11 @@
+{
+  "version": "16.0.0",
+  "name": "Crónicas de Valedouro",
+  "date": "2026-09-12",
+  "changelog": [
+    "PWA instalável como aplicação",
+    "Atualizações automáticas sem reinstalar",
+    "Coop P2P, chat, fotos, classes, equipamento, pets e progressão",
+    "Balanceamento V15 integrado"
+  ]
+}
