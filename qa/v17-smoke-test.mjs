@@ -7,14 +7,16 @@ for(const f of files)assert.ok(fs.existsSync(f),`Missing required file: ${f}`);
 
 const tree=read('v17-skilltree.js');
 const branchIds=[...tree.matchAll(/\{id:'([^']+)',icon:/g)].map(m=>m[1]);
-assert.equal(branchIds.length,8,'Skill Tree must have exactly 8 branches');
-assert.equal(new Set(branchIds).size,8,'Skill Tree branch ids must be unique');
+assert.equal(branchIds.length,9,'Skill Tree must have exactly 9 branches');
+assert.equal(new Set(branchIds).size,9,'Skill Tree branch ids must be unique');
 const itemCount=(tree.match(/\['[^']+','[^']+'\]/g)||[]).length;
-assert.equal(itemCount,96,'Skill Tree must have exactly 96 nodes');
+assert.equal(itemCount,108,'Skill Tree must have exactly 108 nodes');
 assert.match(tree,/function buy\(b,i\)/);
 assert.match(tree,/window\.openV17SkillTree=render/);
 assert.match(tree,/function respec\(\)/);
 assert.match(tree,/pointsTotal\(\)/);
+assert.match(tree,/repeat\(9,190px\)/);
+assert.match(tree,/repeat\(9,175px\)/);
 
 const cooldown=read('v17-cooldown.js');
 assert.match(cooldown,/INTERACTION_COOLDOWN=1000/,'General interaction cooldown must be 1 second');
