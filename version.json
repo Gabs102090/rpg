@@ -1,11 +1,11 @@
 {
-  "version": "18.0.0",
+  "version": "18.1.0",
   "name": "Crónicas de Valedouro",
   "date": "2026-09-13",
   "changelog": [
-    "QOL: botão Presentear só aparece em Coop quando existe outro jogador disponível",
-    "QOL: botão Presentear fica oculto automaticamente em Single Player",
-    "Nova HUD compacta com modo, zona, dia e período do mundo",
-    "HUD adapta-se automaticamente entre Solo e Coop"
+    "Correção do botão Atualizar aplicação",
+    "Evita recarregamentos prematuros durante a ativação do Service Worker",
+    "Corrige a versão interna que continuava a indicar uma atualização disponível",
+    "Guarda o jogo antes da atualização quando uma aventura está aberta"
   ]
 }
