@@ -1,13 +1,10 @@
 {
-  "version": "18.4.0",
+  "version": "17.0.0",
   "name": "Crónicas de Valedouro",
-  "date": "2026-09-13",
+  "date": "2026-09-12",
   "changelog": [
-    "Removido o botão Atualizar aplicação",
-    "Atualizações passam a ser automáticas e silenciosas",
-    "A nova versão instala em segundo plano e só recarrega quando está pronta",
-    "Falhas de atualização deixam o jogo aberto em vez de bloquear o arranque",
-    "Service Worker mais resistente a falhas temporárias de rede e cache",
-    "Mantidos o HUD compacto e o Presentear apenas quando existe outro jogador em Coop"
+    "Versão estável: V17",
+    "Sistema expandido de classes com talentos e utilidades próprias",
+    "V17 definida como a única versão ativa do jogo"
   ]
 }
