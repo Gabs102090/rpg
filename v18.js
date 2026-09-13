@@ -4,7 +4,7 @@
 (function(){
   'use strict';
 
-  const CURRENT_VERSION='18.0.0';
+  const CURRENT_VERSION='18.1.0';
 
   function inCoop(){
     return !!(typeof coopRoom!=='undefined' && coopRoom && Array.isArray(coopPlayers) && coopPlayers.some(p=>p && p.id && p.id!==coopPlayerId));
@@ -106,27 +106,21 @@
     const text=document.getElementById('updateText'),btn=document.getElementById('updateBtn');
     if(btn){btn.disabled=true;btn.textContent='⏳ A atualizar…';}
     if(text)text.textContent='A preparar a atualização…';
-
     try{
       if(typeof saveGame==='function' && typeof s!=='undefined' && document.getElementById('game') && !document.getElementById('game').classList.contains('hidden')){
         try{saveGame()}catch(e){}
       }
-
-      // Prevent the old controllerchange handler from forcing a second reload.
       try{updateFound=false}catch(e){}
       const reg=typeof appRegistration!=='undefined'?appRegistration:(navigator.serviceWorker&&await navigator.serviceWorker.getRegistration('./'));
       if(!reg)throw new Error('sw');
-
       if(text)text.textContent='A instalar a nova versão…';
       await reg.update();
       if(reg.waiting){
-        try{reg.waiting.postMessage({type:'SKIP_WAITING'});reg.waiting.postMessage({type:'SKIP_WAITING'})}catch(e){}
+        try{reg.waiting.postMessage({type:'SKIP_WAITING'})}catch(e){}
       }
       const ready=await waitForWorkerReady(reg,12000);
-      if(!ready && !reg.waiting){throw new Error('worker-timeout')}
-
+      if(!ready && !reg.waiting)throw new Error('worker-timeout');
       if(text)text.textContent='Atualização concluída. A reabrir Valedouro…';
-      // Give the service worker a moment to finish claiming clients, then reload once.
       setTimeout(()=>{
         try{window.__valedouroReloaded=true;location.reload()}catch(e){location.href=location.href}
       },350);
@@ -148,8 +142,8 @@
     };
   }
 
-  // Override the V16/V17 updater. The old one reloads after 700 ms regardless of
-  // worker state and also compares against a hard-coded older version.
+  // Replace the older updater: it compared against V17 and reloaded after
+  // a fixed 700 ms, which could race the Service Worker activation.
   window.checkForUpdates=checkForUpdatesSafe;
   window.applyUpdate=applyUpdateSafe;
 
@@ -157,5 +151,5 @@
   observer.observe(document.body,{childList:true,subtree:true});
   setInterval(()=>{refreshGiftButtons();hud()},1000);
 
-  window.v18Qol={version:'18.0.0',inCoop,checkForUpdates:checkForUpdatesSafe,applyUpdate:applyUpdateSafe};
+  window.v18Qol={version:CURRENT_VERSION,inCoop,checkForUpdates:checkForUpdatesSafe,applyUpdate:applyUpdateSafe};
 })();
