@@ -1,11 +1,12 @@
 {
-  "version": "17.1.0",
+  "version": "17.1.1",
   "name": "Crónicas de Valedouro",
   "date": "2026-09-13",
   "changelog": [
     "V17 estável com árvore de Skills expandida",
     "8 ramos e 96 nós de progressão",
     "Pontos de skill por nível e sistema de pré-requisitos",
-    "Árvore persistente no save e redefinição por 50 ouro"
+    "Árvore persistente no save e redefinição por 50 ouro",
+    "Acesso à Skill Tree reforçado e carregamento da V17 mais robusto"
   ]
 }
