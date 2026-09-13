@@ -1,4 +1,4 @@
-const CACHE = 'valedouro-v18.0.0';
+const CACHE = 'valedouro-v18.1.0';
 const CORE = ['./', './index.html', './index-1.html', './v17.js', './v18.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
