@@ -1,5 +1,5 @@
-const CACHE = 'valedouro-v17.1.0';
-const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './v17-skilltree.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
+const CACHE = 'valedouro-v17.1.1';
+const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './v17-skilltree.js', './v17-launcher.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {
@@ -24,62 +24,66 @@ self.addEventListener('message', e => {
 });
 
 function inject(html){
-  if(!html.includes('src="./v17.js"')){
-    html = html.replace(/<\/body>/i, '<script src="./v17.js"></script><script src="./v17-ui.js"></script><script src="./v17-cooldown.js"></script><script src="./v17-skilltree.js"></script></body>');
-  }else{
-    if(!html.includes('src="./v17-ui.js"')) html = html.replace(/<\/body>/i, '<script src="./v17-ui.js"></script></body>');
-    if(!html.includes('src="./v17-cooldown.js"')) html = html.replace(/<\/body>/i, '<script src="./v17-cooldown.js"></script></body>');
-    if(!html.includes('src="./v17-skilltree.js"')) html = html.replace(/<\/body>/i, '<script src="./v17-skilltree.js"></script></body>');
+  const scripts=[
+    './v17.js',
+    './v17-ui.js',
+    './v17-cooldown.js',
+    './v17-skilltree.js',
+    './v17-launcher.js'
+  ];
+  const missing=scripts.filter(src=>!html.includes(`src="${src}"`));
+  if(missing.length){
+    html=html.replace(/<\/body>/i,missing.map(src=>`<script src="${src}"></script>`).join('')+'</body>');
   }
   return html;
 }
 
 async function networkFirst(req){
   try{
-    const r = await fetch(req, {cache:'no-store'});
-    if(!r.ok) return r;
-    const type = r.headers.get('content-type') || '';
+    const r=await fetch(req,{cache:'no-store'});
+    if(!r.ok)return r;
+    const type=r.headers.get('content-type')||'';
     if(type.includes('text/html')){
-      const text = inject(await r.text());
-      const headers = new Headers(r.headers);
+      const text=inject(await r.text());
+      const headers=new Headers(r.headers);
       headers.delete('content-length');
-      const out = new Response(text, {status:r.status, statusText:r.statusText, headers});
-      const cache = await caches.open(CACHE);
-      await cache.put(req, out.clone());
+      const out=new Response(text,{status:r.status,statusText:r.statusText,headers});
+      const cache=await caches.open(CACHE);
+      await cache.put(req,out.clone());
       return out;
     }
-    const copy = r.clone();
-    caches.open(CACHE).then(c => c.put(req, copy)).catch(()=>{});
+    const copy=r.clone();
+    caches.open(CACHE).then(c=>c.put(req,copy)).catch(()=>{});
     return r;
   }catch(_){
-    const cached = await caches.match(req);
-    if(cached) return cached;
-    const fallback = await caches.match('./index-1.html');
-    return fallback || new Response('Valedouro indisponível neste momento.', {status:503, headers:{'Content-Type':'text/plain;charset=utf-8'}});
+    const cached=await caches.match(req);
+    if(cached)return cached;
+    const fallback=await caches.match('./index-1.html');
+    return fallback||new Response('Valedouro indisponível neste momento.',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}});
   }
 }
 
-self.addEventListener('fetch', e => {
-  const req = e.request;
-  if(req.method !== 'GET') return;
-  const url = new URL(req.url);
-  if(url.origin !== location.origin) return;
+self.addEventListener('fetch',e=>{
+  const req=e.request;
+  if(req.method!=='GET')return;
+  const url=new URL(req.url);
+  if(url.origin!==location.origin)return;
 
-  if(req.mode === 'navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/index-1.html') || url.pathname.endsWith('/version.json')){
+  if(req.mode==='navigate'||url.pathname.endsWith('/index.html')||url.pathname.endsWith('/index-1.html')||url.pathname.endsWith('/version.json')){
     e.respondWith(networkFirst(req));
     return;
   }
 
   e.respondWith(
-    caches.match(req).then(cached => {
-      if(cached) return cached;
-      return fetch(req).then(net => {
+    caches.match(req).then(cached=>{
+      if(cached)return cached;
+      return fetch(req).then(net=>{
         if(net.ok){
-          const copy = net.clone();
-          caches.open(CACHE).then(c => c.put(req, copy)).catch(()=>{});
+          const copy=net.clone();
+          caches.open(CACHE).then(c=>c.put(req,copy)).catch(()=>{});
         }
         return net;
       });
-    }).catch(() => new Response('', {status:504}))
+    }).catch(()=>new Response('',{status:504}))
   );
 });
