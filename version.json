@@ -1,10 +1,11 @@
 {
-  "version": "17.0.0",
+  "version": "17.1.0",
   "name": "Crónicas de Valedouro",
-  "date": "2026-09-12",
+  "date": "2026-09-13",
   "changelog": [
-    "Versão estável: V17",
-    "Sistema expandido de classes com talentos e utilidades próprias",
-    "V17 definida como a única versão ativa do jogo"
+    "V17 estável com árvore de Skills expandida",
+    "8 ramos e 96 nós de progressão",
+    "Pontos de skill por nível e sistema de pré-requisitos",
+    "Árvore persistente no save e redefinição por 50 ouro"
   ]
 }
