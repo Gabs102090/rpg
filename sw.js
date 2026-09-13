@@ -1,5 +1,5 @@
-const CACHE = 'valedouro-v17.0.0';
-const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
+const CACHE = 'valedouro-v17.1.0';
+const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './v17-skilltree.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {
@@ -25,10 +25,11 @@ self.addEventListener('message', e => {
 
 function inject(html){
   if(!html.includes('src="./v17.js"')){
-    html = html.replace(/<\/body>/i, '<script src="./v17.js"></script><script src="./v17-ui.js"></script><script src="./v17-cooldown.js"></script></body>');
+    html = html.replace(/<\/body>/i, '<script src="./v17.js"></script><script src="./v17-ui.js"></script><script src="./v17-cooldown.js"></script><script src="./v17-skilltree.js"></script></body>');
   }else{
     if(!html.includes('src="./v17-ui.js"')) html = html.replace(/<\/body>/i, '<script src="./v17-ui.js"></script></body>');
     if(!html.includes('src="./v17-cooldown.js"')) html = html.replace(/<\/body>/i, '<script src="./v17-cooldown.js"></script></body>');
+    if(!html.includes('src="./v17-skilltree.js"')) html = html.replace(/<\/body>/i, '<script src="./v17-skilltree.js"></script></body>');
   }
   return html;
 }
