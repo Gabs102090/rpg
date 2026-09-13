@@ -1,5 +1,5 @@
 const CACHE = 'valedouro-v17.0.0';
-const CORE = ['./', './index.html', './index-1.html', './v17.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
+const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {
@@ -19,16 +19,16 @@ self.addEventListener('activate', e => {
   );
 });
 
-// Kept for compatibility with older installed workers/pages.
 self.addEventListener('message', e => {
   if(e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 function inject(html){
-  // V17 is the only patch/version layer. It runs after the game's original
-  // globals are defined, exactly as intended by the V17 implementation.
+  // V17 is the only active version layer. The UI cleanup runs after V17.
   if(!html.includes('src="./v17.js"')){
-    html = html.replace(/<\/body>/i, '<script src="./v17.js"></script></body>');
+    html = html.replace(/<\/body>/i, '<script src="./v17.js"></script><script src="./v17-ui.js"></script></body>');
+  }else if(!html.includes('src="./v17-ui.js"')){
+    html = html.replace(/<\/body>/i, '<script src="./v17-ui.js"></script></body>');
   }
   return html;
 }
@@ -64,7 +64,6 @@ self.addEventListener('fetch', e => {
   const url = new URL(req.url);
   if(url.origin !== location.origin) return;
 
-  // Always prefer fresh HTML so the V17 bootstrap is picked up reliably.
   if(req.mode === 'navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/index-1.html') || url.pathname.endsWith('/version.json')){
     e.respondWith(networkFirst(req));
     return;
