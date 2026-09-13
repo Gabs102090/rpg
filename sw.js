@@ -1,5 +1,5 @@
-const CACHE = 'valedouro-v18.1.0';
-const CORE = ['./', './index.html', './index-1.html', './v17.js', './v18.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
+const CACHE = 'valedouro-v18.2.0';
+const CORE = ['./', './index.html', './index-1.html', './v17.js', './v18.js', './v18.2.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
@@ -24,6 +24,7 @@ self.addEventListener('fetch', e => {
           let text = await r.text();
           if (!text.includes('src="./v17.js"')) text = text.replace(/<\/body>/i, '<script src="./v17.js"></script></body>');
           if (!text.includes('src="./v18.js"')) text = text.replace(/<\/body>/i, '<script src="./v18.js"></script></body>');
+          if (!text.includes('src="./v18.2.js"')) text = text.replace(/<\/body>/i, '<script src="./v18.2.js"></script></body>');
           const headers = new Headers(r.headers);
           headers.delete('content-length');
           const out = new Response(text, {status:r.status, statusText:r.statusText, headers});
