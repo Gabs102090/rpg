@@ -1,4 +1,4 @@
-/* V17 — Gigantic Skill Tree: 8 branches × 12 tiers = 96 nodes. */
+/* V17 — Gigantic Skill Tree: 9 branches × 12 tiers = 108 nodes. */
 (function(){
   'use strict';
   const STYLE=`<style id="v17-skilltree-style">
@@ -8,7 +8,7 @@
   .v17-tree-stat{background:#11161f;border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center;font-size:11px}
   .v17-tree-stat b{display:block;font-size:16px}
   .v17-tree-scroll{overflow-x:auto;overflow-y:visible;padding-bottom:8px}
-  .v17-tree-grid{display:grid;grid-template-columns:repeat(8,190px);gap:10px;min-width:1580px;align-items:start}
+  .v17-tree-grid{display:grid;grid-template-columns:repeat(9,190px);gap:10px;min-width:1790px;align-items:start}
   .v17-branch{background:#10161f;border:1px solid var(--line);border-radius:16px;padding:8px}
   .v17-branch-title{font-weight:900;text-align:center;margin:2px 0 8px;font-size:13px}
   .v17-node{position:relative;width:100%;min-height:105px;padding:9px!important;text-align:left!important;background:#18212d!important;border:1px solid #344457!important;border-radius:13px!important;margin:0 0 8px;white-space:normal!important}
@@ -22,7 +22,7 @@
   .v17-node small{display:block;color:var(--muted);font-size:10px;line-height:1.28}
   .v17-node .v17-cost{display:inline-block;margin-top:6px;font-size:10px;color:#dfe8f1;border:1px solid var(--line);border-radius:99px;padding:2px 6px}
   .v17-tree-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
-  @media(max-width:720px){.v17-tree-grid{grid-template-columns:repeat(8,175px);min-width:1470px}.v17-node{min-height:110px}}
+  @media(max-width:720px){.v17-tree-grid{grid-template-columns:repeat(9,175px);min-width:1655px}.v17-node{min-height:110px}}
   </style>`;
 
   const BRANCHES=[
@@ -126,7 +126,7 @@
     if(!window.s)return;
     const branches=BRANCHES.map(b=>`<div class="v17-branch"><div class="v17-branch-title">${b.icon} ${b.name}</div>${b.items.map((_,i)=>nodeHTML(b,i)).join('')}</div>`).join('');
     const bought=Object.keys(s.v17Tree?.nodes||{}).length;
-    const html=`<div class="v17-tree-head"><h2 style="margin:0">🌳 Árvore de Skills</h2><p class="muted" style="margin:4px 0">8 ramos · 96 nós · progressão até ao fim do jogo.</p><div class="v17-tree-stats"><div class="v17-tree-stat"><b>${freePoints()}</b>Pontos livres</div><div class="v17-tree-stat"><b>${bought}</b>Nós comprados</div><div class="v17-tree-stat"><b>${s.level||1}</b>Nível</div></div><div class="tip">Cada nível dá <b>2 pontos</b> de skill (mais 5 iniciais). Os nós exigem nível e pré-requisito. Não precisas de escolher uma única árvore: podes construir a tua personagem como quiseres.</div></div><div class="v17-tree-scroll"><div class="v17-tree-grid">${branches}</div></div><div class="v17-tree-actions"><button onclick="v17SkillTreeRender()">🔄 Actualizar</button><button onclick="v17RespecSkills()">♻️ Redefinir · 50 ouro</button></div>`;
+    const html=`<div class="v17-tree-head"><h2 style="margin:0">🌳 Árvore de Skills</h2><p class="muted" style="margin:4px 0">9 ramos · 108 nós · progressão até ao fim do jogo.</p><div class="v17-tree-stats"><div class="v17-tree-stat"><b>${freePoints()}</b>Pontos livres</div><div class="v17-tree-stat"><b>${bought}</b>Nós comprados</div><div class="v17-tree-stat"><b>${s.level||1}</b>Nível</div></div><div class="tip">Cada nível dá <b>2 pontos</b> de skill (mais 5 iniciais). Os nós exigem nível e pré-requisito. Não precisas de escolher uma única árvore: podes construir a tua personagem como quiseres.</div></div><div class="v17-tree-scroll"><div class="v17-tree-grid">${branches}</div></div><div class="v17-tree-actions"><button onclick="v17SkillTreeRender()">🔄 Actualizar</button><button onclick="v17RespecSkills()">♻️ Redefinir · 50 ouro</button></div>`;
     const wrap=document.createElement('div');wrap.className='v17-tree-wrap';wrap.innerHTML=html;
     openModal(wrap.innerHTML);
   }
@@ -147,7 +147,6 @@
     if(typeof oldStart==='function'&&!window.__v17TreeStartWrapped){window.__v17TreeStartWrapped=true;window.startGame=function(){const r=oldStart.apply(this,arguments);init();return r};}
   }
 
-  // Expose a compact hook for the existing Skills area too.
   window.openV17SkillTree=render;
   ensureLoaded();
 })();
