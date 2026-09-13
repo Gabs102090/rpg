@@ -1,11 +1,12 @@
 {
-  "version": "16.0.0",
+  "version": "17.0.0",
   "name": "Crónicas de Valedouro",
-  "date": "2026-09-12",
+  "date": "2026-09-13",
   "changelog": [
-    "PWA instalável como aplicação",
-    "Atualizações automáticas sem reinstalar",
-    "Coop P2P, chat, fotos, classes, equipamento, pets e progressão",
-    "Balanceamento V15 integrado"
+    "8 novas classes: Paladino, Monge, Bardo, Engenheiro, Mercador, Assassino, Elementalista e Explorador",
+    "Classes passam a ter talentos e utilidades exclusivas além dos atributos",
+    "Escolha de classe mostra descrição, armas e talento antes de começar",
+    "Novos efeitos em combate, exploração, mineração, crafting, economia e viagens",
+    "Sistema PWA atualizado para V17"
   ]
 }
