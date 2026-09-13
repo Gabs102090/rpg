@@ -1,4 +1,4 @@
-const CACHE = 'valedouro-v17.1.1';
+const CACHE = 'valedouro-v17.1.2';
 const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './v17-skilltree.js', './v17-launcher.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
@@ -24,17 +24,9 @@ self.addEventListener('message', e => {
 });
 
 function inject(html){
-  const scripts=[
-    './v17.js',
-    './v17-ui.js',
-    './v17-cooldown.js',
-    './v17-skilltree.js',
-    './v17-launcher.js'
-  ];
+  const scripts=['./v17.js','./v17-ui.js','./v17-cooldown.js','./v17-skilltree.js','./v17-launcher.js'];
   const missing=scripts.filter(src=>!html.includes(`src="${src}"`));
-  if(missing.length){
-    html=html.replace(/<\/body>/i,missing.map(src=>`<script src="${src}"></script>`).join('')+'</body>');
-  }
+  if(missing.length)html=html.replace(/<\/body>/i,missing.map(src=>`<script src="${src}"></script>`).join('')+'</body>');
   return html;
 }
 
@@ -68,22 +60,15 @@ self.addEventListener('fetch',e=>{
   if(req.method!=='GET')return;
   const url=new URL(req.url);
   if(url.origin!==location.origin)return;
-
   if(req.mode==='navigate'||url.pathname.endsWith('/index.html')||url.pathname.endsWith('/index-1.html')||url.pathname.endsWith('/version.json')){
     e.respondWith(networkFirst(req));
     return;
   }
-
-  e.respondWith(
-    caches.match(req).then(cached=>{
-      if(cached)return cached;
-      return fetch(req).then(net=>{
-        if(net.ok){
-          const copy=net.clone();
-          caches.open(CACHE).then(c=>c.put(req,copy)).catch(()=>{});
-        }
-        return net;
-      });
-    }).catch(()=>new Response('',{status:504}))
-  );
+  e.respondWith(caches.match(req).then(cached=>{
+    if(cached)return cached;
+    return fetch(req).then(net=>{
+      if(net.ok){const copy=net.clone();caches.open(CACHE).then(c=>c.put(req,copy)).catch(()=>{});}
+      return net;
+    });
+  }).catch(()=>new Response('',{status:504})));
 });
