@@ -28,14 +28,14 @@ assert.match(launcher,/openV17SkillTree/);
 
 const sw=read('sw.js');
 for(const f of ['v17.js','v17-ui.js','v17-cooldown.js','v17-skilltree.js','v17-launcher.js'])assert.ok(sw.includes(`./${f}`),`Service Worker must load ${f}`);
-assert.match(sw,/valedouro-v17\.1\.1/);
+assert.match(sw,/valedouro-v17\.1\.2/);
 
 const index=read('index.html');
 assert.match(index,/index-1\.html/,'Launcher must point to the V17 game');
 assert.doesNotMatch(index,/v15/i,'Main launcher must not reference V15');
 
 const version=JSON.parse(read('version.json'));
-assert.equal(version.version,'17.1.1');
+assert.equal(version.version,'17.1.2');
 assert.equal(version.name,'Crónicas de Valedouro');
 
 console.log('V17 smoke tests: PASS');
