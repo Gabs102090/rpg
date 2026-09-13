@@ -1,7 +1,7 @@
 {
   "name": "Crónicas de Valedouro",
   "short_name": "Valedouro",
-  "start_url": "./",
+  "start_url": "./index-1.html",
   "display": "standalone",
   "background_color": "#111827",
   "theme_color": "#7c5cff",
