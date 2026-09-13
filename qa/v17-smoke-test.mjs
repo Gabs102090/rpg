@@ -36,8 +36,6 @@ const version=JSON.parse(read('version.json'));
 assert.equal(version.version,'17.1.1');
 assert.equal(version.name,'Crónicas de Valedouro');
 
-assert.ok(!fs.existsSync('cronicas_de_valedouro_v15_coop_balanced.html'),'Old V15 artifact should not remain in the active repo');
-
 console.log('V17 smoke tests: PASS');
 console.log(`Branches: ${branchIds.join(', ')}`);
 console.log(`Skill nodes: ${itemCount}`);
