@@ -1,11 +1,13 @@
 /* =========================================================
-   V18 — QOL: contextual gifting + compact HUD
+   V18.1 — QOL + robust PWA updater
    ========================================================= */
 (function(){
   'use strict';
 
+  const CURRENT_VERSION='18.0.0';
+
   function inCoop(){
-    return !!(coopRoom && Array.isArray(coopPlayers) && coopPlayers.some(p=>p && p.id && p.id!==coopPlayerId));
+    return !!(typeof coopRoom!=='undefined' && coopRoom && Array.isArray(coopPlayers) && coopPlayers.some(p=>p && p.id && p.id!==coopPlayerId));
   }
 
   function refreshGiftButtons(root=document){
@@ -29,8 +31,8 @@
       document.body.appendChild(el);
     }
     const state=typeof s!=='undefined'?s:null;
-    const players=Array.isArray(coopPlayers)?coopPlayers.filter(p=>p&&p.id):[];
-    const shared=!!(coopRoom && coopCfg && coopCfg.shared);
+    const players=typeof coopPlayers!=='undefined' && Array.isArray(coopPlayers)?coopPlayers.filter(p=>p&&p.id):[];
+    const shared=typeof coopCfg!=='undefined' && !!(coopRoom && coopCfg && coopCfg.shared);
     const mode=coopRoom ? `🤝 Coop${shared?' • Partilhado':''} · ${Math.max(1,players.length)} jogador${players.length===1?'':'es'}` : '🎮 Solo';
     const zone=state?.zone||'Valedouro';
     const day=Number(state?.day)||1;
@@ -55,6 +57,85 @@
     document.head.appendChild(style);
   }
 
+  function versionParts(v){return String(v||'0').replace(/^v/i,'').split('.').map(n=>parseInt(n,10)||0)}
+  function isNewer(latest,current){
+    const a=versionParts(latest),b=versionParts(current);
+    for(let i=0;i<3;i++)if((a[i]||0)!==(b[i]||0))return (a[i]||0)>(b[i]||0);
+    return false;
+  }
+
+  async function checkForUpdatesSafe(manual=false){
+    const text=document.getElementById('updateText'),btn=document.getElementById('updateBtn');
+    if(!text)return;
+    if(btn)btn.disabled=true;
+    text.textContent=manual?'A procurar a versão mais recente…':'A verificar versão…';
+    try{
+      const reg=typeof appRegistration!=='undefined'?appRegistration:null;
+      if(reg)await reg.update();
+      const res=await fetch('./version.json?t='+Date.now(),{cache:'no-store'});
+      if(!res.ok)throw new Error('version');
+      const data=await res.json();
+      if(isNewer(data.version,CURRENT_VERSION)){
+        text.innerHTML='<b>Nova versão disponível: V'+data.version+'</b><br>'+((data.changelog||[]).slice(0,4).map(x=>'• '+x).join('<br>')||'Atualização disponível.');
+        if(btn){btn.style.display='block';btn.disabled=false;btn.textContent='⬆️ Atualizar agora';btn.onclick=applyUpdateSafe;}
+      }else{
+        text.textContent='V'+CURRENT_VERSION+' — estás na versão mais recente. Os teus saves ficam neste dispositivo.';
+        if(btn){btn.style.display='block';btn.disabled=false;btn.textContent='🔄 Procurar atualização';btn.onclick=()=>checkForUpdatesSafe(true);}
+      }
+    }catch(e){
+      text.textContent='V'+CURRENT_VERSION+' — não foi possível verificar agora. O jogo continua a funcionar.';
+      if(btn){btn.style.display='block';btn.disabled=false;btn.textContent='🔄 Tentar novamente';btn.onclick=()=>checkForUpdatesSafe(true);}
+    }
+  }
+
+  function waitForWorkerReady(reg,timeout=12000){
+    return new Promise(resolve=>{
+      if(!reg){resolve(false);return}
+      const worker=reg.installing||reg.waiting;
+      if(!worker){resolve(!!reg.active);return}
+      let done=false;
+      const finish=ok=>{if(done)return;done=true;clearTimeout(timer);worker.removeEventListener('statechange',onState);resolve(ok)};
+      const onState=()=>{if(worker.state==='activated'||worker.state==='redundant')finish(worker.state==='activated')};
+      const timer=setTimeout(()=>finish(false),timeout);
+      worker.addEventListener('statechange',onState);
+      onState();
+    });
+  }
+
+  async function applyUpdateSafe(){
+    const text=document.getElementById('updateText'),btn=document.getElementById('updateBtn');
+    if(btn){btn.disabled=true;btn.textContent='⏳ A atualizar…';}
+    if(text)text.textContent='A preparar a atualização…';
+
+    try{
+      if(typeof saveGame==='function' && typeof s!=='undefined' && document.getElementById('game') && !document.getElementById('game').classList.contains('hidden')){
+        try{saveGame()}catch(e){}
+      }
+
+      // Prevent the old controllerchange handler from forcing a second reload.
+      try{updateFound=false}catch(e){}
+      const reg=typeof appRegistration!=='undefined'?appRegistration:(navigator.serviceWorker&&await navigator.serviceWorker.getRegistration('./'));
+      if(!reg)throw new Error('sw');
+
+      if(text)text.textContent='A instalar a nova versão…';
+      await reg.update();
+      if(reg.waiting){
+        try{reg.waiting.postMessage({type:'SKIP_WAITING'});reg.waiting.postMessage({type:'SKIP_WAITING'})}catch(e){}
+      }
+      const ready=await waitForWorkerReady(reg,12000);
+      if(!ready && !reg.waiting){throw new Error('worker-timeout')}
+
+      if(text)text.textContent='Atualização concluída. A reabrir Valedouro…';
+      // Give the service worker a moment to finish claiming clients, then reload once.
+      setTimeout(()=>{
+        try{window.__valedouroReloaded=true;location.reload()}catch(e){location.href=location.href}
+      },350);
+    }catch(e){
+      if(text)text.textContent='A atualização não conseguiu concluir. O jogo continua aberto e o teu save está seguro.';
+      if(btn){btn.disabled=false;btn.textContent='🔄 Tentar atualização';btn.onclick=applyUpdateSafe;}
+    }
+  }
+
   installStyle();
   hud();
 
@@ -67,9 +148,14 @@
     };
   }
 
+  // Override the V16/V17 updater. The old one reloads after 700 ms regardless of
+  // worker state and also compares against a hard-coded older version.
+  window.checkForUpdates=checkForUpdatesSafe;
+  window.applyUpdate=applyUpdateSafe;
+
   const observer=new MutationObserver(()=>{refreshGiftButtons();hud()});
   observer.observe(document.body,{childList:true,subtree:true});
   setInterval(()=>{refreshGiftButtons();hud()},1000);
 
-  window.v18Qol={version:'18.0.0',inCoop};
+  window.v18Qol={version:'18.0.0',inCoop,checkForUpdates:checkForUpdatesSafe,applyUpdate:applyUpdateSafe};
 })();
