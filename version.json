@@ -1,11 +1,12 @@
 {
-  "version": "18.1.0",
+  "version": "18.2.0",
   "name": "Crónicas de Valedouro",
   "date": "2026-09-13",
   "changelog": [
-    "Correção do botão Atualizar aplicação",
-    "Evita recarregamentos prematuros durante a ativação do Service Worker",
-    "Corrige a versão interna que continuava a indicar uma atualização disponível",
-    "Guarda o jogo antes da atualização quando uma aventura está aberta"
+    "Corrigido o sistema de atualização da aplicação após análise do vídeo",
+    "A verificação de versão já não fica bloqueada à espera do Service Worker",
+    "A atualização tem timeout e não bloqueia a interface do jogo",
+    "A app só recarrega depois de a nova versão estar pronta",
+    "Save automático antes da atualização"
   ]
 }
