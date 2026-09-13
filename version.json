@@ -1,12 +1,13 @@
 {
-  "version": "18.3.0",
+  "version": "18.4.0",
   "name": "Crónicas de Valedouro",
   "date": "2026-09-13",
   "changelog": [
-    "Correção estrutural do sistema de atualização da PWA",
-    "O updater antigo já não consegue bloquear a interface durante a verificação inicial",
-    "O Service Worker passa a carregar o novo bootstrap antes do código principal",
-    "A atualização manual usa timeout, deteção de ativação e save automático",
-    "Melhoria da estabilidade do arranque e da atualização da aplicação"
+    "Removido o botão Atualizar aplicação",
+    "Atualizações passam a ser automáticas e silenciosas",
+    "A nova versão instala em segundo plano e só recarrega quando está pronta",
+    "Falhas de atualização deixam o jogo aberto em vez de bloquear o arranque",
+    "Service Worker mais resistente a falhas temporárias de rede e cache",
+    "Mantidos o HUD compacto e o Presentear apenas quando existe outro jogador em Coop"
   ]
 }
