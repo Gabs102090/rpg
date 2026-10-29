@@ -205,7 +205,7 @@
     if(isElem && combatState){
       if(s.energy<10||combatState.cooldown>0)return;
       s.energy-=10;
-      combatState.cooldown=2;
+      combatState.cooldown=0.5;
       const dmg=Math.floor((24+skillLevel('combat')*3+s.equip.enchant*3)*(hasEffect('fury')?1.3:1));
       combatState.ehp-=dmg;
       combatState.v17Vulnerable=1;
