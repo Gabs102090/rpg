@@ -1,13 +1,12 @@
 {
-  "version": "17.1.2",
+  "version": "17.2.0",
   "name": "Crónicas de Valedouro",
-  "date": "2026-09-13",
+  "date": "2026-10-29",
   "changelog": [
-    "V17 estável com árvore de Skills expandida",
-    "9 ramos e 108 nós de progressão",
-    "Pontos de skill por nível e sistema de pré-requisitos",
-    "Árvore persistente no save e redefinição por 50 ouro",
-    "Acesso à Skill Tree reforçado e carregamento da V17 mais robusto",
-    "Correcção do layout da árvore: 9 ramos em vez de 8"
+    "10 melhorias QoL: anti-duplo-clique de 0,5 s, auto-save, atalhos, pesquisa de inventário, modo compacto, backup, botão de topo, sessão e acessibilidade",
+    "5 mecânicas: bónus diário, série de exploração, achado raro na mineração, sequência de pesca e maestria de ofício",
+    "Cooldown de interface ajustado para 0,5 segundos sem bloquear botões durante a ação",
+    "Cooldown do Especial do Elementalista reduzido para 0,5 segundos",
+    "Compatibilidade com saves anteriores preservada"
   ]
 }
