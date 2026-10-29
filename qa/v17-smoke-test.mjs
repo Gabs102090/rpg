@@ -19,23 +19,25 @@ assert.match(tree,/repeat\(9,190px\)/);
 assert.match(tree,/repeat\(9,175px\)/);
 
 const cooldown=read('v17-cooldown.js');
-assert.match(cooldown,/INTERACTION_COOLDOWN=1000/,'General interaction cooldown must be 1 second');
-assert.match(cooldown,/combatState\.cooldown=2/,'Elementalist Special cooldown must remain 2 seconds');
+assert.match(cooldown,/COOLDOWN_MS=500/,'General interaction cooldown must be 1 second');
+assert.match(cooldown,/V17_BUTTON_COOLDOWN_MS=500/,'Button debounce must be 0.5 seconds');
+const qol=read('v17-qol-mechanics.js');
+for(const feature of ['Ctrl/Cmd+S','daily bounty','exploration streak','rare extra gem','bonus fish','crafting mastery'])assert.ok(qol.toLowerCase().includes(feature.toLowerCase()),`Missing QoL/mechanic: ${feature}`);
 
 const launcher=read('v17-launcher.js');
 assert.match(launcher,/v17-tree-launcher/);
 assert.match(launcher,/openV17SkillTree/);
 
 const sw=read('sw.js');
-for(const f of ['v17.js','v17-ui.js','v17-cooldown.js','v17-skilltree.js','v17-launcher.js'])assert.ok(sw.includes(`./${f}`),`Service Worker must load ${f}`);
-assert.match(sw,/valedouro-v17\.1\.2/);
+for(const f of ['v17.js','v17-ui.js','v17-cooldown.js','v17-skilltree.js','v17-launcher.js','v17-qol-mechanics.js'])assert.ok(sw.includes(`./${f}`),`Service Worker must load ${f}`);
+assert.match(sw,/valedouro-v17\.2\.0/);
 
 const index=read('index.html');
 assert.match(index,/index-1\.html/,'Launcher must point to the V17 game');
 assert.doesNotMatch(index,/v15/i,'Main launcher must not reference V15');
 
 const version=JSON.parse(read('version.json'));
-assert.equal(version.version,'17.1.2');
+assert.equal(version.version,'17.2.0');
 assert.equal(version.name,'Crónicas de Valedouro');
 
 console.log('V17 smoke tests: PASS');
