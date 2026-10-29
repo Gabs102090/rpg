@@ -1,5 +1,5 @@
-const CACHE = 'valedouro-v17.1.2';
-const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './v17-skilltree.js', './v17-launcher.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
+const CACHE = 'valedouro-v17.2.0';
+const CORE = ['./', './index.html', './index-1.html', './v17.js', './v17-ui.js', './v17-cooldown.js', './v17-skilltree.js', './v17-launcher.js', './v17-qol-mechanics.js', './manifest.webmanifest', './version.json', './icon-192.svg', './icon-512.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {
@@ -24,7 +24,7 @@ self.addEventListener('message', e => {
 });
 
 function inject(html){
-  const scripts=['./v17.js','./v17-ui.js','./v17-cooldown.js','./v17-skilltree.js','./v17-launcher.js'];
+  const scripts=['./v17.js','./v17-ui.js','./v17-cooldown.js','./v17-skilltree.js','./v17-launcher.js','./v17-qol-mechanics.js'];
   const missing=scripts.filter(src=>!html.includes(`src="${src}"`));
   if(missing.length)html=html.replace(/<\/body>/i,missing.map(src=>`<script src="${src}"></script>`).join('')+'</body>');
   return html;
