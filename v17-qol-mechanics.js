@@ -5,7 +5,7 @@
   const lastClick=new WeakMap();
   const SYSTEM_KEY='v17Extra';
   const $=s=>document.querySelector(s);
-  const state=()=>window.s;
+  const state=()=>{try{return s}catch(_){return window.s;}};
   const sys=()=>{
     const p=state(); if(!p)return null;
     p[SYSTEM_KEY]=p[SYSTEM_KEY]||{};
@@ -19,7 +19,7 @@
     if(typeof window.setEvent==='function')window.setEvent(msg,kind,meta);
   }
   function safeRender(tab){
-    if(typeof window.render==='function')window.render(tab||window.currentTab);
+    if(typeof window.render==='function')window.render(tab||(typeof currentTab!=='undefined'?currentTab:undefined));
   }
 
   /* QoL 1: 500ms duplicate-click guard without disabling buttons or breaking menus. */
@@ -36,7 +36,7 @@
     const p=state();
     if(!p||!$('#game')||$('#game').classList.contains('hidden'))return;
     try{
-      const key=window.KEY||'valedouro_save';
+      const key='valedouro_save_v10';
       if(typeof window.sanitize==='function')window.s=window.sanitize(p);
       localStorage.setItem(key,JSON.stringify(window.s));
       const badge=$('#v172-save-status');
@@ -62,7 +62,7 @@
 
   /* QoL 5: searchable inventory list. */
   function addInventorySearch(){
-    if((window.currentTab||'')!=='inventory')return;
+    if((typeof currentTab!=='undefined'?currentTab:'')!=='inventory')return;
     const content=$('#content');if(!content||$('#v172-inv-search'))return;
     const panel=document.createElement('section');panel.className='panel';panel.id='v172-inv-tools';
     panel.innerHTML='<h2>🔎 Pesquisa rápida</h2><input id="v172-inv-search" placeholder="Procurar item no inventário…" aria-label="Pesquisar inventário"><div class="muted" style="font-size:11px;margin-top:5px">Filtra os itens visíveis por nome.</div>';
@@ -155,7 +155,7 @@
     const r=oldExplore.apply(this,arguments);
     if(p&&Number(p.stats.explore||0)>before){
       const x=sys();x.streaks.explore++;trackAction('explore',true);
-      if(x.streaks.explore%3===0){const k=['wood','stone','herb','leather','mushroom'][Math.floor(Math.random()*5)];p.inv[k]=(p.inv[k]||0)+1;event('🧭 Série de exploração: encontraste +1 '+(window.ITEM?.[k]?.n||k)+'.','good','Descoberta');}
+      if(x.streaks.explore%3===0){const k=['wood','stone','herb','leather','mushroom'][Math.floor(Math.random()*5)];p.inv[k]=(p.inv[k]||0)+1;event('🧭 Série de exploração: encontraste +1 '+((typeof ITEM!=='undefined'?ITEM[k]?.n:undefined)||k)+'.','good','Descoberta');}
     }
     return r;
   };
