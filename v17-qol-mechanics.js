@@ -37,8 +37,8 @@
     if(!p||!$('#game')||$('#game').classList.contains('hidden'))return;
     try{
       const key='valedouro_save_v10';
-      if(typeof window.sanitize==='function')window.s=window.sanitize(p);
-      localStorage.setItem(key,JSON.stringify(window.s));
+      if(typeof window.sanitize==='function')window.sanitize(p);
+      localStorage.setItem(key,JSON.stringify(p));
       const badge=$('#v172-save-status');
       if(badge)badge.textContent='💾 Auto-save: '+new Date().toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'});
     }catch(err){console.warn('[V17.2] Autosave falhou',err);}
@@ -86,7 +86,7 @@
   function makeTools(){
     if(!$('.toprow')||$('#v172-tools'))return;
     const row=document.createElement('div');row.id='v172-tools';
-    row.innerHTML='<button type="button" id="v172-compact-btn">↕️ Compacto</button><button type="button" id="v172-bounty-btn">🎯 Bónus diário</button><button type="button" id="v172-backup-btn">📋 Copiar save</button><span id="v172-save-status">💾 Auto-save ativo</span>';
+    row.innerHTML='<button type="button" id="v172-compact-btn">↕️ Compacto</button><button type="button" id="v172-bounty-btn">🎯 Bónus diário</button><button type="button" id="v172-backup-btn">📋 Copiar save</button><span id="v172-save-status">💾 Auto-save ativo</span><span id="v172-session" class="muted" style="font-size:10px"></span>';
     const top=$('.top');if(top)top.appendChild(row);
     $('#v172-compact-btn').addEventListener('click',()=>{
       const on=!document.body.classList.contains('v172-compact');
