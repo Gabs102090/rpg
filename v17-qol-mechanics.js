@@ -193,7 +193,7 @@
       const x=sys();trackAction('craft',true);
       if(Number(p.stats.crafted||0)%5===0){
         const k=['wood','stone','iron','herb'][Math.floor(Math.random()*4)];p.inv[k]=(p.inv[k]||0)+1;
-        event('🔧 Maestria de ofício: +1 '+(window.ITEM?.[k]?.n||k)+'.','good','Crafting');
+        event('🔧 Maestria de ofício: +1 '+((typeof ITEM!=='undefined'?ITEM[k]?.n:undefined)||k)+'.','good','Crafting');
       }
     }
     return r;
